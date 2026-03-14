@@ -1,33 +1,49 @@
 import os
+import sys
+import numpy as np
 import torch
 from torch.utils.data import Dataset
 import cv2
 from typing import Optional, Callable
+import albumentations as A
+from utils.augmentation import get_train_transforms
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class ISICDataset(Dataset):
-    def __init__(self, root_dir: str, img_fdr: str, mask_fdr: str, transform: Optional[Callable]=None):
-        self.root_dir = root_dir
+    def __init__(self, split: str, # train, val, test
+                 root_dir: str="dataset",
+                 transform = get_train_transforms()):
+        self.image_dir = os.path.join(root_dir, split, "images")
+        self.mask_dir = os.path.join(root_dir, split, "masks")
         self.transform = transform
-        self.image_dir = os.path.join(root_dir, img_fdr)
-        self.mask_dir = os.path.join(root_dir, mask_fdr)
 
-        self.images = os.listdir(self.image_dir)
-        self.masks = os.listdir(self.mask_dir)
+        self.images = sorted(os.listdir(self.image_dir))
+        self.masks = sorted(os.listdir(self.mask_dir))
 
     def __len__(self):
         return len(self.images)
-
+    
     def __getitem__(self, index):
-        img_name = self.images[index]
-        img_path = os.path.join(self.image_dir, img_name)
-        mask_name = self.masks[index]
-        mask_path = os.path.join(self.mask_dir, mask_name)
-        image = cv2.imread(img_path)
+        image_path = os.path.join(self.image_dir, self.images[index])
+        mask_path = os.path.join(self.mask_dir, self.masks[index])
+
+        image = cv2.imread(image_path)
+        assert image is not None, f"Gagal membaca: {image_path}"
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        mask = cv2.imread(mask_path, 0)
+
+        mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+        assert mask is not None, f"Gagal membaca: {mask_path}"
+        mask = (mask > 127).astype(np.float32)
 
         if self.transform:
-            image = self.transform(image)
-            mask = torch.tensor(mask, dtype=torch.float32).unsqueeze(0)
-        return image, mask
+            augmented = self.transform(image=image, mask=mask)
+            image = augmented['image']
+            mask = augmented['mask']
+            mask = mask.unsqueeze(0)
 
+        else:
+            image = torch.tensor(image).permute(2, 0, 1).float() / 255.0
+            mask = torch.tensor(mask).unsqueeze(0)
+
+        return image, mask

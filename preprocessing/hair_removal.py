@@ -3,6 +3,7 @@ import os
 import numpy as np
 from scipy.signal import wiener
 import matplotlib.pyplot as plt
+from typing import Union, Tuple
 
 """
 create def(s) that contains of Bothat and Laplacian preprocessing
@@ -41,13 +42,19 @@ Laplacian:
 - Combine 3 of them to produce final image *
 """
 
-def laplacian_hr(input_data, debug=False):
+def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False) -> Tuple[np.ndarray, np.ndarray]:
     # read an image
 
     if isinstance(input_data, str):
         img = cv2.imread(input_data)
+        if img is None:
+            raise ValueError(f"Failed to read image from {input_data}")
     else:
         img = input_data
+    
+    # Ensure img is numpy array
+    if not isinstance(img, np.ndarray):
+        raise TypeError(f"Expected numpy array or image path, got {type(img)}")
 
     # convert read image into grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -63,7 +70,7 @@ def laplacian_hr(input_data, debug=False):
     reduced = wiener(subtracted, (3, 3))
     reduced = np.nan_to_num(reduced)
     reduced = np.clip(reduced, 0, 255)
-    reduced = np.uint8(reduced)
+    reduced = reduced.astype(np.uint8)
 
     # log binary mask
     blur = cv2.GaussianBlur(reduced, (3, 3), 0)
@@ -138,11 +145,17 @@ def laplacian_hr(input_data, debug=False):
 
     return final_img, img_dilate
 
-def bothat_hr(input_data, debug=False):
+def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False) -> Tuple[np.ndarray, np.ndarray]:
     if isinstance(input_data, str):
         img = cv2.imread(input_data)
+        if img is None:
+            raise ValueError(f"Failed to read image from {input_data}")
     else:
         img = input_data
+    
+    # Ensure img is numpy array
+    if not isinstance(img, np.ndarray):
+        raise TypeError(f"Expected numpy array or image path, got {type(img)}")
 
     # grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -172,7 +185,7 @@ def bothat_hr(input_data, debug=False):
     add_2 = cv2.add(add_1, img_se90)
 
     # image adjustment
-    p_low, p_high = np.percentile(add_2, (1, 99))
+    p_low, p_high = np.percentile(np.asarray(add_2, dtype=np.float64), (1, 99))
 
     # global image thresholding
     if p_high > p_low:
