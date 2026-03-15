@@ -75,10 +75,10 @@ class SegmentationMetrics:
         FN = ((1 - model_pred) * actual).sum()
 
         return {
-            "dice"          : None,
-            "iou"           : None,
-            "accuracy"      : None,
-            "precision"     : None,
-            "recall"        : None,
-            "specificity"   : None
+            "dice"          : ((2 * TP + s) / (2 * TP + FP + FN + s)).item(),
+            "iou"           : ((TP + s) / (TP + FP + FN + s)).item(),
+            "accuracy"      : ((TP + TN + s) / (TP + TN + FP + FN + s)).item(),
+            "precision"     : ((TP + s) / (TP + FP + s)).item(),
+            "recall"        : ((TP + s) / (TP + FN + s)).item(),
+            "specificity"   : ((TN + s) / (TN + FP + s)).item()
         }
