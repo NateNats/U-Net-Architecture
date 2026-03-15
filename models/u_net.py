@@ -170,9 +170,12 @@ class UNet(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-if __name__ == "__main__":
-    """
-    this is for debugging model
-    """
-    model = UNet(in_channels=3, num_classes=1).cuda()
-    summary(model, input_size=(3, 256, 256))
+    def count_parameters(self) -> int:
+        return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+if __name__ == '__main__':
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = UNet(in_channels=3, num_classes=1).to(device)
+    print(f"Device                      : {device}")
+    print(f"Total trainable parameters  : {model.count_parameters()}")
+    summary(model, input_size=(3, 256, 256), device=str(device))
