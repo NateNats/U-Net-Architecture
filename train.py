@@ -23,7 +23,7 @@ CONFIG = {
     'img_size': 256,
     'batch_size': 4,
     'num_workers': 2,
-    'epochs': 50,
+    'epochs': 10,
     'lr': 1e-4,
     'weight_decay': 1e-5,
     'patience': 15,
@@ -63,7 +63,6 @@ def evaluate(model, loader, criterion, device, metrics_fn, desc: str = "Val") ->
     model.eval()
     total_loss = 0.0
     all_metrics = {k: 0.0 for k in ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']}
-
     
     for images, masks in tqdm(loader, desc=desc, leave=False):
         images = images.to(device, non_blocking=True)
@@ -93,8 +92,8 @@ def plot_history(history: dict, experiment: str, save_path: str):
         for split, color in colors.items():
             vals = [ep[key] for ep in history[split]]
             ax.plot(epochs, vals, color=color, label=split.capitalize(), linewidth=1.8)
-            ax.set_title(label, fontsize=14, color='black')
-            ax.set_xlabel("Epoch", fontsize=12, color='black')
+            ax.set_title(label, fontsize=14, color='white')
+            ax.set_xlabel("Epoch", fontsize=12, color='white')
             ax.set_ylabel(label, fontsize=12, color='black')
             ax.tick_params(colors='gray')
             ax.legend(facecolor='#333', labelcolor='white', fontsize=8)
@@ -106,14 +105,13 @@ def plot_history(history: dict, experiment: str, save_path: str):
         if save_path:
             plt.savefig(save_path, dpi=150, bbox_inches='tight', facecolor='#111')
             print(f"Saved training history plot to {save_path}")
-            plt.show()
 
 def train(experiment: str, config: dict):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     save_dir = Path(config['save_dir']) / experiment
     save_dir.mkdir(parents=True, exist_ok=True)
     print(f"\n{'='*55}")
-    print(f"    Eksperimen  : {experiment.upper()}")
+    print(f"    Experiment  : {experiment.upper()}")
     print(f"    Device      : {device}")
     print(f"    epochs      : {config['epochs']}")
     print(f"    batch size  : {config['batch_size']}")
@@ -225,16 +223,16 @@ def train(experiment: str, config: dict):
                   f" | Dice: {best_dice:.4f}")
             break
 
-        with open(save_dir / "history.json", "w") as f:
-            json.dump(history, f, indent=2)
-        print(f"\n  History disimpan: {save_dir}/history.json")
+    with open(save_dir / "history.json", "w") as f:
+        json.dump(history, f, indent=2)
+    print(f"\n  History disimpan: {save_dir}/history.json")
 
-        plot_history(history, experiment, save_path=str(save_dir/"training_curve.png"))
+    plot_history(history, experiment, save_path=str(save_dir/"training_curve.png"))
 
-        print(f"Training [{experiment.upper()}] selesai!!")
-        print(f"    Best dice: {best_dice:.4f} (epoch {best_epoch})\n")
+    print(f"Training [{experiment.upper()}] selesai!!")
+    print(f"    Best dice: {best_dice:.4f} (epoch {best_epoch})\n")
 
-        return history
+    return history
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -249,7 +247,24 @@ if __name__ == "__main__":
         help = "Choose experimental mode: original | bothat | laplacian | all"
     )
 
+    parser.add_argument(
+        "--epochs",
+        type = int,
+        default = 50,
+        help = "How much epochs do you want??"
+    )
+
+    parser.add_argument(
+        "--batch_size",
+        type = int,
+        default = 2,
+        help = "Batch size training"
+    )
+
     args = parser.parse_args()
+
+    CONFIG['batch_size'] = args.batch_size
+    CONFIG['epochs'] = args.epochs
 
     if args.experiment == 'all':
         experiments = ['original', 'bothat', 'laplacian']
@@ -260,6 +275,7 @@ if __name__ == "__main__":
     for exp in experiments:
         history = train(exp, CONFIG)
         all_histories[exp] = history
+
 
     print("\n" + "="*55)
     print("  SEMUA TRAINING SELESAI!")

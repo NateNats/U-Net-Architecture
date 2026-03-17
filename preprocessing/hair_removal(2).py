@@ -78,12 +78,19 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     log_edges_8u = cv2.convertScaleAbs(log_edges)
     _, binary_mask = cv2.threshold(log_edges_8u, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-    # morphological operation (clean) (bridge) & (diag)
-    se_rect = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-    se_ellip = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-    morph1 = cv2.morphologyEx(binary_mask, cv2.MORPH_OPEN, se_rect)
-    morph2 = cv2.morphologyEx(morph1, cv2.MORPH_CLOSE, se_ellip)
-    morph3 = cv2.dilate(morph2, se_rect, iterations=1)
+    # dilation kernel
+    kernel_dilation = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    img_dilate = cv2.dilate(binary_mask, kernel_dilation, iterations=2)
+
+    # morphological operation (clean)
+    kernel_clean = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    morph1 = cv2.morphologyEx(binary_mask, cv2.MORPH_OPEN, kernel_clean)
+
+    # morphological operation (bridge) & (diag)
+    kernel_bridge = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    morph2 = cv2.morphologyEx(morph1, cv2.MORPH_CLOSE, kernel_bridge)
+
+    morph3 = cv2.dilate(morph2, kernel_clean, iterations=1)
 
     # se0 = Horizontal, se45 = diagonal, se90 = vertical
     se0  = cv2.getStructuringElement(cv2.MORPH_RECT,    (17, 1))
@@ -101,7 +108,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     # interploation
 
     # inpainting / restoration
-    final_img = cv2.inpaint(img, binary_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+    final_img = cv2.inpaint(img, final_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
 
     if debug:
         # __debugging__([img, final_img, gray, laplacian_64f, reduced, binary_mask, img_clean, img_bridge, img_se0, img_se45, img_se90, img_dilate])
@@ -125,11 +132,11 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
         ax[1, 2].imshow(binary_mask, cmap="gray")
         ax[1, 2].set_title("binary")
         ax[1, 3].imshow(morph1, cmap="gray")
-        ax[1, 3].set_title("clean")
+        ax[1, 3].set_title("dilated")
         ax[2, 0].imshow(morph2, cmap="gray")
-        ax[2, 0].set_title("bridge")
+        ax[2, 0].set_title("cleaned")
         ax[2, 1].imshow(morph3, cmap="gray")
-        ax[2, 1].set_title("diag")
+        ax[2, 1].set_title("bridge")
         ax[2, 2].imshow(final_mask, cmap="gray")
         ax[2, 2].set_title("final mask")
         ax[2, 3].imshow(final_rgb)
@@ -141,7 +148,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
         plt.tight_layout()
         plt.show()
 
-    return final_img, morph3
+    return final_img, img_dilate
 
 def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debug: str = None) -> Tuple[np.ndarray, np.ndarray]:
     if isinstance(input_data, str):
