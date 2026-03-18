@@ -69,7 +69,7 @@ if __name__ == "__main__":
         print(f"    split: {split.upper()}")
         print(f"{'='*45}")
 
-        resize_images(input_dir=f"dataset/{split}/images", output_dir=f"dataset/resized/{split}/images")
-        resize_masks(input_dir=f"dataset/{split}/masks", output_dir=f"dataset/resized/{split}/masks")
+        resize_images(input_dir=f"dataset/{split}/images", output_dir=f"processed/1_resize/{split}/images")
+        resize_masks(input_dir=f"dataset/{split}/masks", output_dir=f"processed/1_resize/{split}/masks")
     
     print(f" Semua gambar dan mask berhasil di-resize!\n")

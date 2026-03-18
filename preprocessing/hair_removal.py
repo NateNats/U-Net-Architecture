@@ -4,6 +4,8 @@ import numpy as np
 from scipy.signal import wiener
 import matplotlib.pyplot as plt
 from typing import Union, Tuple
+from pathlib import Path
+from tqdm import tqdm
 
 """
 create def(s) that contains of Bothat and Laplacian preprocessing
@@ -234,5 +236,43 @@ def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debu
 
     return repainted, final_mask
 
-# def __debugging__(img_arrays):
-#     pass
+def apply_bothat_all(input_dir: str, output_dir:str):
+    input_path = Path(input_dir)
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    
+
+    images = sorted(f for f in input_path.glob("*.*")
+                    if f.suffix.lower() in [".jpg", ".jpeg", ".png"])
+    
+    if len(images) == 0:
+        print(f"[WARNING] Gambar gagal ditemukan pada {input_dir}")
+        return 
+
+    print(f"\n  Bothat Hair Removal -> {len(images)} gambar...")
+    failed = []
+
+    for img_path in tqdm(images, desc="  Bothat HR"):
+        try:
+            result, _ = bothat_hr(str(img_path), False)
+            out_path = output_path / img_path.name
+            cv2.imwrite(str(out_path), result) 
+
+        except Exception as e:
+            print(f"\n  [SKIP] {img_path.name} → {e}")
+            failed.append(img_path.name)
+    
+    print(f"\n  ✅ Selesai!")
+    print(f"     Berhasil : {len(images) - len(failed)}")
+    print(f"     Gagal    : {len(failed)}")
+    print(f"     Output   : {output_path}\n")
+
+
+    if failed:
+        print("  File yang gagal:")
+        for f in failed:
+            print(f"    - {f}")
+
+if __name__ =="__main__":
+    for split in ['training', 'testing', 'validation']:
+        apply_bothat_all(input_dir=f"processed/1_resize/{split}/images", output_dir=f"processed/2_bothat/{split}/images")
