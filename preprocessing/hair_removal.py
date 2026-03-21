@@ -3,7 +3,7 @@ import os
 import numpy as np
 from scipy.signal import wiener
 import matplotlib.pyplot as plt
-from typing import Union, Tuple
+from typing import Union, Tuple, Literal
 from pathlib import Path
 from tqdm import tqdm
 
@@ -83,9 +83,10 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     # morphological operation (clean) (bridge) & (diag)
     se_rect = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     se_ellip = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-    morph1 = cv2.morphologyEx(binary_mask, cv2.MORPH_OPEN, se_rect)
-    morph2 = cv2.morphologyEx(morph1, cv2.MORPH_CLOSE, se_ellip)
-    morph3 = cv2.dilate(morph2, se_rect, iterations=1)
+    kernel_d = np.ones((3, 3), np.uint8)
+    morph1 = cv2.morphologyEx(binary_mask, cv2.MORPH_OPEN, se_ellip) # opening morph
+    morph2 = cv2.morphologyEx(morph1, cv2.MORPH_CLOSE, se_ellip) # closing morph
+    morph3 = cv2.dilate(morph2, kernel_d, iterations=1)
 
     # se0 = Horizontal, se45 = diagonal, se90 = vertical
     se0  = cv2.getStructuringElement(cv2.MORPH_RECT,    (17, 1))
@@ -103,7 +104,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     # interploation
 
     # inpainting / restoration
-    final_img = cv2.inpaint(img, binary_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+    final_img = cv2.inpaint(img, final_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
 
     if debug:
         # __debugging__([img, final_img, gray, laplacian_64f, reduced, binary_mask, img_clean, img_bridge, img_se0, img_se45, img_se90, img_dilate])
@@ -241,7 +242,6 @@ def apply_bothat_all(input_dir: str, output_dir:str):
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     
-
     images = sorted(f for f in input_path.glob("*.*")
                     if f.suffix.lower() in [".jpg", ".jpeg", ".png"])
     
@@ -267,11 +267,86 @@ def apply_bothat_all(input_dir: str, output_dir:str):
     print(f"     Gagal    : {len(failed)}")
     print(f"     Output   : {output_path}\n")
 
-
     if failed:
         print("  File yang gagal:")
         for f in failed:
             print(f"    - {f}")
+
+def apply_laplacian_all(input_dir: str, output_dir: str):
+    input_path = Path(input_dir)
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    images = sorted(f for f in input_path.glob("*.*")
+                    if f.suffix.lower() in [".jpg", ".jpeg", ".png"])
+    
+    if len(images) == 0:
+        print(f"[WARNING] Gambar gagal ditemukan pada {input_dir}")
+        return 
+
+    print(f"\n  Laplacian Hair Removal -> {len(images)} gambar...")
+    failed = []
+
+    for img_path in tqdm(images, desc=" Laplacian HR"):
+        try:
+            result, _ = laplacian_hr(input_data=str(img_path), debug=False)
+            out_path = output_path / img_path.name
+            cv2.imwrite(str(out_path), result)
+        
+        except Exception as e:
+            print(f"\n  [SKIP] {img_path.name} → {e}")
+            failed.append(img_path.name)
+    
+    print(f"\n  ✅ Selesai!")
+    print(f"     Berhasil : {len(images) - len(failed)}")
+    print(f"     Gagal    : {len(failed)}")
+    print(f"     Output   : {output_path}\n")
+
+    if failed:
+        print("  File yang gagal:")
+        for f in failed:
+            print(f"    - {f}")            
+
+def apply_hr(method: Literal['laplacian', 'bothat'], input_dir: str, output_dir: str):
+    input_path = Path(input_dir)
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    if method not in ["laplacian", "bothat"]:
+        raise ValueError(f"method harus 'bothat' atau 'laplacian, bukan '{method}'")
+
+    images = sorted(f for f in input_path.glob("*.*")
+                    if f.suffix.lower() in [".jpg", ".jpeg", ".png"])
+    
+    if len(images) == 0:
+        print(f"[WARNING] Gambar gagal ditemukan pada {input_dir}")
+        return 
+
+    print(f"\n  {method} Hair Removal -> {len(images)} gambar...")
+    failed = []
+
+    for img_path in tqdm(images, desc=f" {method.capitalize()} HR"):
+        try:
+            result, _ = laplacian_hr(input_data=str(img_path), debug=False) \
+                  if method == 'laplacian' \
+                      else bothat_hr(input_data=str(img_path), debug=False)
+            out_path = output_path / img_path.name
+            cv2.imwrite(str(out_path), result)
+        
+        except Exception as e:
+            print(f"\n  [SKIP] {img_path.name} → {e}")
+            failed.append(img_path.name)
+    
+    print(f"\n  ✅ Selesai!")
+    print(f"     Berhasil : {len(images) - len(failed)}")
+    print(f"     Gagal    : {len(failed)}")
+    print(f"     Output   : {output_path}\n")
+
+    if failed:
+        print("  File yang gagal:")
+        for f in failed:
+            print(f"    - {f}")  
+
 
 if __name__ =="__main__":
     for split in ['training', 'testing', 'validation']:
