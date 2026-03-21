@@ -12,7 +12,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class ISICDataset(Dataset):
     def __init__(self, split: str, # train, val, test
-                 root_dir: str="dataset",
+                 root_dir: str,
                  transform = get_train_transforms()):
         self.image_dir = os.path.join(root_dir, split, "images")
         self.mask_dir = os.path.join(root_dir, split, "masks")

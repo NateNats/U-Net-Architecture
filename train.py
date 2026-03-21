@@ -28,7 +28,7 @@ CONFIG = {
     'weight_decay': 1e-5,
     'patience': 15,
     'scheduler': 'cosine',
-    'root_dir': 'dataset/resized',
+    'root_dir': 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed/2_bothat',
     'save_dir': 'checkpoints',
 }
 
