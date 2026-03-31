@@ -347,7 +347,6 @@ def apply_hr(method: Literal['laplacian', 'bothat'], input_dir: str, output_dir:
         for f in failed:
             print(f"    - {f}")  
 
-
 if __name__ =="__main__":
     for split in ['training', 'testing', 'validation']:
-        apply_bothat_all(input_dir=f"processed/1_resize/{split}/images", output_dir=f"processed/2_bothat/{split}/images")
+        apply_laplacian_all(input_dir=f"processed/1_resize/{split}/images", output_dir=f"processed/2_laplacian/{split}/images")
