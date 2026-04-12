@@ -11,6 +11,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 from torch.utils.data import DataLoader
+import matplotlib
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from utils.early_stopping import EarlyStopping
@@ -18,6 +19,9 @@ from dataset.isic_dataset import ISICDataset
 from models.u_net import UNet
 from utils.metrics import dice_score, iou_score, DiceLoss, BCEDiceLoss, SegmentationMetrics
 from utils.augmentation import get_train_transforms, get_val_transforms
+matplotlib.use('Agg')
+
+BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed'
 
 CONFIG = {
     'img_size': 256,
@@ -32,9 +36,9 @@ CONFIG = {
 }
 
 EXPERIMENT_DIRS = {
-    'original' : 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed/1_resize',
-    'bothat'   : 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed/2_bothat',
-    'laplacian': 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed/2_laplacian',
+    'original' : f"{BASE}/1_resize",
+    'bothat'   : f"{BASE}/2_bothat",
+    'laplacian': f"{BASE}/2_laplacian",
 }
 
 def train_one_epoch(model, loader, criterion, optimizer, device, metrics_fn) -> dict:

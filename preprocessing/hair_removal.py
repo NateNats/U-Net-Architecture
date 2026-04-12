@@ -92,7 +92,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     se0  = cv2.getStructuringElement(cv2.MORPH_RECT,    (17, 1))
     se45 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
     se90 = cv2.getStructuringElement(cv2.MORPH_RECT,    (1, 17))
-
+    
     # apply se0
     img_se0 = cv2.morphologyEx(morph3, cv2.MORPH_CLOSE, se0)
     img_se45 = cv2.morphologyEx(morph3, cv2.MORPH_CLOSE, se45)
@@ -101,10 +101,10 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     # combine all images
     final_mask = cv2.bitwise_or(cv2.bitwise_or(img_se0, img_se45), img_se90)
 
-    # interploation
-
+    dilated =  cv2.dilate(final_mask, kernel_d, iterations=1)
+    
     # inpainting / restoration
-    final_img = cv2.inpaint(img, final_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+    final_img = cv2.inpaint(img, dilated, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
 
     if debug:
         # __debugging__([img, final_img, gray, laplacian_64f, reduced, binary_mask, img_clean, img_bridge, img_se0, img_se45, img_se90, img_dilate])
