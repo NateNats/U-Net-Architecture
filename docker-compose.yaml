@@ -1,0 +1,12 @@
+services:
+  trainer:
+    image: reva/skripsi:latest
+    container_name: trainer
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash
