@@ -149,7 +149,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
         all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "reduced", "binary mask", "morph clean", "morph bridge", "morph diag", "se0 close", "se45 close", "se90 close", "final mask"]
         debug_dir = Path("/home/reva/G/skripsi/output") / "laplacian"
         debug_dir.mkdir(parents=True, exist_ok=True)
-        c = 0
+        c = 1
         for result_img, tag in zip(all_results, all_tags):
             if result_img.ndim == 3:
                 save_img = result_img
@@ -257,7 +257,7 @@ def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debu
         all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "blurred image", "subtracted", "se0", "se45", "se90", "binary mask", "final mask"]
         debug_dir = Path("/home/reva/G/skripsi/output") / "bothat"
         debug_dir.mkdir(parents=True, exist_ok=True)
-        c = 0
+        c = 1
         for result_img, tag in zip(all_results, all_tags):
             if result_img.ndim == 3:
                 # Color image - keep as is (already BGR from OpenCV)
