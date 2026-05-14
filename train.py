@@ -11,6 +11,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 from torch.utils.data import DataLoader
+import matplotlib
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from utils.early_stopping import EarlyStopping
@@ -18,6 +19,9 @@ from dataset.isic_dataset import ISICDataset
 from models.u_net import UNet
 from utils.metrics import dice_score, iou_score, DiceLoss, BCEDiceLoss, SegmentationMetrics
 from utils.augmentation import get_train_transforms, get_val_transforms
+matplotlib.use('Agg')
+
+BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed'
 
 CONFIG = {
     'img_size': 256,
@@ -28,8 +32,13 @@ CONFIG = {
     'weight_decay': 1e-5,
     'patience': 15,
     'scheduler': 'cosine',
-    'root_dir': 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed/2_bothat',
     'save_dir': 'checkpoints',
+}
+
+EXPERIMENT_DIRS = {
+    'original' : f"{BASE}/1_resize",
+    'bothat'   : f"{BASE}/2_bothat",
+    'laplacian': f"{BASE}/2_laplacian",
 }
 
 def train_one_epoch(model, loader, criterion, optimizer, device, metrics_fn) -> dict:
@@ -110,8 +119,12 @@ def train(experiment: str, config: dict):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     save_dir = Path(config['save_dir']) / experiment
     save_dir.mkdir(parents=True, exist_ok=True)
+
+    root_dir = EXPERIMENT_DIRS[experiment]
+
     print(f"\n{'='*55}")
     print(f"    Experiment  : {experiment.upper()}")
+    print(f"    Experiment  : {root_dir}")
     print(f"    Device      : {device}")
     print(f"    epochs      : {config['epochs']}")
     print(f"    batch size  : {config['batch_size']}")
@@ -120,13 +133,13 @@ def train(experiment: str, config: dict):
 
     train_ds = ISICDataset(
         split = 'training',
-        root_dir = config['root_dir'],
+        root_dir = root_dir,
         transform = get_train_transforms()
     )
 
     val_ds = ISICDataset(
         split = 'validation',
-        root_dir = config['root_dir'],
+        root_dir = root_dir,
         transform = get_val_transforms()
     )
 
@@ -266,12 +279,18 @@ if __name__ == "__main__":
     CONFIG['batch_size'] = args.batch_size
     CONFIG['epochs'] = args.epochs
 
-    if args.experiment == 'all':
-        experiments = ['original', 'bothat', 'laplacian']
-    else:
-        experiments = [args.experiment]
+    experiments = list(EXPERIMENT_DIRS.keys()) \
+                  if args.experiment == 'all' \
+                  else [args.experiment]
+
 
     all_histories = {}
+    for exp in experiments:
+        d = Path(EXPERIMENT_DIRS[exp])
+        status = '✅' if d.exists() else '❌ TIDAK DITEMUKAN!'
+        print(f'  {exp:10s}: {d} {status}')
+    print()
+
     for exp in experiments:
         history = train(exp, CONFIG)
         all_histories[exp] = history

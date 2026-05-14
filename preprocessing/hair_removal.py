@@ -92,7 +92,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     se0  = cv2.getStructuringElement(cv2.MORPH_RECT,    (17, 1))
     se45 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
     se90 = cv2.getStructuringElement(cv2.MORPH_RECT,    (1, 17))
-
+    
     # apply se0
     img_se0 = cv2.morphologyEx(morph3, cv2.MORPH_CLOSE, se0)
     img_se45 = cv2.morphologyEx(morph3, cv2.MORPH_CLOSE, se45)
@@ -100,9 +100,10 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
 
     # combine all images
     final_mask = cv2.bitwise_or(cv2.bitwise_or(img_se0, img_se45), img_se90)
+    dilated =  cv2.dilate(final_mask, kernel_d, iterations=1)
 
     # inpainting / restoration
-    final_img = cv2.inpaint(img, final_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+    final_img = cv2.inpaint(img, dilated, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
 
 
     if debug:
@@ -227,24 +228,24 @@ def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debu
         ax[0, 0].set_title("original image")
         ax[0, 1].imshow(gray, cmap='gray')
         ax[0, 1].set_title("grayscale image")
-        ax[0, 2].imshow(laplacian_64f, cmap='gray')
-        ax[0, 2].set_title("laplacian image filter")
-        ax[0, 3].imshow(blurred_img, cmap='gray')
-        ax[0, 3].set_title("blurred image")
-        ax[1, 0].imshow(laplacian_64f, cmap='gray')
-        ax[1, 0].set_title("Laplacian 64f")
-        ax[1, 1].imshow(subtracted, cmap='gray')
-        ax[1, 1].set_title("subtracted")
-        ax[1, 3].imshow(img_se0, cmap='gray')
-        ax[1, 3].set_title("se0")
-        ax[2, 0].imshow(img_se45, cmap='gray')
-        ax[2, 0].set_title("se45")
-        ax[2, 1].imshow(img_se90, cmap='gray')
-        ax[2, 1].set_title("se90")
-        ax[1, 2].imshow(binary_mask, cmap='gray')
-        ax[1, 2].set_title("binary mask")
+        ax[0, 2].imshow(blurred_img, cmap='gray')
+        ax[0, 2].set_title("average image filtering")
+        ax[0, 3].imshow(laplacian_64f, cmap='gray')
+        ax[0, 3].set_title("laplacian image filtering")
+        ax[1, 0].imshow(subtracted, cmap='gray')
+        ax[1, 0].set_title("subtracted")
+        ax[1, 1].imshow(img_se0, cmap='gray')
+        ax[1, 1].set_title("se0")
+        ax[1, 2].imshow(img_se45, cmap='gray')
+        ax[1, 2].set_title("se45")
+        ax[1, 3].imshow(img_se90, cmap='gray')
+        ax[1, 3].set_title("se90")
+        ax[2, 0].imshow(added, cmap='gray')
+        ax[2, 0].set_title("se0 + se45 + se90")
+        ax[2, 1].imshow(adjusted, cmap='gray')
+        ax[2, 1].set_title("CLAHE")
         ax[2, 2].imshow(final_mask, cmap='gray')
-        ax[2, 2].set_title("final mask")
+        ax[2, 2].set_title("dilation")
         ax[2, 3].imshow(final_rgb)
         ax[2, 3].set_title("result")
 
@@ -385,7 +386,6 @@ def apply_hr(method: Literal['laplacian', 'bothat'], input_dir: str, output_dir:
         for f in failed:
             print(f"    - {f}")  
 
-
 if __name__ =="__main__":
     for split in ['training', 'testing', 'validation']:
-        apply_bothat_all(input_dir=f"processed/1_resize/{split}/images", output_dir=f"processed/2_bothat/{split}/images")
+        apply_laplacian_all(input_dir=f"processed/1_resize/{split}/images", output_dir=f"processed/2_laplacian/{split}/images")
