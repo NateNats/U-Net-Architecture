@@ -145,8 +145,8 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
         plt.show()
 
     if save_debug:
-        all_results = [img, final_img, gray, laplacian_64f, subtracted, reduced, blur, binary_mask, morph1, morph2, morph3, img_se0, img_se45, img_se90, final_mask]
-        all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "subtracted", "reduced", "blurred", "binary mask", "morph clean", "morph bridge", "morph diag", "se0 close", "se45 close", "se90 close", "final mask"]
+        all_results = [img, final_img, gray, laplacian_64f, subtracted, reduced, blur, binary_mask, morph1, morph2, morph3, img_se0, img_se45, img_se90, final_mask, dilated]
+        all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "subtracted", "reduced", "blurred", "binary mask", "morph clean", "morph bridge", "morph diag", "se0 close", "se45 close", "se90 close", "final mask", "dilated"]
         debug_dir = Path("/home/reva/G/skripsi/output") / "laplacian"
         debug_dir.mkdir(parents=True, exist_ok=True)
         c = 1
