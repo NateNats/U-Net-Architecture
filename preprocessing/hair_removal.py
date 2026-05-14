@@ -253,8 +253,8 @@ def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debu
             a.axis('off')
 
     if save_debug:
-        all_results = [img, repainted, gray, laplacian_64f, blurred_img, subtracted, img_se0, img_se45, img_se90, binary_mask, final_mask]
-        all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "blurred image", "subtracted", "se0", "se45", "se90", "binary mask", "final mask"]
+        all_results = [img, repainted, gray, blurred_img, laplacian_64f, subtracted, img_se0, img_se45, img_se90, added, adjusted, binary_mask, final_mask]
+        all_tags = ["original image", "final image", "grayscale", "average image","laplacian 64f", "subtracted", "se0", "se45", "se90", "Se0 + se45 + se90", "adjusted", "binary mask", "final mask"]
         debug_dir = Path("/home/reva/G/skripsi/output") / "bothat"
         debug_dir.mkdir(parents=True, exist_ok=True)
         c = 1
