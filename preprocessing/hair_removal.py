@@ -44,7 +44,7 @@ Laplacian:
 - Combine 3 of them to produce final image *
 """
 
-def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debug: str = None) -> Tuple[np.ndarray, np.ndarray]:
+def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debug: bool = False) -> Tuple[np.ndarray, np.ndarray]:
     # read an image
 
     if isinstance(input_data, str):
@@ -101,10 +101,9 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
     # combine all images
     final_mask = cv2.bitwise_or(cv2.bitwise_or(img_se0, img_se45), img_se90)
 
-    # interploation
-
     # inpainting / restoration
     final_img = cv2.inpaint(img, final_mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+
 
     if debug:
         # __debugging__([img, final_img, gray, laplacian_64f, reduced, binary_mask, img_clean, img_bridge, img_se0, img_se45, img_se90, img_dilate])
@@ -144,9 +143,29 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
         plt.tight_layout()
         plt.show()
 
+    if save_debug:
+        all_results = [img, final_img, gray, laplacian_64f, reduced, binary_mask, morph1, morph2, morph3, img_se0, img_se45, img_se90, final_mask]
+        all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "reduced", "binary mask", "morph clean", "morph bridge", "morph diag", "se0 close", "se45 close", "se90 close", "final mask"]
+        debug_dir = Path("/home/reva/G/skripsi/output") / "laplacian"
+        debug_dir.mkdir(parents=True, exist_ok=True)
+        c = 0
+        for result_img, tag in zip(all_results, all_tags):
+            if result_img.ndim == 3:
+                save_img = result_img
+            else:
+                save_img = result_img
+            
+            # Convert to uint8 if needed
+            if save_img.dtype != np.uint8:
+                save_img = np.clip(save_img, 0, 255).astype(np.uint8)
+            
+            output_path = debug_dir / f"{c}_{tag.replace(' ', '_')}.png"
+            cv2.imwrite(str(output_path), save_img)
+            c += 1
+
     return final_img, morph3
 
-def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debug: str = None) -> Tuple[np.ndarray, np.ndarray]:
+def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debug: bool = False) -> Tuple[np.ndarray, np.ndarray]:
     if isinstance(input_data, str):
         img = cv2.imread(input_data)
         if img is None:
@@ -232,8 +251,27 @@ def bothat_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_debu
         for a in ax.flat:
             a.axis('off')
 
-        plt.tight_layout()
-        plt.show()
+    if save_debug:
+        all_results = [img, repainted, gray, laplacian_64f, blurred_img, subtracted, img_se0, img_se45, img_se90, binary_mask, final_mask]
+        all_tags = ["original image", "final image", "grayscale", "laplacian 64f", "blurred image", "subtracted", "se0", "se45", "se90", "binary mask", "final mask"]
+        debug_dir = Path("/home/reva/G/skripsi/output") / "bothat"
+        debug_dir.mkdir(parents=True, exist_ok=True)
+        c = 0
+        for result_img, tag in zip(all_results, all_tags):
+            if result_img.ndim == 3:
+                # Color image - keep as is (already BGR from OpenCV)
+                save_img = result_img
+            else:
+                # Grayscale image - keep as is
+                save_img = result_img
+            
+            # Convert to uint8 if needed
+            if save_img.dtype != np.uint8:
+                save_img = np.clip(save_img, 0, 255).astype(np.uint8)
+            
+            output_path = debug_dir / f"{c}_{tag.replace(' ', '_')}.png"
+            cv2.imwrite(str(output_path), save_img)
+            c += 1
 
     return repainted, final_mask
 
