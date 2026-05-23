@@ -1,10 +1,13 @@
 import cv2
+import os
 import numpy as np
 import torch
 from utils import get_val_transforms
 from utils import SegmentationMetrics
 
 def predict(model, img_path: str, mask_path: str, device, save_path: str = None):
+    img_name = img_path.split("/")[-1]
+    
     img = cv2.imread(img_path)
     if img is None:
         raise FileNotFoundError(f'File in path {img_path} is not found.')
@@ -17,7 +20,10 @@ def predict(model, img_path: str, mask_path: str, device, save_path: str = None)
         pred = (torch.sigmoid(logits) >= 0.5).squeeze().cpu().numpy().astype(np.uint8)
     
     if save_path is not None:
-        cv2.imwrite(save_path, pred * 255)
+        os.makedirs(save_path, exist_ok=True)
+        success = cv2.imwrite(f"{save_path}/{img_name}", pred * 255)
+        if not success:
+            raise ValueError(f"gagal menyimpan gambar ke {save_path}/{img_name}")
 
     if mask_path is None:
         return pred
