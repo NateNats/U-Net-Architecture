@@ -6,7 +6,7 @@ from utils import get_val_transforms
 from utils import SegmentationMetrics
 
 def predict(model, img_path: str, mask_path: str, device, save_path: str = None):
-    img_name = img_path.split("/")[-1]
+    img_name = os.path.basename(img_path)
     
     img = cv2.imread(img_path)
     if img is None:

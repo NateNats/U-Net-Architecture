@@ -7,6 +7,11 @@ __pycache__/
 *.pyd
 *.ipynb_checkpoints/
 checkpoints*/
+comparison/*
+predict/bothat/*
+predict/original/*
+predict/laplacian/*
+predict/comparison
 
 # Virtual env
 venv/
