@@ -19,9 +19,12 @@ from dataset.isic_dataset import ISICDataset
 from models.u_net import UNet
 from utils.metrics import dice_score, iou_score, DiceLoss, BCEDiceLoss, SegmentationMetrics
 from utils.augmentation import get_train_transforms, get_val_transforms
+from datetime import datetime
 matplotlib.use('Agg')
 
 BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed'
+
+today = datetime.now().strftime("%d %B %Y")
 
 CONFIG = {
     'img_size': 256,
@@ -31,9 +34,10 @@ CONFIG = {
     'lr': 1e-4,
     'weight_decay': 1e-5,
     'patience': 15,
-    'scheduler': 'cosine',
-    'save_dir': 'checkpoints',
+    'scheduler': 'cosine'
 }
+
+CONFIG['save_dir'] = f"checkpoints ({CONFIG['epochs']} ep {today})"
 
 EXPERIMENT_DIRS = {
     'original' : f"{BASE}/1_resize",
