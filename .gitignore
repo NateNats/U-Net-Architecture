@@ -13,6 +13,7 @@ predict/original/*
 predict/laplacian/*
 predict/comparison
 *.apps.googleusercontent.com.json
+credentials.json
 
 # Virtual env
 venv/
