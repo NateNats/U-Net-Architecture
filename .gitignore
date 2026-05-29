@@ -12,6 +12,7 @@ predict/bothat/*
 predict/original/*
 predict/laplacian/*
 predict/comparison
+*.apps.googleusercontent.com.json
 
 # Virtual env
 venv/
