@@ -16,7 +16,7 @@ predict/comparison
 credentials.json
 
 # Virtual env
-venv/
+.venv/
 /env/
 # =========================
 # Dataset (ignore semua)
