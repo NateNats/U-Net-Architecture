@@ -7,6 +7,11 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
@@ -15,6 +20,24 @@ from dataset.isic_dataset import ISICDataset
 from models.u_net import UNet
 from utils.metrics import SegmentationMetrics, DiceLoss
 from utils.augmentation import get_val_transforms
+
+_IMAGENET_MEAN = np.array([0.485, 0.456, 0.406])
+_IMAGENET_STD  = np.array([0.229, 0.224, 0.225])
+
+SCENARIO_LABELS = {
+    'original' : 'Original',
+    'bothat'   : 'Bot Hat',
+    'laplacian': 'Laplacian',
+}
+SCENARIO_COLORS = {
+    'Original' : '#1565C0',
+    'Bot Hat'  : '#E65100',
+    'Laplacian': '#2E7D32',
+}
+OPTIMIZER_COLORS = {
+    'adamw': '#5C6BC0',
+    'lion' : '#EF6C00',
+}
 
 BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture/processed'
 
@@ -135,6 +158,19 @@ def run_test(checkpoint_path: str, output_dir: str, batch_size: int) -> tuple:
         json.dump(result, f, indent=2)
     print(f"\n  Disimpan : {json_path}")
 
+    # ── Grafik per run ────────────────────────────────────────
+    print(f"\n  Membuat grafik...")
+
+    plot_per_sample_boxplot(
+        per_sample, run_name,
+        save_path=str(out_path / f"{run_name}_boxplot.png"),
+    )
+    plot_sample_predictions(
+        model, test_ds, device,
+        save_path=str(out_path / f"{run_name}_predictions.png"),
+        n_samples=8, per_sample=per_sample,
+    )
+
     ckpt_meta = {
         'experiment'      : experiment,
         'epoch'           : ckpt.get('epoch'),
@@ -205,6 +241,245 @@ def _print_summary_table(all_results: list):
     print('=' * 90 + '\n')
 
 
+# ─────────────────────────────────────────────────────────────
+# GRAFIK 1: Visualisasi prediksi (image | GT | prediksi)
+# ─────────────────────────────────────────────────────────────
+@torch.no_grad()
+def plot_sample_predictions(model, dataset, device, save_path: str,
+                            n_samples: int = 8, per_sample: list = None):
+    """
+    Tampilkan n_samples gambar: input | ground truth | prediksi.
+    Jika per_sample tersedia, pilih kasus terbaik, median, dan terburuk
+    berdasarkan Dice score.
+    """
+    model.eval()
+    total = len(dataset)
+
+    if per_sample and len(per_sample) == total:
+        dices     = [s['dice'] for s in per_sample]
+        sorted_idx = sorted(range(total), key=lambda i: dices[i])
+        n_each    = max(1, n_samples // 3)
+        worst_idx  = sorted_idx[:n_each]
+        best_idx   = sorted_idx[-n_each:]
+        mid        = total // 2
+        median_idx = sorted_idx[mid: mid + (n_samples - 2 * n_each)]
+        indices    = worst_idx + median_idx + best_idx
+        labels     = (
+            [f'Terburuk\nDice={dices[i]:.3f}' for i in worst_idx] +
+            [f'Median\nDice={dices[i]:.3f}'   for i in median_idx] +
+            [f'Terbaik\nDice={dices[i]:.3f}'  for i in best_idx]
+        )
+    else:
+        step    = max(1, total // n_samples)
+        indices = list(range(0, min(n_samples * step, total), step))[:n_samples]
+        labels  = [f'#{i}' for i in indices]
+
+    n_cols = len(indices)
+    fig, axes = plt.subplots(3, n_cols, figsize=(n_cols * 2.8, 8))
+    fig.suptitle('Hasil Prediksi U-Net pada Test Set\n'
+                 '(Baris: Input | Ground Truth | Prediksi)',
+                 fontsize=13, fontweight='bold', y=1.01)
+
+    row_titles = ['Input', 'Ground Truth', 'Prediksi']
+    for row in range(3):
+        axes[row, 0].set_ylabel(row_titles[row], fontsize=10, fontweight='bold')
+
+    for col, (idx, lbl) in enumerate(zip(indices, labels)):
+        image, mask = dataset[idx]
+
+        logits = model(image.unsqueeze(0).to(device))
+        pred   = (torch.sigmoid(logits) > 0.5).float().squeeze().cpu().numpy()
+
+        # Denormalisasi gambar
+        img_np = image.permute(1, 2, 0).numpy()
+        img_np = (img_np * _IMAGENET_STD + _IMAGENET_MEAN).clip(0, 1)
+
+        mask_np = mask.squeeze().numpy()
+
+        axes[0, col].imshow(img_np)
+        axes[1, col].imshow(mask_np, cmap='gray', vmin=0, vmax=1)
+        axes[2, col].imshow(pred,    cmap='gray', vmin=0, vmax=1)
+
+        axes[0, col].set_title(lbl, fontsize=8)
+        for row in range(3):
+            axes[row, col].axis('off')
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"  Disimpan : {save_path}")
+
+
+# ─────────────────────────────────────────────────────────────
+# GRAFIK 2: Box plot distribusi skor per gambar
+# ─────────────────────────────────────────────────────────────
+def plot_per_sample_boxplot(per_sample: list, run_name: str, save_path: str):
+    """
+    Box plot distribusi metrik per gambar pada test set.
+    Berguna untuk melihat sebaran dan outlier.
+    """
+    metric_keys = ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']
+    metric_lbls = ['Dice', 'IoU', 'Accuracy', 'Precision', 'Recall', 'Specificity']
+
+    data = [[s[k] for s in per_sample] for k in metric_keys]
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    bp = ax.boxplot(data, patch_artist=True, notch=False,
+                    medianprops=dict(color='red', linewidth=2))
+
+    colors = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#26C6DA', '#EC407A']
+    for patch, color in zip(bp['boxes'], colors):
+        patch.set_facecolor(color)
+        patch.set_alpha(0.7)
+
+    # Anotasi median di atas setiap box
+    for i, d in enumerate(data, start=1):
+        med = float(np.median(d))
+        ax.text(i, med + 0.005, f'{med:.3f}', ha='center', va='bottom',
+                fontsize=8, fontweight='bold', color='darkred')
+
+    ax.set_xticks(range(1, len(metric_keys) + 1))
+    ax.set_xticklabels(metric_lbls, fontsize=10)
+    ax.set_ylabel('Nilai', fontsize=10)
+    ax.set_ylim(0, 1.08)
+    ax.set_title(f'Distribusi Metrik Per Gambar — Test Set\n({run_name})',
+                 fontsize=12, fontweight='bold')
+    ax.grid(True, axis='y', alpha=0.35)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"  Disimpan : {save_path}")
+
+
+# ─────────────────────────────────────────────────────────────
+# GRAFIK 3: Bar chart perbandingan semua run (mode checkpoint_dir)
+# ─────────────────────────────────────────────────────────────
+def plot_all_runs_bar(all_results: list, save_path: str):
+    """
+    Bar chart IoU dan Dice untuk semua run, diurutkan dari terbaik.
+    """
+    sorted_res  = sorted(all_results, key=lambda x: x[1]['iou'], reverse=True)
+    run_names   = [r[0] for r in sorted_res]
+    iou_vals    = [r[1]['iou']  for r in sorted_res]
+    dice_vals   = [r[1]['dice'] for r in sorted_res]
+    experiments = [r[2]['experiment'] for r in sorted_res]
+
+    x     = np.arange(len(run_names))
+    width = 0.38
+    colors = [SCENARIO_COLORS.get(SCENARIO_LABELS.get(e, e), '#90A4AE')
+              for e in experiments]
+
+    fig, ax = plt.subplots(figsize=(max(10, len(run_names) * 1.1), 5))
+    bars_iou  = ax.bar(x - width/2, iou_vals,  width, label='IoU',  alpha=0.85,
+                       color=colors, edgecolor='white', linewidth=0.8)
+    bars_dice = ax.bar(x + width/2, dice_vals, width, label='Dice', alpha=0.55,
+                       color=colors, edgecolor='white', linewidth=0.8, hatch='//')
+
+    for bar, val in zip(bars_iou, iou_vals):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.003,
+                f'{val:.3f}', ha='center', va='bottom', fontsize=7, rotation=90)
+    for bar, val in zip(bars_dice, dice_vals):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.003,
+                f'{val:.3f}', ha='center', va='bottom', fontsize=7, rotation=90)
+
+    # Legend skenario warna
+    patches = [mpatches.Patch(color=c, label=SCENARIO_LABELS.get(e, e))
+               for e, c in zip(
+                   ['original', 'bothat', 'laplacian'],
+                   ['#1565C0', '#E65100', '#2E7D32']
+               )]
+    patches += [
+        mpatches.Patch(facecolor='gray', alpha=0.85, label='IoU'),
+        mpatches.Patch(facecolor='gray', alpha=0.55, hatch='//', label='Dice'),
+    ]
+    ax.legend(handles=patches, fontsize=8, loc='lower right')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(run_names, rotation=45, ha='right', fontsize=8)
+    ax.set_ylabel('Nilai', fontsize=10)
+    ax.set_ylim(0, 1.12)
+    ax.set_title('Perbandingan IoU dan Dice — Semua Konfigurasi (Test Set)',
+                 fontsize=12, fontweight='bold')
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"  Disimpan : {save_path}")
+
+
+# ─────────────────────────────────────────────────────────────
+# GRAFIK 4: Heatmap IoU per skenario × optimizer × LR
+# ─────────────────────────────────────────────────────────────
+def plot_heatmap(all_results: list, metric: str, save_path: str):
+    """
+    Heatmap nilai metrik (misal IoU atau Dice) per konfigurasi.
+    Baris = Skenario × Optimizer, Kolom = Learning Rate.
+    """
+    scenarios  = ['original', 'bothat', 'laplacian']
+    optimizers = ['adamw', 'lion']
+    lrs        = ['0.01', '0.001', '0.0001']
+
+    row_labels = [f'{SCENARIO_LABELS[s]} — {o.upper()}'
+                  for s in scenarios for o in optimizers]
+    matrix     = np.full((len(row_labels), len(lrs)), np.nan)
+
+    for run_name, agg, meta in all_results:
+        opt_val, lr_val = _parse_run_name(run_name)
+        exp = meta['experiment']
+        try:
+            row = [s for s in scenarios for o in optimizers].index(exp) * 1
+            row = next(
+                i for i, (s, o) in enumerate(
+                    [(s, o) for s in scenarios for o in optimizers]
+                ) if s == exp and o == opt_val.lower()
+            )
+            col = lrs.index(lr_val)
+            matrix[row, col] = agg[metric]
+        except (ValueError, StopIteration):
+            pass
+
+    valid = matrix[~np.isnan(matrix)]
+    if valid.size == 0:
+        return
+
+    fig, ax = plt.subplots(figsize=(7, 6))
+    im = ax.imshow(matrix, cmap='YlOrRd', aspect='auto',
+                   vmin=valid.min() - 0.01, vmax=valid.max() + 0.01)
+    cbar = fig.colorbar(im, ax=ax, shrink=0.8)
+    cbar.set_label(metric.upper(), fontsize=10)
+
+    ax.set_xticks(range(len(lrs)))
+    ax.set_xticklabels(lrs, fontsize=10)
+    ax.set_yticks(range(len(row_labels)))
+    ax.set_yticklabels(row_labels, fontsize=10)
+    ax.set_xlabel('Learning Rate', fontsize=11)
+    ax.set_title(f'Heatmap {metric.upper()} Test Set\n(Skenario × Optimizer × LR)',
+                 fontsize=12, fontweight='bold')
+
+    for r in range(matrix.shape[0]):
+        for c in range(matrix.shape[1]):
+            val = matrix[r, c]
+            if not np.isnan(val):
+                norm_val  = (val - valid.min()) / (valid.max() - valid.min() + 1e-9)
+                txt_color = 'white' if norm_val > 0.6 else 'black'
+                ax.text(c, r, f'{val:.4f}', ha='center', va='center',
+                        fontsize=9, fontweight='bold', color=txt_color)
+
+    for y in [1.5, 3.5]:
+        ax.axhline(y=y, color='white', linewidth=2.5)
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"  Disimpan : {save_path}")
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Evaluasi U-Net pada test set')
 
@@ -251,4 +526,20 @@ if __name__ == '__main__':
         if all_results:
             save_summary_csv(all_results, args.output_dir)
 
-    print("TESTING SELESAI!")
+            print(f"\n  Membuat grafik perbandingan semua run...")
+            out_path = Path(args.output_dir)
+            plot_all_runs_bar(
+                all_results,
+                save_path=str(out_path / "comparison_bar.png"),
+            )
+            plot_heatmap(
+                all_results, metric='iou',
+                save_path=str(out_path / "heatmap_iou.png"),
+            )
+            plot_heatmap(
+                all_results, metric='dice',
+                save_path=str(out_path / "heatmap_dice.png"),
+            )
+
+    print("\nTESTING SELESAI!")
+    print(f"  Semua output tersimpan di: {args.output_dir}/")
