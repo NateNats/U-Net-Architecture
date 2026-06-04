@@ -18,11 +18,6 @@ BASE = 'D:/Kuliah/Semester Last/U-Net-Architecture'
 
 # ── History untuk kurva training terbaik per skenario ──────────────────────
 HISTORY_FILES = {
-<<<<<<< HEAD
-    'Original' : f'{BASE}/checkpoints (50 ep 28 mei 2026)/original/history.json',
-    'Bothat'   : f'{BASE}/checkpoints (50 ep 28 mei 2026)/bothat/history.json',
-    'Laplacian': f'{BASE}/checkpoints (50 ep 28 mei 2026)/laplacian/history.json',
-=======
     'Original' : f'{BASE}/checkpoints (epoch 50)/original_adamw_lr0.0001_history.json',
     'Bothat'   : f'{BASE}/checkpoints (epoch 50)/bothat_adamw_lr0.0001_history.json',
     'Laplacian': f'{BASE}/checkpoints (epoch 50)/laplacian_adamw_lr0.0001_history.json',
@@ -49,7 +44,6 @@ ALL_HISTORY_FILES = {
     'laplacian_lion_0.01'   : f'{BASE}/checkpoints (epoch 50)/laplacian_lion_lr0.01_history.json',
     'laplacian_lion_0.001'  : f'{BASE}/checkpoints (epoch 50)/laplacian_lion_lr0.001_history.json',
     'laplacian_lion_0.0001' : f'{BASE}/checkpoints (epoch 50)/laplacian_lion_lr0.0001_history.json',
->>>>>>> 1d3cdd8f8ec1dc6f4adae8096305c6a33a92faa5
 }
 
 OUTPUT_DIR = f'{BASE}/output/kurva_training'
