@@ -108,7 +108,7 @@ def run_test(checkpoint_path: str, output_dir: str, batch_size: int) -> tuple:
         )
 
     test_ds = ISICDataset(
-        split    = 'test',
+        split    = 'testing',
         root_dir = root_dir,
         transform = get_val_transforms(),
     )
