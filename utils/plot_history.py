@@ -16,9 +16,9 @@ import os
 BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture'
 
 HISTORY_FILES = {
-    'Original' : f'{BASE}/checkpoints/original/history.json',
-    'Bothat'   : f'{BASE}/checkpoints/bothat/history.json',
-    'Laplacian': f'{BASE}/checkpoints/laplacian/history.json',
+    'Original' : f'{BASE}/checkpoints (50 ep 28 mei 2026)/original/history.json',
+    'Bothat'   : f'{BASE}/checkpoints (50 ep 28 mei 2026)/bothat/history.json',
+    'Laplacian': f'{BASE}/checkpoints (50 ep 28 mei 2026)/laplacian/history.json',
 }
 
 OUTPUT_DIR = f'{BASE}/output/kurva_training'
