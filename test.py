@@ -7,6 +7,7 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
+import cv2
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -158,6 +159,11 @@ def run_test(checkpoint_path: str, output_dir: str, batch_size: int) -> tuple:
         json.dump(result, f, indent=2)
     print(f"\n  Disimpan : {json_path}")
 
+    # ── Simpan mask prediksi individual ──────────────────────
+    masks_dir = out_path / f"{run_name}_masks"
+    print(f"\n  Menyimpan mask prediksi ke {masks_dir}/...")
+    save_predicted_masks(model, test_ds, device, str(masks_dir), per_sample=per_sample)
+
     # ── Grafik per run ────────────────────────────────────────
     print(f"\n  Membuat grafik...")
 
@@ -239,6 +245,82 @@ def _print_summary_table(all_results: list):
             f"  {agg['loss']:>8.4f}"
         )
     print('=' * 90 + '\n')
+
+
+# ─────────────────────────────────────────────────────────────
+# SIMPAN MASK PREDIKSI INDIVIDUAL
+# ─────────────────────────────────────────────────────────────
+@torch.no_grad()
+def save_predicted_masks(model, dataset, device, save_dir: str,
+                         per_sample: list = None):
+    """
+    Simpan tiga file per gambar ke save_dir:
+      {stem}_pred.png    — mask biner prediksi (grayscale 0/255)
+      {stem}_gt.png      — ground truth mask   (grayscale 0/255)
+      {stem}_overlay.png — gambar asli + mask prediksi merah + kontur GT hijau
+                           + skor Dice/IoU/Recall di bagian atas gambar
+    Nama file mengikuti nama gambar asli dari dataset.
+    """
+    out = Path(save_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    model.eval()
+    for idx in tqdm(range(len(dataset)), desc='  Saving masks', leave=False):
+        image, mask = dataset[idx]
+        stem = Path(dataset.images[idx]).stem
+
+        logits   = model(image.unsqueeze(0).to(device))
+        pred_bin = (torch.sigmoid(logits) > 0.5).float().squeeze().cpu().numpy()
+        gt_np    = mask.squeeze().numpy()
+
+        # 1. Mask prediksi (grayscale)
+        cv2.imwrite(
+            str(out / f"{stem}_pred.png"),
+            (pred_bin * 255).astype(np.uint8),
+        )
+
+        # 2. Ground truth mask (grayscale)
+        cv2.imwrite(
+            str(out / f"{stem}_gt.png"),
+            (gt_np * 255).astype(np.uint8),
+        )
+
+        # 3. Overlay: gambar asli + prediksi merah + kontur GT hijau + skor
+        img_np  = image.permute(1, 2, 0).numpy()
+        img_np  = (img_np * _IMAGENET_STD + _IMAGENET_MEAN).clip(0, 1)
+        img_bgr = cv2.cvtColor((img_np * 255).astype(np.uint8), cv2.COLOR_RGB2BGR)
+
+        overlay  = img_bgr.copy()
+        red_mask = np.zeros_like(img_bgr)
+        red_mask[pred_bin == 1] = (0, 0, 255)
+        overlay  = cv2.addWeighted(overlay, 1.0, red_mask, 0.45, 0)
+
+        gt_uint8 = (gt_np * 255).astype(np.uint8)
+        contours, _ = cv2.findContours(gt_uint8, cv2.RETR_EXTERNAL,
+                                       cv2.CHAIN_APPROX_SIMPLE)
+        cv2.drawContours(overlay, contours, -1, (0, 255, 0), 1)
+
+        # Tulis skor di bagian atas gambar
+        if per_sample and idx < len(per_sample):
+            s    = per_sample[idx]
+            text = (f"Dice:{s['dice']:.3f}  IoU:{s['iou']:.3f}"
+                    f"  Rec:{s['recall']:.3f}  Prec:{s['precision']:.3f}")
+            w = overlay.shape[1]
+            # Strip hitam semi-transparan di atas sebagai background teks
+            banner       = overlay.copy()
+            cv2.rectangle(banner, (0, 0), (w, 22), (0, 0, 0), -1)
+            overlay      = cv2.addWeighted(overlay, 0.35, banner, 0.65, 0)
+            cv2.putText(overlay, text,
+                        org       = (6, 15),
+                        fontFace  = cv2.FONT_HERSHEY_SIMPLEX,
+                        fontScale = 0.42,
+                        color     = (255, 255, 255),
+                        thickness = 1,
+                        lineType  = cv2.LINE_AA)
+
+        cv2.imwrite(str(out / f"{stem}_overlay.png"), overlay)
+
+    print(f"  Disimpan : {save_dir}/ ({len(dataset)} gambar × 3 file)")
 
 
 # ─────────────────────────────────────────────────────────────
