@@ -21,6 +21,7 @@ from dataset.isic_dataset import ISICDataset
 from models.u_net import UNet
 from utils.metrics import SegmentationMetrics, DiceLoss
 from utils.augmentation import get_val_transforms
+from utils.visualize import _make_error_map
 
 _IMAGENET_MEAN = np.array([0.485, 0.456, 0.406])
 _IMAGENET_STD  = np.array([0.229, 0.224, 0.225])
@@ -254,11 +255,9 @@ def _print_summary_table(all_results: list):
 def save_predicted_masks(model, dataset, device, save_dir: str,
                          per_sample: list = None):
     """
-    Simpan tiga file per gambar ke save_dir:
-      {stem}_pred.png    — mask biner prediksi (grayscale 0/255)
-      {stem}_gt.png      — ground truth mask   (grayscale 0/255)
-      {stem}_overlay.png — gambar asli + mask prediksi merah + kontur GT hijau
-                           + skor Dice/IoU/Recall di bagian atas gambar
+    Simpan dua file per gambar ke save_dir:
+      {stem}_pred.png — mask biner prediksi (grayscale 0/255)
+      {stem}_viz.png  — figure 4-panel: Input | Ground Truth | Prediksi | Overlay TP/FP/FN
     Nama file mengikuti nama gambar asli dari dataset.
     """
     out = Path(save_dir)
@@ -269,58 +268,69 @@ def save_predicted_masks(model, dataset, device, save_dir: str,
         image, mask = dataset[idx]
         stem = Path(dataset.images[idx]).stem
 
-        logits   = model(image.unsqueeze(0).to(device))
-        pred_bin = (torch.sigmoid(logits) > 0.5).float().squeeze().cpu().numpy()
-        gt_np    = mask.squeeze().numpy()
+        logits    = model(image.unsqueeze(0).to(device))
+        pred_bin  = (torch.sigmoid(logits) > 0.5).float().squeeze().cpu().numpy().astype(np.uint8)
+        gt_np     = mask.squeeze().numpy().astype(np.uint8)
 
-        # 1. Mask prediksi (grayscale)
-        cv2.imwrite(
-            str(out / f"{stem}_pred.png"),
-            (pred_bin * 255).astype(np.uint8),
+        # Denormalisasi gambar ke RGB uint8
+        img_np = image.permute(1, 2, 0).numpy()
+        img_np = (img_np * _IMAGENET_STD + _IMAGENET_MEAN).clip(0, 1)
+        img_rgb = (img_np * 255).astype(np.uint8)
+
+        # 1. Mask prediksi biner (grayscale)
+        cv2.imwrite(str(out / f"{stem}_pred.png"), pred_bin * 255)
+
+        # 2. Figure 4-panel ala notebook
+        s = per_sample[idx] if (per_sample and idx < len(per_sample)) else None
+        dice_val = s['dice'] if s else np.sum((gt_np == 1) & (pred_bin == 1)) * 2 / \
+                   (np.sum(gt_np) + np.sum(pred_bin) + 1e-8)
+        iou_val  = s['iou']  if s else np.sum((gt_np == 1) & (pred_bin == 1)) / \
+                   (np.sum((gt_np == 1) | (pred_bin == 1)) + 1e-8)
+
+        error_map = _make_error_map(gt_np, pred_bin)
+        region    = (gt_np == 1) | (pred_bin == 1)
+        alpha     = 0.55
+        overlay   = img_rgb.copy().astype(np.float32)
+        overlay[region] = (overlay[region] * (1 - alpha)
+                           + error_map[region].astype(np.float32) * alpha)
+        overlay = np.clip(overlay, 0, 255).astype(np.uint8)
+
+        fig, axes = plt.subplots(1, 4, figsize=(22, 5))
+        fig.suptitle(f'Hasil Segmentasi U-Net — {stem}',
+                     fontsize=13, fontweight='bold')
+
+        axes[0].imshow(img_rgb)
+        axes[0].set_title('Citra Input', fontweight='bold')
+        axes[0].axis('off')
+
+        axes[1].imshow(gt_np, cmap='gray')
+        axes[1].set_title('Ground Truth', fontweight='bold')
+        axes[1].axis('off')
+
+        axes[2].imshow(pred_bin, cmap='gray')
+        axes[2].set_title(
+            f'Prediksi Model\nDice={dice_val*100:.2f}%  IoU={iou_val*100:.2f}%',
+            fontweight='bold',
         )
+        axes[2].axis('off')
 
-        # 2. Ground truth mask (grayscale)
-        cv2.imwrite(
-            str(out / f"{stem}_gt.png"),
-            (gt_np * 255).astype(np.uint8),
-        )
+        axes[3].imshow(overlay)
+        axes[3].set_title('Overlay (TP/FP/FN)', fontweight='bold')
+        axes[3].axis('off')
 
-        # 3. Overlay: gambar asli + prediksi merah + kontur GT hijau + skor
-        img_np  = image.permute(1, 2, 0).numpy()
-        img_np  = (img_np * _IMAGENET_STD + _IMAGENET_MEAN).clip(0, 1)
-        img_bgr = cv2.cvtColor((img_np * 255).astype(np.uint8), cv2.COLOR_RGB2BGR)
+        legend = [
+            mpatches.Patch(facecolor='#00C800', label='TP (benar)'),
+            mpatches.Patch(facecolor='#DC0000', label='FP (over-seg)'),
+            mpatches.Patch(facecolor='#0050DC', label='FN (terlewat)'),
+        ]
+        fig.legend(handles=legend, loc='lower center', ncol=3, fontsize=9,
+                   framealpha=0.9, bbox_to_anchor=(0.5, -0.02))
 
-        overlay  = img_bgr.copy()
-        red_mask = np.zeros_like(img_bgr)
-        red_mask[pred_bin == 1] = (0, 0, 255)
-        overlay  = cv2.addWeighted(overlay, 1.0, red_mask, 0.45, 0)
+        plt.tight_layout()
+        plt.savefig(str(out / f"{stem}_viz.png"), dpi=150, bbox_inches='tight')
+        plt.close(fig)
 
-        gt_uint8 = (gt_np * 255).astype(np.uint8)
-        contours, _ = cv2.findContours(gt_uint8, cv2.RETR_EXTERNAL,
-                                       cv2.CHAIN_APPROX_SIMPLE)
-        cv2.drawContours(overlay, contours, -1, (0, 255, 0), 1)
-
-        # Tulis skor di bagian atas gambar
-        if per_sample and idx < len(per_sample):
-            s    = per_sample[idx]
-            text = (f"Dice:{s['dice']:.3f}  IoU:{s['iou']:.3f}"
-                    f"  Rec:{s['recall']:.3f}  Prec:{s['precision']:.3f}")
-            w = overlay.shape[1]
-            # Strip hitam semi-transparan di atas sebagai background teks
-            banner       = overlay.copy()
-            cv2.rectangle(banner, (0, 0), (w, 22), (0, 0, 0), -1)
-            overlay      = cv2.addWeighted(overlay, 0.35, banner, 0.65, 0)
-            cv2.putText(overlay, text,
-                        org       = (6, 15),
-                        fontFace  = cv2.FONT_HERSHEY_SIMPLEX,
-                        fontScale = 0.42,
-                        color     = (255, 255, 255),
-                        thickness = 1,
-                        lineType  = cv2.LINE_AA)
-
-        cv2.imwrite(str(out / f"{stem}_overlay.png"), overlay)
-
-    print(f"  Disimpan : {save_dir}/ ({len(dataset)} gambar × 3 file)")
+    print(f"  Disimpan : {save_dir}/ ({len(dataset)} gambar × 2 file)")
 
 
 # ─────────────────────────────────────────────────────────────
