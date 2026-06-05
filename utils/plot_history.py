@@ -156,23 +156,25 @@ def plot_single_experiment(history: dict, experiment: str,
     best   = get_best_epoch(history)
 
     metrics = [
-        ('loss',     'Loss'),
-        ('dice',     'Dice Coefficient'),
-        ('iou',      'IoU'),
-        ('accuracy', 'Accuracy'),
-        ('recall',   'Recall'),
+        ('loss',        'Loss'),
+        ('dice',        'Dice Coefficient'),
+        ('iou',         'IoU'),
+        ('accuracy',    'Accuracy'),
+        ('recall',      'Recall'),
+        ('specificity', 'Specificity'),
     ]
 
-    fig, axes = plt.subplots(1, 5, figsize=(20, 4))
+    fig, axes = plt.subplots(2, 3, figsize=(15, 8))
     fig.suptitle(
         f'Kurva Training — {experiment.upper()}\n'
         f'Best Epoch: {best["epoch"]} | '
         f'Val Dice: {best["dice"]*100:.2f}% | '
         f'Val IoU: {best["iou"]*100:.2f}%',
-        fontsize=12, fontweight='bold', y=1.02
+        fontsize=13, fontweight='bold'
     )
 
-    for ax, (key, label) in zip(axes, metrics):
+    axes_flat = axes.flat
+    for ax, (key, label) in zip(axes_flat, metrics):
         train_vals = [ep[key] for ep in train]
         val_vals   = [ep[key] for ep in val]
 
@@ -186,10 +188,10 @@ def plot_single_experiment(history: dict, experiment: str,
         ax.scatter(best['epoch'], val_vals[best['epoch'] - 1],
                    color='green', s=60, zorder=5)
 
-        ax.set_title(label, fontsize=10, fontweight='bold')
+        ax.set_title(label, fontsize=11, fontweight='bold')
         ax.set_xlabel('Epoch', fontsize=9)
         ax.set_ylabel(label, fontsize=9)
-        ax.legend(fontsize=7)
+        ax.legend(fontsize=8)
         ax.grid(True, alpha=0.3)
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
