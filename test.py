@@ -49,6 +49,10 @@ EXPERIMENT_DIRS = {
     'laplacian': f"{BASE}/2_laplacian",
 }
 
+# Semua skenario diuji pada gambar TANPA hair removal agar perbandingan adil.
+# Mask (ground truth) tetap sama karena berasal dari dataset asli.
+TEST_ROOT_DIR = f"{BASE}/1_resize"
+
 
 def load_checkpoint(path: str, device):
     ckpt = torch.load(path, map_location=device, weights_only=False)
@@ -101,17 +105,17 @@ def run_test(checkpoint_path: str, output_dir: str, batch_size: int) -> tuple:
     experiment  = _infer_experiment(checkpoint_path, ckpt)
     run_name    = Path(checkpoint_path).parent.name
 
-    root_dir = EXPERIMENT_DIRS.get(experiment)
-    if not root_dir:
+    if experiment not in EXPERIMENT_DIRS:
         raise ValueError(
             f"Experiment '{experiment}' tidak dikenal. "
             f"Isi field 'experiment' di checkpoint atau pastikan nama folder mengandung "
             f"salah satu dari: {list(EXPERIMENT_DIRS.keys())}"
         )
 
+    # Selalu gunakan 1_resize (tanpa hair removal) untuk test set semua skenario
     test_ds = ISICDataset(
-        split    = 'testing',
-        root_dir = root_dir,
+        split     = 'testing',
+        root_dir  = TEST_ROOT_DIR,
         transform = get_val_transforms(),
     )
     test_loader = DataLoader(
@@ -128,6 +132,7 @@ def run_test(checkpoint_path: str, output_dir: str, batch_size: int) -> tuple:
     print(f"\n{'='*58}")
     print(f"  Run        : {run_name}")
     print(f"  Experiment : {experiment.upper()}")
+    print(f"  Test data  : {TEST_ROOT_DIR} (tanpa hair removal)")
     print(f"  Test set   : {len(test_ds)} gambar")
     print(f"  Device     : {device}")
     print(f"  Checkpoint : epoch {ckpt.get('epoch', '?')} "
