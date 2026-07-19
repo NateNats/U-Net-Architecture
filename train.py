@@ -61,7 +61,7 @@ LRS        = [1e-4, 1e-3, 1e-2]
 def train_one_epoch(model, loader, criterion, optimizer, device, metrics_fn) -> dict:
     model.train()
     total_loss = 0.0
-    all_metrics = {k: 0.0 for k in ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']}
+    all_metrics = {k: 0.0 for k in ['dice', 'iou', 'pixel_error', 'rand_error', 'warping_error']}
 
     for images, masks in tqdm(loader, desc=' Train', leave=False):
         images = images.to(device, non_blocking=True)
@@ -88,7 +88,7 @@ def train_one_epoch(model, loader, criterion, optimizer, device, metrics_fn) -> 
 def evaluate(model, loader, criterion, device, metrics_fn, desc: str = "Val") -> dict:
     model.eval()
     total_loss = 0.0
-    all_metrics = {k: 0.0 for k in ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']}
+    all_metrics = {k: 0.0 for k in ['dice', 'iou', 'pixel_error', 'rand_error', 'warping_error']}
     
     for images, masks in tqdm(loader, desc=desc, leave=False):
         images = images.to(device, non_blocking=True)

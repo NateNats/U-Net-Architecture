@@ -90,7 +90,7 @@ def laplacian_hr(input_data: Union[str, np.ndarray], debug: bool = False, save_d
 
     # se0 = Horizontal, se45 = diagonal, se90 = vertical
     se0  = cv2.getStructuringElement(cv2.MORPH_RECT,    (17, 1))
-    se45 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    se45 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     se90 = cv2.getStructuringElement(cv2.MORPH_RECT,    (1, 17))
     
     # apply se0

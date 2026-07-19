@@ -65,7 +65,7 @@ def load_checkpoint(path: str, device):
 @torch.no_grad()
 def evaluate_test(model, loader, criterion, device, metrics_fn):
     total_loss = 0.0
-    agg = {k: 0.0 for k in ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']}
+    agg = {k: 0.0 for k in ['dice', 'iou', 'pixel_error', 'rand_error', 'warping_error']}
     per_sample = []
 
     for images, masks in tqdm(loader, desc='  Test', leave=False):
@@ -209,7 +209,7 @@ def save_summary_csv(all_results: list, output_dir: str):
     fieldnames = [
         'run', 'experiment', 'optimizer', 'lr', 'epoch',
         'train_best_dice', 'loss', 'dice', 'iou',
-        'accuracy', 'precision', 'recall', 'specificity',
+        'pixel_error', 'rand_error', 'warping_error',
     ]
 
     with open(csv_path, 'w', newline='') as f:
@@ -227,10 +227,9 @@ def save_summary_csv(all_results: list, output_dir: str):
                 'loss'            : f"{agg['loss']:.4f}",
                 'dice'            : f"{agg['dice']:.4f}",
                 'iou'             : f"{agg['iou']:.4f}",
-                'accuracy'        : f"{agg['accuracy']:.4f}",
-                'precision'       : f"{agg['precision']:.4f}",
-                'recall'          : f"{agg['recall']:.4f}",
-                'specificity'     : f"{agg['specificity']:.4f}",
+                'pixel_error'     : f"{agg['pixel_error']:.4f}",
+                'rand_error'      : f"{agg['rand_error']:.4f}",
+                'warping_error'   : f"{agg['warping_error']:.4f}",
             })
 
     print(f"\n  CSV ringkasan disimpan: {csv_path}")
@@ -238,19 +237,20 @@ def save_summary_csv(all_results: list, output_dir: str):
 
 
 def _print_summary_table(all_results: list):
-    print('\n' + '=' * 90)
-    print(f"  {'Run':<35} {'Dice':>8} {'IoU':>8} {'Recall':>8} {'Precision':>10} {'Loss':>8}")
-    print('  ' + '-' * 84)
+    print('\n' + '=' * 98)
+    print(f"  {'Run':<35} {'Dice':>8} {'IoU':>8} {'PixErr':>8} {'RandErr':>9} {'WarpErr':>9} {'Loss':>8}")
+    print('  ' + '-' * 92)
     for run_name, agg, _ in sorted(all_results, key=lambda x: x[1]['iou'], reverse=True):
         print(
             f"  {run_name:<35}"
             f"  {agg['dice']*100:>7.2f}%"
             f"  {agg['iou']*100:>7.2f}%"
-            f"  {agg['recall']*100:>7.2f}%"
-            f"  {agg['precision']*100:>9.2f}%"
+            f"  {agg['pixel_error']:>8.4f}"
+            f"  {agg['rand_error']:>9.4f}"
+            f"  {agg['warping_error']:>9.4f}"
             f"  {agg['loss']:>8.4f}"
         )
-    print('=' * 90 + '\n')
+    print('=' * 98 + '\n')
 
 
 # ─────────────────────────────────────────────────────────────
@@ -415,8 +415,8 @@ def plot_per_sample_boxplot(per_sample: list, run_name: str, save_path: str):
     Box plot distribusi metrik per gambar pada test set.
     Berguna untuk melihat sebaran dan outlier.
     """
-    metric_keys = ['dice', 'iou', 'accuracy', 'precision', 'recall', 'specificity']
-    metric_lbls = ['Dice', 'IoU', 'Accuracy', 'Precision', 'Recall', 'Specificity']
+    metric_keys = ['dice', 'iou', 'pixel_error', 'rand_error', 'warping_error']
+    metric_lbls = ['Dice', 'IoU', 'Pixel Error', 'Rand Error', 'Warping Error']
 
     data = [[s[k] for s in per_sample] for k in metric_keys]
 
@@ -424,7 +424,7 @@ def plot_per_sample_boxplot(per_sample: list, run_name: str, save_path: str):
     bp = ax.boxplot(data, patch_artist=True, notch=False,
                     medianprops=dict(color='red', linewidth=2))
 
-    colors = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#26C6DA', '#EC407A']
+    colors = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#26C6DA']
     for patch, color in zip(bp['boxes'], colors):
         patch.set_facecolor(color)
         patch.set_alpha(0.7)
