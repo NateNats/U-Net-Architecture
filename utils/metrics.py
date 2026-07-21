@@ -1,3 +1,4 @@
+import cv2
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -83,55 +84,81 @@ def rand_error(pred: torch.Tensor,
     mendapat label sama di kedua segmentasi atau label
     berbeda di kedua segmentasi.
 
-    Rumus Rand Index:
-        RI = (TP + TN) / (TP + TN + FP + FN)
-    dimana:
-        TP = pasangan piksel sama di pred & target
-        TN = pasangan piksel beda di pred & target
-        FP = pasangan piksel sama di pred, beda di target
-        FN = pasangan piksel beda di pred, sama di target
+    Rumus:
+        Rand Error = 1 - (a + b) / C(n, 2)
 
-    Rand Error = 1 - RI
+    dimana untuk seluruh PASANGAN piksel:
+        a      = jumlah pasangan yang SELABEL di prediksi
+                 DAN selabel di ground truth
+        b      = jumlah pasangan yang BEDA label di prediksi
+                 DAN beda label di ground truth
+        C(n,2) = n(n-1)/2 = total pasangan piksel
+
+    Label diambil dari CONNECTED COMPONENT (objek hasil
+    segmentasi), bukan sekadar biner 0/1. Inilah yang
+    membuat Rand Error mampu menghukum splits (satu lesi
+    pecah jadi beberapa region) dan mergers (dua lesi
+    menyatu) — kesalahan topologi yang tidak terdeteksi
+    oleh Dice/IoU.
+
+    Perhitungan a dan b memakai tabel kontingensi n_ij
+    (jumlah piksel di klaster-i prediksi ∩ klaster-j GT):
+        a = Σ_ij C(n_ij, 2)
+        b = C(n,2) - Σ_i C(a_i,2) - Σ_j C(b_j,2)
+                   + Σ_ij C(n_ij, 2)
+    dengan a_i = ukuran klaster prediksi,
+           b_j = ukuran klaster ground truth.
 
     Range: 0.0 (sempurna) → 1.0 (terburuk)
 
-    Referensi: Arganda-Carreras et al. (2015)
+    Referensi: Rand (1971)
                Unnikrishnan et al. (2007)
+               Arganda-Carreras et al. (2015)
     """
-    # Binarisasi prediksi
-    pred_bin = (torch.sigmoid(pred) >= threshold).float()
+    pred_bin = (torch.sigmoid(pred) >= threshold)
 
-    # Flatten per gambar dalam batch
-    batch_size = pred_bin.shape[0]
+    batch_size  = pred_bin.shape[0]
     rand_errors = []
 
     for i in range(batch_size):
-        # Ambil satu gambar
-        p = pred_bin[i].view(-1)   # prediksi
-        t = target[i].float().view(-1)  # ground truth
+        p_mask = pred_bin[i].squeeze().cpu().numpy().astype(np.uint8)
+        t_mask = (target[i].squeeze().cpu().numpy() > 0.5).astype(np.uint8)
 
-        # Hitung pasangan piksel
-        # TP: keduanya sama-sama 1
-        TP = (p * t).sum()
+        # Label objek via connected component (0 = background)
+        _, p_lab = cv2.connectedComponents(p_mask)
+        _, t_lab = cv2.connectedComponents(t_mask)
 
-        # TN: keduanya sama-sama 0
-        TN = ((1 - p) * (1 - t)).sum()
+        p_lab = p_lab.ravel().astype(np.int64)
+        t_lab = t_lab.ravel().astype(np.int64)
 
-        # FP: pred=1, target=0
-        FP = (p * (1 - t)).sum()
+        n = p_lab.size
+        if n < 2:
+            rand_errors.append(0.0)
+            continue
 
-        # FN: pred=0, target=1
-        FN = ((1 - p) * t).sum()
+        # Tabel kontingensi n_ij lewat indeks gabungan
+        n_p  = int(p_lab.max()) + 1
+        n_ij = np.bincount(t_lab * n_p + p_lab).astype(np.float64)
+        a_i  = np.bincount(p_lab).astype(np.float64)
+        b_j  = np.bincount(t_lab).astype(np.float64)
 
-        # Rand Index
-        rand_idx = (TP + TN + smooth) / \
-                   (TP + TN + FP + FN + smooth)
+        def n_pairs(x):
+            """Σ C(x, 2) — jumlah pasangan dalam tiap klaster."""
+            return float((x * (x - 1.0) / 2.0).sum())
 
-        # Rand Error = 1 - Rand Index
-        rand_err = 1.0 - rand_idx
-        rand_errors.append(rand_err)
+        total_pairs = n * (n - 1.0) / 2.0
+        sum_ij      = n_pairs(n_ij)
 
-    return torch.stack(rand_errors).mean()
+        # a = pasangan selabel di kedua segmentasi
+        a = sum_ij
+        # b = pasangan beda label di kedua segmentasi
+        b = total_pairs - n_pairs(a_i) - n_pairs(b_j) + sum_ij
+
+        rand_index = (a + b) / (total_pairs + smooth)
+        rand_errors.append(1.0 - rand_index)
+
+    return torch.tensor(float(np.mean(rand_errors)),
+                        dtype=torch.float32)
 
 
 def warping_error(pred: torch.Tensor,
@@ -153,8 +180,6 @@ def warping_error(pred: torch.Tensor,
     Referensi: Arganda-Carreras et al. (2015)
                Jain et al. (2010)
     """
-    import cv2
-
     # Binarisasi prediksi
     pred_bin = (torch.sigmoid(pred) >= threshold).float()
 
