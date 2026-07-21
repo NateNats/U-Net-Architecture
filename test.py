@@ -286,11 +286,15 @@ def save_predicted_masks(model, dataset, device, save_dir: str,
         cv2.imwrite(str(out / f"{stem}_pred.png"), pred_bin * 255)
 
         # 2. Figure 4-panel ala notebook
+        # Pakai skor per-gambar yang sudah dihitung; kalau tidak tersedia,
+        # hitung ulang di sini agar semua metrik tetap lengkap.
         s = per_sample[idx] if (per_sample and idx < len(per_sample)) else None
-        dice_val = s['dice'] if s else np.sum((gt_np == 1) & (pred_bin == 1)) * 2 / \
-                   (np.sum(gt_np) + np.sum(pred_bin) + 1e-8)
-        iou_val  = s['iou']  if s else np.sum((gt_np == 1) & (pred_bin == 1)) / \
-                   (np.sum((gt_np == 1) | (pred_bin == 1)) + 1e-8)
+        if s is None:
+            s = SegmentationMetrics(threshold=0.5).compute(
+                logits, mask.unsqueeze(0).to(device)
+            )
+        dice_val = s['dice']
+        iou_val  = s['iou']
 
         error_map = _make_error_map(gt_np, pred_bin)
         region    = (gt_np == 1) | (pred_bin == 1)
@@ -320,7 +324,13 @@ def save_predicted_masks(model, dataset, device, save_dir: str,
         axes[2].axis('off')
 
         axes[3].imshow(overlay)
-        axes[3].set_title('Overlay (TP/FP/FN)', fontweight='bold')
+        axes[3].set_title(
+            'Overlay (TP/FP/FN)\n'
+            f'PixErr={s["pixel_error"]:.4f}   '
+            f'RandErr={s["rand_error"]:.4f}   '
+            f'WarpErr={s["warping_error"]:.4f}',
+            fontweight='bold', fontsize=10,
+        )
         axes[3].axis('off')
 
         legend = [
