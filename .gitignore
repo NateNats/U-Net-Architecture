@@ -15,6 +15,10 @@ predict/comparison
 *.apps.googleusercontent.com.json
 credentials.json
 bk/
+test_result
+test_result*
+output_all
+all_model
 
 # Virtual env
 .venv/

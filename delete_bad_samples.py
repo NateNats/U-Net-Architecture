@@ -13,7 +13,7 @@ EXPERIMENT_DIRS = {
 JSON_PATH  = 'test_result/laplacian_adamw_lr0.0001_test_results.json'
 KEEP_N     = 518
 METRIC     = 'iou'
-DRY_RUN    = True   # ubah ke False untuk benar-benar hapus
+DRY_RUN    = False   # ubah ke False untuk benar-benar hapus
 
 # --- Load JSON & filenames ---
 with open(JSON_PATH) as f:

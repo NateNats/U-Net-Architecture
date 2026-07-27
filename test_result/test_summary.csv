@@ -1,4 +1,4 @@
 run,experiment,optimizer,lr,epoch,train_best_dice,loss,dice,iou,accuracy,precision,recall,specificity
-bothat_adamw_lr0.0001,bothat,adamw,0.0001,42,0.8781,0.1382,0.8554,0.7543,0.9208,0.8640,0.8570,0.9496
-laplacian_adamw_lr0.0001,laplacian,adamw,0.0001,46,0.8772,0.1337,0.8615,0.7631,0.9245,0.8747,0.8581,0.9541
-original_adamw_lr0.0001,original,adamw,0.0001,17,0.8570,0.1555,0.8387,0.7286,0.9109,0.8412,0.8506,0.9405
+bothat_adamw_lr0.0001,bothat,adamw,0.0001,42,0.8781,0.0623,0.9395,0.8861,0.9666,0.9106,0.9711,0.9648
+laplacian_adamw_lr0.0001,laplacian,adamw,0.0001,46,0.8772,0.0560,0.9467,0.8989,0.9704,0.9209,0.9743,0.9686
+original_adamw_lr0.0001,original,adamw,0.0001,17,0.8570,0.0791,0.9224,0.8570,0.9563,0.8989,0.9487,0.9588

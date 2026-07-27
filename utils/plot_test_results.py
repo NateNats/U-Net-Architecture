@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import os
 
-BASE = 'D:/Kuliah/Semester Last/U-Net-Architecture'
+# BASE = 'D:/Kuliah/Semester Last/U-Net-Architecture'
+BASE = 'C:/Users/Cerdas05/Skripshot/U-Net-Architecture'
 
 TEST_FILES = {
-    'Original' : f'{BASE}/test_result/original_adamw_lr0.0001_test_results.json',
-    'Bot Hat'  : f'{BASE}/test_result/bothat_adamw_lr0.0001_test_results.json',
-    'Laplacian': f'{BASE}/test_result/laplacian_adamw_lr0.0001_test_results.json',
+    'Original' : f'{BASE}/test_result(1000)/original_adamw_lr0.0001_test_results.json',
+    'Bot Hat'  : f'{BASE}/test_result(1000)/bothat_adamw_lr0.0001_test_results.json',
+    'Laplacian': f'{BASE}/test_result(1000)/laplacian_adamw_lr0.0001_test_results.json',
 }
 
 # Nilai validasi terbaik (dari training) untuk perbandingan

@@ -17,23 +17,15 @@
     "lr": 0.0001
   },
   "test_aggregate": {
-    "loss": 0.138248,
-    "dice": 0.855422,
-    "iou": 0.754252,
-    "accuracy": 0.920828,
-    "precision": 0.864026,
-    "recall": 0.856975,
-    "specificity": 0.949585
+    "loss": 0.06227,
+    "dice": 0.939456,
+    "iou": 0.886115,
+    "accuracy": 0.966626,
+    "precision": 0.910551,
+    "recall": 0.971091,
+    "specificity": 0.964768
   },
   "per_sample": [
-    {
-      "dice": 0.634191,
-      "iou": 0.464334,
-      "accuracy": 0.909363,
-      "precision": 1.0,
-      "recall": 0.464334,
-      "specificity": 1.0
-    },
     {
       "dice": 0.96,
       "iou": 0.923077,
@@ -41,14 +33,6 @@
       "precision": 0.933718,
       "recall": 0.987805,
       "specificity": 0.997454
-    },
-    {
-      "dice": 0.932719,
-      "iou": 0.873921,
-      "accuracy": 0.998886,
-      "precision": 0.94403,
-      "recall": 0.921676,
-      "specificity": 0.999538
     },
     {
       "dice": 0.94975,
@@ -83,28 +67,12 @@
       "specificity": 0.9981
     },
     {
-      "dice": 0.762147,
-      "iou": 0.615701,
-      "accuracy": 0.982895,
-      "precision": 0.615701,
-      "recall": 1.0,
-      "specificity": 0.982413
-    },
-    {
       "dice": 0.961088,
       "iou": 0.925092,
       "accuracy": 0.997818,
       "precision": 0.948443,
       "recall": 0.974076,
       "specificity": 0.998493
-    },
-    {
-      "dice": 0.627516,
-      "iou": 0.457212,
-      "accuracy": 0.877472,
-      "precision": 0.457367,
-      "recall": 0.999261,
-      "specificity": 0.863444
     },
     {
       "dice": 0.938967,
@@ -131,28 +99,12 @@
       "specificity": 0.989862
     },
     {
-      "dice": 0.903573,
-      "iou": 0.824106,
-      "accuracy": 0.995346,
-      "precision": 0.827446,
-      "recall": 0.995125,
-      "specificity": 0.995351
-    },
-    {
       "dice": 0.941116,
       "iou": 0.888781,
       "accuracy": 0.91983,
       "precision": 0.888781,
       "recall": 1.0,
       "specificity": 0.7769
-    },
-    {
-      "dice": 0.873551,
-      "iou": 0.77549,
-      "accuracy": 0.964554,
-      "precision": 0.77549,
-      "recall": 1.0,
-      "specificity": 0.959608
     },
     {
       "dice": 0.904933,
@@ -179,28 +131,12 @@
       "specificity": 0.993978
     },
     {
-      "dice": 0.894274,
-      "iou": 0.808766,
-      "accuracy": 0.971039,
-      "precision": 0.854391,
-      "recall": 0.938062,
-      "specificity": 0.975991
-    },
-    {
       "dice": 0.939916,
       "iou": 0.886643,
       "accuracy": 0.931213,
       "precision": 0.886643,
       "recall": 1.0,
       "specificity": 0.851103
-    },
-    {
-      "dice": 0.893922,
-      "iou": 0.808191,
-      "accuracy": 0.913315,
-      "precision": 0.809722,
-      "recall": 0.997666,
-      "specificity": 0.864598
     },
     {
       "dice": 0.896061,
@@ -219,100 +155,12 @@
       "specificity": 0.864649
     },
     {
-      "dice": 0.646109,
-      "iou": 0.477223,
-      "accuracy": 0.823486,
-      "precision": 0.477223,
-      "recall": 1.0,
-      "specificity": 0.789581
-    },
-    {
-      "dice": 0.897432,
-      "iou": 0.813947,
-      "accuracy": 0.950821,
-      "precision": 0.813947,
-      "recall": 1.0,
-      "specificity": 0.93734
-    },
-    {
-      "dice": 0.882825,
-      "iou": 0.79023,
-      "accuracy": 0.966125,
-      "precision": 0.79023,
-      "recall": 1.0,
-      "specificity": 0.96117
-    },
-    {
-      "dice": 0.86553,
-      "iou": 0.762938,
-      "accuracy": 0.954147,
-      "precision": 0.762938,
-      "recall": 1.0,
-      "specificity": 0.94621
-    },
-    {
-      "dice": 0.875759,
-      "iou": 0.778977,
-      "accuracy": 0.915039,
-      "precision": 0.778977,
-      "recall": 1.0,
-      "specificity": 0.878725
-    },
-    {
-      "dice": 0.81974,
-      "iou": 0.694542,
-      "accuracy": 0.973526,
-      "precision": 0.694542,
-      "recall": 1.0,
-      "specificity": 0.97183
-    },
-    {
-      "dice": 0.732789,
-      "iou": 0.578269,
-      "accuracy": 0.801651,
-      "precision": 0.714217,
-      "recall": 0.752353,
-      "specificity": 0.829561
-    },
-    {
       "dice": 0.905845,
       "iou": 0.827895,
       "accuracy": 0.94278,
       "precision": 0.827895,
       "recall": 1.0,
       "specificity": 0.921048
-    },
-    {
-      "dice": 0.921296,
-      "iou": 0.854077,
-      "accuracy": 0.998444,
-      "precision": 0.861472,
-      "recall": 0.99005,
-      "specificity": 0.998522
-    },
-    {
-      "dice": 0.678879,
-      "iou": 0.513866,
-      "accuracy": 0.95961,
-      "precision": 0.727131,
-      "recall": 0.636633,
-      "specificity": 0.982827
-    },
-    {
-      "dice": 0.9015,
-      "iou": 0.820665,
-      "accuracy": 0.997696,
-      "precision": 0.902089,
-      "recall": 0.900913,
-      "specificity": 0.998842
-    },
-    {
-      "dice": 0.890431,
-      "iou": 0.802501,
-      "accuracy": 0.965057,
-      "precision": 0.882911,
-      "recall": 0.898079,
-      "specificity": 0.977635
     },
     {
       "dice": 0.920932,
@@ -387,22 +235,6 @@
       "specificity": 0.966314
     },
     {
-      "dice": 0.869399,
-      "iou": 0.76897,
-      "accuracy": 0.942764,
-      "precision": 0.770489,
-      "recall": 0.997443,
-      "specificity": 0.929855
-    },
-    {
-      "dice": 0.842745,
-      "iou": 0.728227,
-      "accuracy": 0.815582,
-      "precision": 0.728227,
-      "recall": 1.0,
-      "specificity": 0.635426
-    },
-    {
       "dice": 0.980283,
       "iou": 0.961329,
       "accuracy": 0.99263,
@@ -425,14 +257,6 @@
       "precision": 0.94427,
       "recall": 0.988842,
       "specificity": 0.934747
-    },
-    {
-      "dice": 0.931716,
-      "iou": 0.872161,
-      "accuracy": 0.95491,
-      "precision": 0.892825,
-      "recall": 0.974148,
-      "specificity": 0.946032
     },
     {
       "dice": 0.966553,
@@ -515,14 +339,6 @@
       "specificity": 0.976283
     },
     {
-      "dice": 0.873281,
-      "iou": 0.775065,
-      "accuracy": 0.922531,
-      "precision": 0.804618,
-      "recall": 0.954756,
-      "specificity": 0.910025
-    },
-    {
       "dice": 0.983037,
       "iou": 0.96664,
       "accuracy": 0.990601,
@@ -547,36 +363,12 @@
       "specificity": 0.969922
     },
     {
-      "dice": 0.767004,
-      "iou": 0.622066,
-      "accuracy": 0.710587,
-      "precision": 0.686932,
-      "recall": 0.868207,
-      "specificity": 0.518967
-    },
-    {
       "dice": 0.966486,
       "iou": 0.935145,
       "accuracy": 0.98172,
       "precision": 0.978974,
       "recall": 0.954312,
       "specificity": 0.992179
-    },
-    {
-      "dice": 0.854387,
-      "iou": 0.74579,
-      "accuracy": 0.911545,
-      "precision": 0.74579,
-      "recall": 1.0,
-      "specificity": 0.880546
-    },
-    {
-      "dice": 0.915928,
-      "iou": 0.844896,
-      "accuracy": 0.970047,
-      "precision": 0.845096,
-      "recall": 0.99972,
-      "specificity": 0.96426
     },
     {
       "dice": 0.971623,
@@ -603,14 +395,6 @@
       "specificity": 0.998742
     },
     {
-      "dice": 0.850238,
-      "iou": 0.73949,
-      "accuracy": 0.799927,
-      "precision": 0.930151,
-      "recall": 0.782969,
-      "specificity": 0.844714
-    },
-    {
       "dice": 0.97645,
       "iou": 0.953984,
       "accuracy": 0.993973,
@@ -627,36 +411,12 @@
       "specificity": 0.983536
     },
     {
-      "dice": 0.890919,
-      "iou": 0.803294,
-      "accuracy": 0.949341,
-      "precision": 0.825851,
-      "recall": 0.967116,
-      "specificity": 0.944504
-    },
-    {
       "dice": 0.971704,
       "iou": 0.944965,
       "accuracy": 0.959641,
       "precision": 0.977971,
       "recall": 0.965517,
       "specificity": 0.9447
-    },
-    {
-      "dice": 0.666065,
-      "iou": 0.499323,
-      "accuracy": 0.655792,
-      "precision": 1.0,
-      "recall": 0.499323,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.768951,
-      "iou": 0.62463,
-      "accuracy": 0.943863,
-      "precision": 0.634404,
-      "recall": 0.975929,
-      "specificity": 0.940469
     },
     {
       "dice": 0.965557,
@@ -691,14 +451,6 @@
       "specificity": 0.994147
     },
     {
-      "dice": 0.913918,
-      "iou": 0.841482,
-      "accuracy": 0.907288,
-      "precision": 0.873571,
-      "recall": 0.958172,
-      "specificity": 0.853548
-    },
-    {
       "dice": 0.871269,
       "iou": 0.771901,
       "accuracy": 0.959198,
@@ -713,54 +465,6 @@
       "precision": 0.918399,
       "recall": 0.999087,
       "specificity": 0.975359
-    },
-    {
-      "dice": 0.890448,
-      "iou": 0.802529,
-      "accuracy": 0.925186,
-      "precision": 0.918376,
-      "recall": 0.864169,
-      "specificity": 0.958308
-    },
-    {
-      "dice": 0.928513,
-      "iou": 0.866565,
-      "accuracy": 0.941132,
-      "precision": 0.895653,
-      "recall": 0.963876,
-      "specificity": 0.92618
-    },
-    {
-      "dice": 0.813874,
-      "iou": 0.686162,
-      "accuracy": 0.779419,
-      "precision": 0.966397,
-      "recall": 0.702934,
-      "specificity": 0.94658
-    },
-    {
-      "dice": 0.663353,
-      "iou": 0.496282,
-      "accuracy": 0.6548,
-      "precision": 0.886736,
-      "recall": 0.52987,
-      "specificity": 0.878701
-    },
-    {
-      "dice": 0.652201,
-      "iou": 0.4839,
-      "accuracy": 0.602081,
-      "precision": 0.992974,
-      "recall": 0.485563,
-      "specificity": 0.988603
-    },
-    {
-      "dice": 0.572086,
-      "iou": 0.400645,
-      "accuracy": 0.421066,
-      "precision": 1.0,
-      "recall": 0.400645,
-      "specificity": 1.0
     },
     {
       "dice": 0.89968,
@@ -779,28 +483,12 @@
       "specificity": 0.996373
     },
     {
-      "dice": 0.863705,
-      "iou": 0.760107,
-      "accuracy": 0.872696,
-      "precision": 0.85711,
-      "recall": 0.870403,
-      "specificity": 0.874677
-    },
-    {
       "dice": 0.955182,
       "iou": 0.914208,
       "accuracy": 0.986954,
       "precision": 0.927706,
       "recall": 0.984334,
       "specificity": 0.987384
-    },
-    {
-      "dice": 0.662229,
-      "iou": 0.495025,
-      "accuracy": 0.852875,
-      "precision": 0.909984,
-      "recall": 0.520513,
-      "specificity": 0.980265
     },
     {
       "dice": 0.831168,
@@ -867,36 +555,12 @@
       "specificity": 0.933909
     },
     {
-      "dice": 0.947274,
-      "iou": 0.899829,
-      "accuracy": 0.990158,
-      "precision": 0.900808,
-      "recall": 0.998793,
-      "specificity": 0.98932
-    },
-    {
-      "dice": 0.909845,
-      "iou": 0.834601,
-      "accuracy": 0.971802,
-      "precision": 0.861114,
-      "recall": 0.964422,
-      "specificity": 0.973079
-    },
-    {
       "dice": 0.970041,
       "iou": 0.941825,
       "accuracy": 0.990738,
       "precision": 0.978298,
       "recall": 0.961922,
       "specificity": 0.996059
-    },
-    {
-      "dice": 0.737985,
-      "iou": 0.584767,
-      "accuracy": 0.820312,
-      "precision": 0.597041,
-      "recall": 0.966039,
-      "specificity": 0.768591
     },
     {
       "dice": 0.950247,
@@ -931,38 +595,6 @@
       "specificity": 0.990442
     },
     {
-      "dice": 0.723454,
-      "iou": 0.566727,
-      "accuracy": 0.880066,
-      "precision": 0.999028,
-      "recall": 0.56704,
-      "specificity": 0.999789
-    },
-    {
-      "dice": 0.865356,
-      "iou": 0.762668,
-      "accuracy": 0.861923,
-      "precision": 0.950822,
-      "recall": 0.793988,
-      "specificity": 0.94798
-    },
-    {
-      "dice": 0.861208,
-      "iou": 0.756247,
-      "accuracy": 0.950134,
-      "precision": 0.76677,
-      "recall": 0.982176,
-      "specificity": 0.944144
-    },
-    {
-      "dice": 0.617498,
-      "iou": 0.446653,
-      "accuracy": 0.778259,
-      "precision": 0.556901,
-      "recall": 0.692894,
-      "specificity": 0.807991
-    },
-    {
       "dice": 0.94261,
       "iou": 0.891449,
       "accuracy": 0.967148,
@@ -985,14 +617,6 @@
       "precision": 0.923447,
       "recall": 0.994557,
       "specificity": 0.982993
-    },
-    {
-      "dice": 0.755095,
-      "iou": 0.606549,
-      "accuracy": 0.920242,
-      "precision": 0.829268,
-      "recall": 0.693102,
-      "specificity": 0.969226
     },
     {
       "dice": 0.968553,
@@ -1019,60 +643,12 @@
       "specificity": 0.98492
     },
     {
-      "dice": 0.89903,
-      "iou": 0.81658,
-      "accuracy": 0.987137,
-      "precision": 0.995491,
-      "recall": 0.819611,
-      "specificity": 0.999721
-    },
-    {
-      "dice": 0.640351,
-      "iou": 0.470968,
-      "accuracy": 0.997498,
-      "precision": 0.470968,
-      "recall": 1.0,
-      "specificity": 0.997492
-    },
-    {
-      "dice": 0.892355,
-      "iou": 0.805632,
-      "accuracy": 0.994629,
-      "precision": 0.805632,
-      "recall": 1.0,
-      "specificity": 0.994507
-    },
-    {
-      "dice": 0.86851,
-      "iou": 0.76758,
-      "accuracy": 0.994049,
-      "precision": 1.0,
-      "recall": 0.76758,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.784276,
-      "iou": 0.64511,
-      "accuracy": 0.986267,
-      "precision": 0.946212,
-      "recall": 0.669668,
-      "specificity": 0.998526
-    },
-    {
       "dice": 0.955775,
       "iou": 0.915296,
       "accuracy": 0.997406,
       "precision": 0.932487,
       "recall": 0.980256,
       "specificity": 0.997911
-    },
-    {
-      "dice": 0.202633,
-      "iou": 0.112739,
-      "accuracy": 0.94548,
-      "precision": 0.11656,
-      "recall": 0.774744,
-      "specificity": 0.947021
     },
     {
       "dice": 0.908611,
@@ -1115,14 +691,6 @@
       "specificity": 0.98469
     },
     {
-      "dice": 0.862782,
-      "iou": 0.758677,
-      "accuracy": 0.981964,
-      "precision": 0.758677,
-      "recall": 1.0,
-      "specificity": 0.98088
-    },
-    {
       "dice": 0.915954,
       "iou": 0.844941,
       "accuracy": 0.97374,
@@ -1147,28 +715,12 @@
       "specificity": 0.974814
     },
     {
-      "dice": 0.899231,
-      "iou": 0.816912,
-      "accuracy": 0.934387,
-      "precision": 0.818376,
-      "recall": 0.997816,
-      "specificity": 0.90805
-    },
-    {
       "dice": 0.96916,
       "iou": 0.940166,
       "accuracy": 0.988312,
       "precision": 0.94068,
       "recall": 0.999419,
       "specificity": 0.985811
-    },
-    {
-      "dice": 0.883185,
-      "iou": 0.790806,
-      "accuracy": 0.948059,
-      "precision": 0.790806,
-      "recall": 1.0,
-      "specificity": 0.935369
     },
     {
       "dice": 0.970751,
@@ -1185,14 +737,6 @@
       "precision": 0.856795,
       "recall": 0.995882,
       "specificity": 0.963995
-    },
-    {
-      "dice": 0.903445,
-      "iou": 0.823893,
-      "accuracy": 0.959625,
-      "precision": 0.823893,
-      "recall": 1.0,
-      "specificity": 0.950223
     },
     {
       "dice": 0.878536,
@@ -1217,14 +761,6 @@
       "precision": 0.847848,
       "recall": 1.0,
       "specificity": 0.858744
-    },
-    {
-      "dice": 0.906161,
-      "iou": 0.828422,
-      "accuracy": 0.981964,
-      "precision": 0.828542,
-      "recall": 0.999825,
-      "specificity": 0.98026
     },
     {
       "dice": 0.795167,
@@ -1259,14 +795,6 @@
       "specificity": 0.969236
     },
     {
-      "dice": 0.875822,
-      "iou": 0.779077,
-      "accuracy": 0.983856,
-      "precision": 0.779077,
-      "recall": 1.0,
-      "specificity": 0.982882
-    },
-    {
       "dice": 0.908559,
       "iou": 0.83244,
       "accuracy": 0.960892,
@@ -1283,36 +811,12 @@
       "specificity": 0.967495
     },
     {
-      "dice": 0.859757,
-      "iou": 0.754012,
-      "accuracy": 0.987839,
-      "precision": 0.754012,
-      "recall": 1.0,
-      "specificity": 0.987368
-    },
-    {
       "dice": 0.95179,
       "iou": 0.908014,
       "accuracy": 0.989456,
       "precision": 0.913731,
       "recall": 0.993157,
       "specificity": 0.989023
-    },
-    {
-      "dice": 0.607117,
-      "iou": 0.435871,
-      "accuracy": 0.807114,
-      "precision": 0.439638,
-      "recall": 0.980721,
-      "specificity": 0.776004
-    },
-    {
-      "dice": 0.839112,
-      "iou": 0.722819,
-      "accuracy": 0.966507,
-      "precision": 0.981818,
-      "recall": 0.732625,
-      "specificity": 0.998164
     },
     {
       "dice": 0.943296,
@@ -1323,28 +827,12 @@
       "specificity": 0.980327
     },
     {
-      "dice": 0.81238,
-      "iou": 0.684041,
-      "accuracy": 0.983536,
-      "precision": 0.684241,
-      "recall": 0.999572,
-      "specificity": 0.982943
-    },
-    {
       "dice": 0.959125,
       "iou": 0.92146,
       "accuracy": 0.983353,
       "precision": 0.92146,
       "recall": 1.0,
       "specificity": 0.979312
-    },
-    {
-      "dice": 0.639523,
-      "iou": 0.470072,
-      "accuracy": 0.832214,
-      "precision": 0.470072,
-      "recall": 1.0,
-      "specificity": 0.802875
     },
     {
       "dice": 0.92602,
@@ -1379,44 +867,12 @@
       "specificity": 0.993024
     },
     {
-      "dice": 0.907026,
-      "iou": 0.829869,
-      "accuracy": 0.883469,
-      "precision": 0.958497,
-      "recall": 0.8608,
-      "specificity": 0.927538
-    },
-    {
-      "dice": 0.768958,
-      "iou": 0.62464,
-      "accuracy": 0.721344,
-      "precision": 0.727503,
-      "recall": 0.815423,
-      "specificity": 0.597304
-    },
-    {
-      "dice": 0.908822,
-      "iou": 0.832881,
-      "accuracy": 0.955795,
-      "precision": 0.832881,
-      "recall": 1.0,
-      "specificity": 0.943305
-    },
-    {
       "dice": 0.983659,
       "iou": 0.967843,
       "accuracy": 0.983658,
       "precision": 0.993466,
       "recall": 0.974043,
       "specificity": 0.993465
-    },
-    {
-      "dice": 0.789204,
-      "iou": 0.651806,
-      "accuracy": 0.832794,
-      "precision": 0.652034,
-      "recall": 0.999464,
-      "specificity": 0.756798
     },
     {
       "dice": 0.940548,
@@ -1441,22 +897,6 @@
       "precision": 0.987698,
       "recall": 0.826471,
       "specificity": 0.969353
-    },
-    {
-      "dice": 0.622097,
-      "iou": 0.451481,
-      "accuracy": 0.535446,
-      "precision": 0.451481,
-      "recall": 1.0,
-      "specificity": 0.247844
-    },
-    {
-      "dice": 0.803279,
-      "iou": 0.671233,
-      "accuracy": 0.95752,
-      "precision": 0.671233,
-      "recall": 1.0,
-      "specificity": 0.953485
     },
     {
       "dice": 0.978603,
@@ -1499,36 +939,12 @@
       "specificity": 0.912764
     },
     {
-      "dice": 0.868765,
-      "iou": 0.76798,
-      "accuracy": 0.859161,
-      "precision": 0.78354,
-      "recall": 0.974793,
-      "specificity": 0.75318
-    },
-    {
       "dice": 0.952944,
       "iou": 0.910118,
       "accuracy": 0.962479,
       "precision": 0.991557,
       "recall": 0.917225,
       "specificity": 0.994478
-    },
-    {
-      "dice": 0.875627,
-      "iou": 0.778769,
-      "accuracy": 0.864853,
-      "precision": 0.780914,
-      "recall": 0.996484,
-      "specificity": 0.744598
-    },
-    {
-      "dice": 0.860519,
-      "iou": 0.755185,
-      "accuracy": 0.912643,
-      "precision": 0.75794,
-      "recall": 0.99521,
-      "specificity": 0.881986
     },
     {
       "dice": 0.927961,
@@ -1555,22 +971,6 @@
       "specificity": 0.987739
     },
     {
-      "dice": 0.654488,
-      "iou": 0.486423,
-      "accuracy": 0.608658,
-      "precision": 0.486423,
-      "recall": 1.0,
-      "specificity": 0.378179
-    },
-    {
-      "dice": 0.840855,
-      "iou": 0.72541,
-      "accuracy": 0.948883,
-      "precision": 0.899756,
-      "recall": 0.789192,
-      "specificity": 0.981849
-    },
-    {
       "dice": 0.976281,
       "iou": 0.953661,
       "accuracy": 0.982956,
@@ -1585,22 +985,6 @@
       "precision": 0.854882,
       "recall": 0.999913,
       "specificity": 0.811041
-    },
-    {
-      "dice": 0.904594,
-      "iou": 0.825806,
-      "accuracy": 0.959625,
-      "precision": 0.826405,
-      "recall": 0.999124,
-      "specificity": 0.950265
-    },
-    {
-      "dice": 0.880958,
-      "iou": 0.787244,
-      "accuracy": 0.956787,
-      "precision": 0.787244,
-      "recall": 1.0,
-      "specificity": 0.948562
     },
     {
       "dice": 0.95361,
@@ -1635,14 +1019,6 @@
       "specificity": 0.992764
     },
     {
-      "dice": 0.904199,
-      "iou": 0.825149,
-      "accuracy": 0.977615,
-      "precision": 0.825149,
-      "recall": 1.0,
-      "specificity": 0.974971
-    },
-    {
       "dice": 0.957549,
       "iou": 0.918556,
       "accuracy": 0.953415,
@@ -1659,36 +1035,12 @@
       "specificity": 0.967531
     },
     {
-      "dice": 0.862013,
-      "iou": 0.75749,
-      "accuracy": 0.95961,
-      "precision": 0.75749,
-      "recall": 1.0,
-      "specificity": 0.953779
-    },
-    {
       "dice": 0.963857,
       "iou": 0.930235,
       "accuracy": 0.944519,
       "precision": 0.950963,
       "recall": 0.977105,
       "specificity": 0.842945
-    },
-    {
-      "dice": 0.915422,
-      "iou": 0.844035,
-      "accuracy": 0.968201,
-      "precision": 0.890345,
-      "recall": 0.941953,
-      "specificity": 0.974068
-    },
-    {
-      "dice": 0.920751,
-      "iou": 0.85314,
-      "accuracy": 0.955688,
-      "precision": 0.99793,
-      "recall": 0.854653,
-      "specificity": 0.999236
     },
     {
       "dice": 0.90835,
@@ -1771,14 +1123,6 @@
       "specificity": 0.955348
     },
     {
-      "dice": 0.910985,
-      "iou": 0.836523,
-      "accuracy": 0.956329,
-      "precision": 0.836523,
-      "recall": 1.0,
-      "specificity": 0.943762
-    },
-    {
       "dice": 0.968637,
       "iou": 0.939182,
       "accuracy": 0.988205,
@@ -1817,14 +1161,6 @@
       "precision": 0.857156,
       "recall": 0.998671,
       "specificity": 0.932988
-    },
-    {
-      "dice": 0.947766,
-      "iou": 0.900718,
-      "accuracy": 0.996201,
-      "precision": 0.903239,
-      "recall": 0.996911,
-      "specificity": 0.996175
     },
     {
       "dice": 0.923624,
@@ -1891,14 +1227,6 @@
       "specificity": 0.976569
     },
     {
-      "dice": 0.878355,
-      "iou": 0.783096,
-      "accuracy": 0.894547,
-      "precision": 0.979085,
-      "recall": 0.796419,
-      "specificity": 0.984418
-    },
-    {
       "dice": 0.940603,
       "iou": 0.887866,
       "accuracy": 0.965424,
@@ -1915,52 +1243,12 @@
       "specificity": 0.941874
     },
     {
-      "dice": 0.873478,
-      "iou": 0.775376,
-      "accuracy": 0.956238,
-      "precision": 0.775376,
-      "recall": 1.0,
-      "specificity": 0.948451
-    },
-    {
-      "dice": 0.850146,
-      "iou": 0.739351,
-      "accuracy": 0.826889,
-      "precision": 0.739504,
-      "recall": 0.99972,
-      "specificity": 0.660049
-    },
-    {
-      "dice": 0.869136,
-      "iou": 0.768559,
-      "accuracy": 0.961182,
-      "precision": 0.768559,
-      "recall": 1.0,
-      "specificity": 0.955437
-    },
-    {
       "dice": 0.928588,
       "iou": 0.866695,
       "accuracy": 0.976242,
       "precision": 0.866695,
       "recall": 1.0,
       "specificity": 0.971902
-    },
-    {
-      "dice": 0.912661,
-      "iou": 0.839354,
-      "accuracy": 0.974823,
-      "precision": 0.839354,
-      "recall": 1.0,
-      "specificity": 0.971009
-    },
-    {
-      "dice": 0.861714,
-      "iou": 0.757027,
-      "accuracy": 0.976654,
-      "precision": 0.757027,
-      "recall": 1.0,
-      "specificity": 0.974823
     },
     {
       "dice": 0.932062,
@@ -1993,22 +1281,6 @@
       "precision": 0.901131,
       "recall": 1.0,
       "specificity": 0.917881
-    },
-    {
-      "dice": 0.902754,
-      "iou": 0.822745,
-      "accuracy": 0.980118,
-      "precision": 0.822745,
-      "recall": 1.0,
-      "specificity": 0.978096
-    },
-    {
-      "dice": 0.906846,
-      "iou": 0.829568,
-      "accuracy": 0.972717,
-      "precision": 0.829568,
-      "recall": 1.0,
-      "specificity": 0.968539
     },
     {
       "dice": 0.923749,
@@ -2075,22 +1347,6 @@
       "specificity": 0.9906
     },
     {
-      "dice": 0.888454,
-      "iou": 0.799296,
-      "accuracy": 0.904282,
-      "precision": 0.802893,
-      "recall": 0.994427,
-      "specificity": 0.848246
-    },
-    {
-      "dice": 0.89562,
-      "iou": 0.810971,
-      "accuracy": 0.930069,
-      "precision": 0.958281,
-      "recall": 0.840652,
-      "specificity": 0.97969
-    },
-    {
       "dice": 0.948388,
       "iou": 0.901841,
       "accuracy": 0.966812,
@@ -2123,14 +1379,6 @@
       "specificity": 0.980276
     },
     {
-      "dice": 0.915148,
-      "iou": 0.84357,
-      "accuracy": 0.973068,
-      "precision": 0.84357,
-      "recall": 1.0,
-      "specificity": 0.968492
-    },
-    {
       "dice": 0.94635,
       "iou": 0.898164,
       "accuracy": 0.963181,
@@ -2155,22 +1403,6 @@
       "specificity": 0.826555
     },
     {
-      "dice": 0.892886,
-      "iou": 0.806499,
-      "accuracy": 0.954025,
-      "precision": 0.806499,
-      "recall": 1.0,
-      "specificity": 0.943127
-    },
-    {
-      "dice": 0.909754,
-      "iou": 0.834448,
-      "accuracy": 0.987152,
-      "precision": 0.834448,
-      "recall": 1.0,
-      "specificity": 0.986263
-    },
-    {
       "dice": 0.96905,
       "iou": 0.939958,
       "accuracy": 0.987442,
@@ -2193,14 +1425,6 @@
       "precision": 0.993949,
       "recall": 0.938403,
       "specificity": 0.997467
-    },
-    {
-      "dice": 0.929749,
-      "iou": 0.86872,
-      "accuracy": 0.96846,
-      "precision": 0.999562,
-      "recall": 0.869051,
-      "specificity": 0.99988
     },
     {
       "dice": 0.942951,
@@ -2243,14 +1467,6 @@
       "specificity": 0.971932
     },
     {
-      "dice": 0.902685,
-      "iou": 0.82263,
-      "accuracy": 0.929367,
-      "precision": 0.986536,
-      "recall": 0.831971,
-      "specificity": 0.992625
-    },
-    {
       "dice": 0.945178,
       "iou": 0.896054,
       "accuracy": 0.980545,
@@ -2275,36 +1491,12 @@
       "specificity": 0.976949
     },
     {
-      "dice": 0.847827,
-      "iou": 0.73585,
-      "accuracy": 0.77298,
-      "precision": 0.73585,
-      "recall": 1.0,
-      "specificity": 0.382399
-    },
-    {
       "dice": 0.948475,
       "iou": 0.902,
       "accuracy": 0.976593,
       "precision": 0.902,
       "recall": 1.0,
       "specificity": 0.970165
-    },
-    {
-      "dice": 0.898195,
-      "iou": 0.815203,
-      "accuracy": 0.942093,
-      "precision": 0.817073,
-      "recall": 0.9972,
-      "specificity": 0.923115
-    },
-    {
-      "dice": 0.837035,
-      "iou": 0.719742,
-      "accuracy": 0.725571,
-      "precision": 0.990139,
-      "recall": 0.724938,
-      "specificity": 0.747669
     },
     {
       "dice": 0.964247,
@@ -2371,14 +1563,6 @@
       "specificity": 0.983853
     },
     {
-      "dice": 0.83369,
-      "iou": 0.71481,
-      "accuracy": 0.976288,
-      "precision": 0.71481,
-      "recall": 1.0,
-      "specificity": 0.97479
-    },
-    {
       "dice": 0.9585,
       "iou": 0.920307,
       "accuracy": 0.962479,
@@ -2425,30 +1609,6 @@
       "precision": 0.884094,
       "recall": 1.0,
       "specificity": 0.936755
-    },
-    {
-      "dice": 0.929201,
-      "iou": 0.867764,
-      "accuracy": 0.940811,
-      "precision": 0.869573,
-      "recall": 0.997609,
-      "specificity": 0.904598
-    },
-    {
-      "dice": 0.937181,
-      "iou": 0.881788,
-      "accuracy": 0.980667,
-      "precision": 0.881788,
-      "recall": 1.0,
-      "specificity": 0.977409
-    },
-    {
-      "dice": 0.894845,
-      "iou": 0.8097,
-      "accuracy": 0.965515,
-      "precision": 0.8097,
-      "recall": 1.0,
-      "specificity": 0.959585
     },
     {
       "dice": 0.949235,
@@ -2523,30 +1683,6 @@
       "specificity": 0.939306
     },
     {
-      "dice": 0.873702,
-      "iou": 0.775729,
-      "accuracy": 0.863068,
-      "precision": 0.969334,
-      "recall": 0.795245,
-      "specificity": 0.962949
-    },
-    {
-      "dice": 0.831129,
-      "iou": 0.711053,
-      "accuracy": 0.959869,
-      "precision": 0.711053,
-      "recall": 1.0,
-      "specificity": 0.955472
-    },
-    {
-      "dice": 0.816865,
-      "iou": 0.690424,
-      "accuracy": 0.955063,
-      "precision": 0.690424,
-      "recall": 1.0,
-      "specificity": 0.950058
-    },
-    {
       "dice": 0.987029,
       "iou": 0.974391,
       "accuracy": 0.978836,
@@ -2593,14 +1729,6 @@
       "precision": 0.888573,
       "recall": 0.997005,
       "specificity": 0.976552
-    },
-    {
-      "dice": 0.862898,
-      "iou": 0.758857,
-      "accuracy": 0.946823,
-      "precision": 0.758857,
-      "recall": 1.0,
-      "specificity": 0.936136
     },
     {
       "dice": 0.952697,
@@ -2683,14 +1811,6 @@
       "specificity": 0.975848
     },
     {
-      "dice": 0.928762,
-      "iou": 0.866999,
-      "accuracy": 0.95079,
-      "precision": 0.897268,
-      "recall": 0.962547,
-      "specificity": 0.944914
-    },
-    {
       "dice": 0.932594,
       "iou": 0.873701,
       "accuracy": 0.979416,
@@ -2713,14 +1833,6 @@
       "precision": 0.820135,
       "recall": 1.0,
       "specificity": 0.986146
-    },
-    {
-      "dice": 0.909962,
-      "iou": 0.834798,
-      "accuracy": 0.988525,
-      "precision": 0.834798,
-      "recall": 1.0,
-      "specificity": 0.987819
     },
     {
       "dice": 0.962315,
@@ -2747,14 +1859,6 @@
       "specificity": 0.896587
     },
     {
-      "dice": 0.313877,
-      "iou": 0.186153,
-      "accuracy": 0.40181,
-      "precision": 1.0,
-      "recall": 0.186153,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.923652,
       "iou": 0.858136,
       "accuracy": 0.986298,
@@ -2763,28 +1867,12 @@
       "specificity": 0.985059
     },
     {
-      "dice": 0.899098,
-      "iou": 0.816693,
-      "accuracy": 0.98378,
-      "precision": 0.816693,
-      "recall": 1.0,
-      "specificity": 0.982516
-    },
-    {
       "dice": 0.950923,
       "iou": 0.906438,
       "accuracy": 0.919861,
       "precision": 0.907521,
       "recall": 0.998685,
       "specificity": 0.644547
-    },
-    {
-      "dice": 0.895623,
-      "iou": 0.810976,
-      "accuracy": 0.986755,
-      "precision": 0.810976,
-      "recall": 1.0,
-      "specificity": 0.985957
     },
     {
       "dice": 0.932343,
@@ -2817,14 +1905,6 @@
       "precision": 0.886789,
       "recall": 1.0,
       "specificity": 0.976643
-    },
-    {
-      "dice": 0.930778,
-      "iou": 0.87052,
-      "accuracy": 0.936005,
-      "precision": 0.988016,
-      "recall": 0.879809,
-      "specificity": 0.989787
     },
     {
       "dice": 0.939979,
@@ -2899,22 +1979,6 @@
       "specificity": 0.993134
     },
     {
-      "dice": 0.937716,
-      "iou": 0.882736,
-      "accuracy": 0.982681,
-      "precision": 0.883101,
-      "recall": 0.999532,
-      "specificity": 0.980154
-    },
-    {
-      "dice": 0.899572,
-      "iou": 0.817475,
-      "accuracy": 0.984604,
-      "precision": 0.817475,
-      "recall": 1.0,
-      "specificity": 0.983464
-    },
-    {
       "dice": 0.946259,
       "iou": 0.897999,
       "accuracy": 0.960022,
@@ -2929,14 +1993,6 @@
       "precision": 0.947861,
       "recall": 0.911989,
       "specificity": 0.977242
-    },
-    {
-      "dice": 0.550448,
-      "iou": 0.379737,
-      "accuracy": 0.768982,
-      "precision": 0.996345,
-      "recall": 0.380267,
-      "specificity": 0.999174
     },
     {
       "dice": 0.924567,
@@ -2979,14 +2035,6 @@
       "specificity": 0.924468
     },
     {
-      "dice": 0.434903,
-      "iou": 0.277876,
-      "accuracy": 0.576065,
-      "precision": 1.0,
-      "recall": 0.277876,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.939512,
       "iou": 0.885925,
       "accuracy": 0.965546,
@@ -3009,14 +2057,6 @@
       "precision": 0.899993,
       "recall": 0.991594,
       "specificity": 0.974963
-    },
-    {
-      "dice": 0.922316,
-      "iou": 0.855832,
-      "accuracy": 0.965469,
-      "precision": 1.0,
-      "recall": 0.855832,
-      "specificity": 1.0
     },
     {
       "dice": 0.939456,
@@ -3043,28 +2083,12 @@
       "specificity": 0.932098
     },
     {
-      "dice": 0.722838,
-      "iou": 0.565972,
-      "accuracy": 0.892838,
-      "precision": 0.565972,
-      "recall": 1.0,
-      "specificity": 0.87543
-    },
-    {
       "dice": 0.971694,
       "iou": 0.944946,
       "accuracy": 0.976944,
       "precision": 0.951778,
       "recall": 0.992461,
       "specificity": 0.966653
-    },
-    {
-      "dice": 0.917477,
-      "iou": 0.847536,
-      "accuracy": 0.89888,
-      "precision": 0.888822,
-      "recall": 0.948042,
-      "specificity": 0.827273
     },
     {
       "dice": 0.96798,
@@ -3083,28 +2107,12 @@
       "specificity": 0.988492
     },
     {
-      "dice": 0.88156,
-      "iou": 0.788206,
-      "accuracy": 0.872314,
-      "precision": 0.81099,
-      "recall": 0.965584,
-      "specificity": 0.781937
-    },
-    {
       "dice": 0.923754,
       "iou": 0.858312,
       "accuracy": 0.983093,
       "precision": 0.859851,
       "recall": 0.997919,
       "specificity": 0.981398
-    },
-    {
-      "dice": 0.90349,
-      "iou": 0.823969,
-      "accuracy": 0.946503,
-      "precision": 0.835676,
-      "recall": 0.983283,
-      "specificity": 0.933935
     },
     {
       "dice": 0.917903,
@@ -3211,28 +2219,12 @@
       "specificity": 0.967748
     },
     {
-      "dice": 0.481292,
-      "iou": 0.316909,
-      "accuracy": 0.653503,
-      "precision": 0.979271,
-      "recall": 0.319049,
-      "specificity": 0.993142
-    },
-    {
       "dice": 0.937258,
       "iou": 0.881925,
       "accuracy": 0.953491,
       "precision": 0.881925,
       "recall": 1.0,
       "specificity": 0.928735
-    },
-    {
-      "dice": 0.898208,
-      "iou": 0.815224,
-      "accuracy": 0.937256,
-      "precision": 0.815224,
-      "recall": 1.0,
-      "specificity": 0.913238
     },
     {
       "dice": 0.940086,
@@ -3275,14 +2267,6 @@
       "specificity": 0.873229
     },
     {
-      "dice": 0.91833,
-      "iou": 0.848992,
-      "accuracy": 0.958038,
-      "precision": 0.961385,
-      "recall": 0.878965,
-      "specificity": 0.987048
-    },
-    {
       "dice": 0.913424,
       "iou": 0.840644,
       "accuracy": 0.938858,
@@ -3313,14 +2297,6 @@
       "precision": 0.813947,
       "recall": 0.999655,
       "specificity": 0.977801
-    },
-    {
-      "dice": 0.939302,
-      "iou": 0.885551,
-      "accuracy": 0.986282,
-      "precision": 0.93219,
-      "recall": 0.946523,
-      "specificity": 0.991304
     },
     {
       "dice": 0.913599,
@@ -3355,22 +2331,6 @@
       "specificity": 0.952131
     },
     {
-      "dice": 0.907319,
-      "iou": 0.830361,
-      "accuracy": 0.959946,
-      "precision": 0.830361,
-      "recall": 1.0,
-      "specificity": 0.950177
-    },
-    {
-      "dice": 0.897227,
-      "iou": 0.813609,
-      "accuracy": 0.923553,
-      "precision": 0.842022,
-      "recall": 0.960177,
-      "specificity": 0.904046
-    },
-    {
       "dice": 0.932681,
       "iou": 0.873853,
       "accuracy": 0.990768,
@@ -3385,14 +2345,6 @@
       "precision": 0.907047,
       "recall": 0.999968,
       "specificity": 0.906507
-    },
-    {
-      "dice": 0.904608,
-      "iou": 0.825831,
-      "accuracy": 0.970184,
-      "precision": 0.834159,
-      "recall": 0.988056,
-      "specificity": 0.9672
     },
     {
       "dice": 0.947655,
@@ -3459,22 +2411,6 @@
       "specificity": 0.973164
     },
     {
-      "dice": 0.91378,
-      "iou": 0.841248,
-      "accuracy": 0.973221,
-      "precision": 0.841248,
-      "recall": 1.0,
-      "specificity": 0.968792
-    },
-    {
-      "dice": 0.92019,
-      "iou": 0.852177,
-      "accuracy": 0.95224,
-      "precision": 0.90496,
-      "recall": 0.935941,
-      "specificity": 0.959033
-    },
-    {
       "dice": 0.911044,
       "iou": 0.836621,
       "accuracy": 0.927841,
@@ -3483,68 +2419,12 @@
       "specificity": 0.885616
     },
     {
-      "dice": 0.891271,
-      "iou": 0.803867,
-      "accuracy": 0.958359,
-      "precision": 0.97337,
-      "recall": 0.821943,
-      "specificity": 0.994107
-    },
-    {
-      "dice": 0.944051,
-      "iou": 0.894032,
-      "accuracy": 0.986969,
-      "precision": 0.994342,
-      "recall": 0.898603,
-      "specificity": 0.999287
-    },
-    {
       "dice": 0.965715,
       "iou": 0.933703,
       "accuracy": 0.988876,
       "precision": 0.934298,
       "recall": 0.999319,
       "specificity": 0.986935
-    },
-    {
-      "dice": 0.862284,
-      "iou": 0.757908,
-      "accuracy": 0.79155,
-      "precision": 0.958129,
-      "recall": 0.783871,
-      "specificity": 0.829719
-    },
-    {
-      "dice": 0.857524,
-      "iou": 0.750583,
-      "accuracy": 0.968994,
-      "precision": 0.750952,
-      "recall": 0.999346,
-      "specificity": 0.965868
-    },
-    {
-      "dice": 0.861175,
-      "iou": 0.756195,
-      "accuracy": 0.954514,
-      "precision": 0.756195,
-      "recall": 1.0,
-      "specificity": 0.947042
-    },
-    {
-      "dice": 0.82897,
-      "iou": 0.707898,
-      "accuracy": 0.948364,
-      "precision": 0.787952,
-      "recall": 0.874493,
-      "specificity": 0.9607
-    },
-    {
-      "dice": 0.796389,
-      "iou": 0.661667,
-      "accuracy": 0.948715,
-      "precision": 0.900781,
-      "recall": 0.713681,
-      "specificity": 0.987146
     },
     {
       "dice": 0.966596,
@@ -3561,30 +2441,6 @@
       "precision": 0.903336,
       "recall": 1.0,
       "specificity": 0.95802
-    },
-    {
-      "dice": 0.770464,
-      "iou": 0.62663,
-      "accuracy": 0.839676,
-      "precision": 0.62663,
-      "recall": 1.0,
-      "specificity": 0.780656
-    },
-    {
-      "dice": 0.875358,
-      "iou": 0.778343,
-      "accuracy": 0.97673,
-      "precision": 0.778343,
-      "recall": 1.0,
-      "specificity": 0.97466
-    },
-    {
-      "dice": 0.861144,
-      "iou": 0.756148,
-      "accuracy": 0.867599,
-      "precision": 0.760099,
-      "recall": 0.993171,
-      "specificity": 0.779113
     },
     {
       "dice": 0.962215,
@@ -3619,22 +2475,6 @@
       "specificity": 0.976417
     },
     {
-      "dice": 0.755101,
-      "iou": 0.606556,
-      "accuracy": 0.862274,
-      "precision": 0.947243,
-      "recall": 0.627763,
-      "specificity": 0.982131
-    },
-    {
-      "dice": 0.827955,
-      "iou": 0.70642,
-      "accuracy": 0.715088,
-      "precision": 0.999644,
-      "recall": 0.706597,
-      "specificity": 0.991799
-    },
-    {
       "dice": 0.942912,
       "iou": 0.89199,
       "accuracy": 0.94928,
@@ -3659,14 +2499,6 @@
       "specificity": 0.97331
     },
     {
-      "dice": 0.683204,
-      "iou": 0.518838,
-      "accuracy": 0.981293,
-      "precision": 0.518838,
-      "recall": 1.0,
-      "specificity": 0.980908
-    },
-    {
       "dice": 0.865979,
       "iou": 0.763636,
       "accuracy": 0.946045,
@@ -3675,28 +2507,12 @@
       "specificity": 1.0
     },
     {
-      "dice": 0.791512,
-      "iou": 0.654961,
-      "accuracy": 0.918442,
-      "precision": 0.985527,
-      "recall": 0.661322,
-      "specificity": 0.997032
-    },
-    {
       "dice": 0.901134,
       "iou": 0.820059,
       "accuracy": 0.955185,
       "precision": 0.823743,
       "recall": 0.994576,
       "specificity": 0.945006
-    },
-    {
-      "dice": 0.877248,
-      "iou": 0.781337,
-      "accuracy": 0.967712,
-      "precision": 0.790734,
-      "recall": 0.985018,
-      "specificity": 0.965417
     },
     {
       "dice": 0.928334,
@@ -3739,52 +2555,12 @@
       "specificity": 0.993068
     },
     {
-      "dice": 0.804015,
-      "iou": 0.672262,
-      "accuracy": 0.927307,
-      "precision": 1.0,
-      "recall": 0.672262,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.818906,
-      "iou": 0.693346,
-      "accuracy": 0.925812,
-      "precision": 0.693346,
-      "recall": 1.0,
-      "specificity": 0.910859
-    },
-    {
       "dice": 0.96322,
       "iou": 0.929049,
       "accuracy": 0.967285,
       "precision": 0.932505,
       "recall": 0.996026,
       "specificity": 0.945596
-    },
-    {
-      "dice": 0.462503,
-      "iou": 0.300816,
-      "accuracy": 0.653427,
-      "precision": 0.830599,
-      "recall": 0.320478,
-      "specificity": 0.943129
-    },
-    {
-      "dice": 0.832328,
-      "iou": 0.712809,
-      "accuracy": 0.797745,
-      "precision": 0.850961,
-      "recall": 0.814493,
-      "specificity": 0.77084
-    },
-    {
-      "dice": 0.640673,
-      "iou": 0.471317,
-      "accuracy": 0.902267,
-      "precision": 0.995814,
-      "recall": 0.472252,
-      "specificity": 0.999551
     },
     {
       "dice": 0.944123,
@@ -3795,52 +2571,12 @@
       "specificity": 0.946178
     },
     {
-      "dice": 0.888054,
-      "iou": 0.798649,
-      "accuracy": 0.953156,
-      "precision": 0.798649,
-      "recall": 1.0,
-      "specificity": 0.942465
-    },
-    {
-      "dice": 0.884581,
-      "iou": 0.793048,
-      "accuracy": 0.992096,
-      "precision": 0.793048,
-      "recall": 1.0,
-      "specificity": 0.991849
-    },
-    {
       "dice": 0.96549,
       "iou": 0.933283,
       "accuracy": 0.963913,
       "precision": 0.937806,
       "recall": 0.994858,
       "specificity": 0.932036
-    },
-    {
-      "dice": 0.799085,
-      "iou": 0.665397,
-      "accuracy": 0.878052,
-      "precision": 0.730243,
-      "recall": 0.882258,
-      "specificity": 0.876457
-    },
-    {
-      "dice": 0.925922,
-      "iou": 0.862063,
-      "accuracy": 0.988388,
-      "precision": 0.877005,
-      "recall": 0.980619,
-      "specificity": 0.989009
-    },
-    {
-      "dice": 0.878032,
-      "iou": 0.782582,
-      "accuracy": 0.978363,
-      "precision": 0.782582,
-      "recall": 1.0,
-      "specificity": 0.976536
     },
     {
       "dice": 0.919131,
@@ -3857,22 +2593,6 @@
       "precision": 0.914533,
       "recall": 0.996567,
       "specificity": 0.909324
-    },
-    {
-      "dice": 0.894046,
-      "iou": 0.808394,
-      "accuracy": 0.944687,
-      "precision": 0.892767,
-      "recall": 0.895328,
-      "specificity": 0.962088
-    },
-    {
-      "dice": 0.686028,
-      "iou": 0.522102,
-      "accuracy": 0.820023,
-      "precision": 0.535044,
-      "recall": 0.955722,
-      "specificity": 0.784873
     },
     {
       "dice": 0.961556,
@@ -3907,22 +2627,6 @@
       "specificity": 0.960791
     },
     {
-      "dice": 0.86348,
-      "iou": 0.759758,
-      "accuracy": 0.974548,
-      "precision": 0.91263,
-      "recall": 0.819354,
-      "specificity": 0.991455
-    },
-    {
-      "dice": 0.916131,
-      "iou": 0.845242,
-      "accuracy": 0.887497,
-      "precision": 0.977711,
-      "recall": 0.861848,
-      "specificity": 0.951201
-    },
-    {
       "dice": 0.936204,
       "iou": 0.880061,
       "accuracy": 0.981873,
@@ -3931,124 +2635,12 @@
       "specificity": 0.979092
     },
     {
-      "dice": 0.56999,
-      "iou": 0.398591,
-      "accuracy": 0.456635,
-      "precision": 0.953075,
-      "recall": 0.40657,
-      "specificity": 0.844798
-    },
-    {
-      "dice": 0.88024,
-      "iou": 0.786098,
-      "accuracy": 0.84613,
-      "precision": 0.937941,
-      "recall": 0.829227,
-      "specificity": 0.88237
-    },
-    {
-      "dice": 0.256096,
-      "iou": 0.146852,
-      "accuracy": 0.30545,
-      "precision": 1.0,
-      "recall": 0.146852,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.32065,
-      "iou": 0.190937,
-      "accuracy": 0.23201,
-      "precision": 0.995975,
-      "recall": 0.191084,
-      "specificity": 0.985778
-    },
-    {
-      "dice": 0.816598,
-      "iou": 0.690043,
-      "accuracy": 0.910843,
-      "precision": 0.690043,
-      "recall": 1.0,
-      "specificity": 0.888764
-    },
-    {
-      "dice": 0.867864,
-      "iou": 0.766572,
-      "accuracy": 0.87056,
-      "precision": 0.766572,
-      "recall": 1.0,
-      "specificity": 0.774855
-    },
-    {
-      "dice": 0.889692,
-      "iou": 0.801302,
-      "accuracy": 0.946457,
-      "precision": 0.801302,
-      "recall": 1.0,
-      "specificity": 0.931712
-    },
-    {
-      "dice": 0.729574,
-      "iou": 0.574275,
-      "accuracy": 0.893387,
-      "precision": 0.913452,
-      "recall": 0.60732,
-      "specificity": 0.982146
-    },
-    {
-      "dice": 0.749976,
-      "iou": 0.599969,
-      "accuracy": 0.880936,
-      "precision": 0.98328,
-      "recall": 0.606153,
-      "specificity": 0.995695
-    },
-    {
       "dice": 0.963816,
       "iou": 0.930158,
       "accuracy": 0.984268,
       "precision": 0.932496,
       "recall": 0.997313,
       "specificity": 0.980799
-    },
-    {
-      "dice": 0.924391,
-      "iou": 0.859412,
-      "accuracy": 0.970154,
-      "precision": 0.859412,
-      "recall": 1.0,
-      "specificity": 0.963493
-    },
-    {
-      "dice": 0.855806,
-      "iou": 0.747956,
-      "accuracy": 0.902649,
-      "precision": 0.997524,
-      "recall": 0.749347,
-      "specificity": 0.998833
-    },
-    {
-      "dice": 0.735013,
-      "iou": 0.581043,
-      "accuracy": 0.759689,
-      "precision": 0.946894,
-      "recall": 0.600616,
-      "specificity": 0.958005
-    },
-    {
-      "dice": 0.907737,
-      "iou": 0.831061,
-      "accuracy": 0.953857,
-      "precision": 0.884476,
-      "recall": 0.932255,
-      "specificity": 0.96081
-    },
-    {
-      "dice": 0.55326,
-      "iou": 0.382418,
-      "accuracy": 0.612381,
-      "precision": 0.382418,
-      "recall": 1.0,
-      "specificity": 0.489961
     },
     {
       "dice": 0.942996,
@@ -4067,68 +2659,12 @@
       "specificity": 0.989626
     },
     {
-      "dice": 0.729855,
-      "iou": 0.574624,
-      "accuracy": 0.751282,
-      "precision": 0.767052,
-      "recall": 0.696099,
-      "specificity": 0.802767
-    },
-    {
-      "dice": 0.929782,
-      "iou": 0.868779,
-      "accuracy": 0.962265,
-      "precision": 0.87318,
-      "recall": 0.994231,
-      "specificity": 0.951537
-    },
-    {
       "dice": 0.935071,
       "iou": 0.878059,
       "accuracy": 0.995514,
       "precision": 0.899702,
       "recall": 0.973333,
       "specificity": 0.996275
-    },
-    {
-      "dice": 0.450552,
-      "iou": 0.290782,
-      "accuracy": 0.931671,
-      "precision": 0.290782,
-      "recall": 1.0,
-      "specificity": 0.929702
-    },
-    {
-      "dice": 0.787591,
-      "iou": 0.649608,
-      "accuracy": 0.880585,
-      "precision": 0.661816,
-      "recall": 0.972388,
-      "specificity": 0.853522
-    },
-    {
-      "dice": 0.803868,
-      "iou": 0.672057,
-      "accuracy": 0.935944,
-      "precision": 0.673636,
-      "recall": 0.996525,
-      "specificity": 0.926753
-    },
-    {
-      "dice": 0.456376,
-      "iou": 0.295652,
-      "accuracy": 0.494965,
-      "precision": 1.0,
-      "recall": 0.295652,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.328634,
-      "iou": 0.196626,
-      "accuracy": 0.579239,
-      "precision": 0.99793,
-      "recall": 0.196707,
-      "specificity": 0.999552
     },
     {
       "dice": 0.920587,
@@ -4155,52 +2691,12 @@
       "specificity": 0.964049
     },
     {
-      "dice": 0.899678,
-      "iou": 0.817649,
-      "accuracy": 0.958221,
-      "precision": 0.817649,
-      "recall": 1.0,
-      "specificity": 0.948591
-    },
-    {
-      "dice": 0.814391,
-      "iou": 0.686897,
-      "accuracy": 0.832565,
-      "precision": 0.715075,
-      "recall": 0.945745,
-      "specificity": 0.760691
-    },
-    {
-      "dice": 0.877683,
-      "iou": 0.782027,
-      "accuracy": 0.957733,
-      "precision": 0.782027,
-      "recall": 1.0,
-      "specificity": 0.950178
-    },
-    {
-      "dice": 0.906822,
-      "iou": 0.829529,
-      "accuracy": 0.978577,
-      "precision": 1.0,
-      "recall": 0.829529,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.920482,
       "iou": 0.852679,
       "accuracy": 0.994461,
       "precision": 0.867107,
       "recall": 0.980859,
       "specificity": 0.994921
-    },
-    {
-      "dice": 0.788388,
-      "iou": 0.650694,
-      "accuracy": 0.967743,
-      "precision": 0.650694,
-      "recall": 1.0,
-      "specificity": 0.965681
     },
     {
       "dice": 0.984742,
@@ -4219,60 +2715,12 @@
       "specificity": 0.986996
     },
     {
-      "dice": 0.382529,
-      "iou": 0.236498,
-      "accuracy": 0.765518,
-      "precision": 1.0,
-      "recall": 0.236498,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.899553,
       "iou": 0.817443,
       "accuracy": 0.886551,
       "precision": 0.856122,
       "recall": 0.947626,
       "specificity": 0.815978
-    },
-    {
-      "dice": 0.89096,
-      "iou": 0.803362,
-      "accuracy": 0.972687,
-      "precision": 0.806018,
-      "recall": 0.995914,
-      "specificity": 0.969756
-    },
-    {
-      "dice": 0.704664,
-      "iou": 0.544001,
-      "accuracy": 0.928207,
-      "precision": 0.544001,
-      "recall": 1.0,
-      "specificity": 0.921483
-    },
-    {
-      "dice": 0.334839,
-      "iou": 0.201085,
-      "accuracy": 0.752838,
-      "precision": 0.221432,
-      "recall": 0.686364,
-      "specificity": 0.759464
-    },
-    {
-      "dice": 0.55865,
-      "iou": 0.387588,
-      "accuracy": 0.65834,
-      "precision": 0.50973,
-      "recall": 0.617957,
-      "specificity": 0.680077
-    },
-    {
-      "dice": 0.888608,
-      "iou": 0.799545,
-      "accuracy": 0.985199,
-      "precision": 0.940219,
-      "recall": 0.842369,
-      "specificity": 0.995963
     },
     {
       "dice": 0.941059,
@@ -4283,22 +2731,6 @@
       "specificity": 0.988175
     },
     {
-      "dice": 0.922058,
-      "iou": 0.855387,
-      "accuracy": 0.993179,
-      "precision": 0.85705,
-      "recall": 0.997736,
-      "specificity": 0.992987
-    },
-    {
-      "dice": 0.807784,
-      "iou": 0.677549,
-      "accuracy": 0.973022,
-      "precision": 0.681902,
-      "recall": 0.990667,
-      "specificity": 0.971952
-    },
-    {
       "dice": 0.928606,
       "iou": 0.866728,
       "accuracy": 0.979965,
@@ -4307,68 +2739,12 @@
       "specificity": 0.976998
     },
     {
-      "dice": 0.551566,
-      "iou": 0.380802,
-      "accuracy": 0.480301,
-      "precision": 1.0,
-      "recall": 0.380802,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.884356,
-      "iou": 0.792686,
-      "accuracy": 0.987457,
-      "precision": 0.796503,
-      "recall": 0.993991,
-      "specificity": 0.987126
-    },
-    {
-      "dice": 0.441032,
-      "iou": 0.2829,
-      "accuracy": 0.691772,
-      "precision": 0.2829,
-      "recall": 1.0,
-      "specificity": 0.649105
-    },
-    {
-      "dice": 0.910298,
-      "iou": 0.835364,
-      "accuracy": 0.978973,
-      "precision": 0.836064,
-      "recall": 0.999,
-      "specificity": 0.976579
-    },
-    {
-      "dice": 0.905712,
-      "iou": 0.827672,
-      "accuracy": 0.977859,
-      "precision": 0.992311,
-      "recall": 0.833015,
-      "specificity": 0.999055
-    },
-    {
-      "dice": 0.805223,
-      "iou": 0.673953,
-      "accuracy": 0.885971,
-      "precision": 0.794558,
-      "recall": 0.816179,
-      "specificity": 0.91431
-    },
-    {
       "dice": 0.925881,
       "iou": 0.861991,
       "accuracy": 0.979645,
       "precision": 0.909408,
       "recall": 0.942961,
       "specificity": 0.985362
-    },
-    {
-      "dice": 0.946646,
-      "iou": 0.898697,
-      "accuracy": 0.997391,
-      "precision": 0.959519,
-      "recall": 0.934113,
-      "specificity": 0.998999
     },
     {
       "dice": 0.945901,
@@ -4387,30 +2763,6 @@
       "specificity": 0.990854
     },
     {
-      "dice": 0.888127,
-      "iou": 0.798767,
-      "accuracy": 0.798798,
-      "precision": 1.0,
-      "recall": 0.798767,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.89263,
-      "iou": 0.80608,
-      "accuracy": 0.975571,
-      "precision": 0.908905,
-      "recall": 0.876927,
-      "specificity": 0.98849
-    },
-    {
-      "dice": 0.792193,
-      "iou": 0.655894,
-      "accuracy": 0.86499,
-      "precision": 0.980295,
-      "recall": 0.664657,
-      "specificity": 0.991559
-    },
-    {
       "dice": 0.938344,
       "iou": 0.883849,
       "accuracy": 0.991638,
@@ -4419,76 +2771,12 @@
       "specificity": 0.991911
     },
     {
-      "dice": 0.868196,
-      "iou": 0.76709,
-      "accuracy": 0.982376,
-      "precision": 0.76709,
-      "recall": 1.0,
-      "specificity": 0.98129
-    },
-    {
-      "dice": 0.881322,
-      "iou": 0.787825,
-      "accuracy": 0.853271,
-      "precision": 0.847717,
-      "recall": 0.917701,
-      "specificity": 0.759135
-    },
-    {
-      "dice": 0.81334,
-      "iou": 0.685402,
-      "accuracy": 0.799469,
-      "precision": 0.98314,
-      "recall": 0.693554,
-      "specificity": 0.979755
-    },
-    {
-      "dice": 0.25775,
-      "iou": 0.147941,
-      "accuracy": 0.377792,
-      "precision": 0.993127,
-      "recall": 0.148092,
-      "specificity": 0.997236
-    },
-    {
-      "dice": 0.502394,
-      "iou": 0.335465,
-      "accuracy": 0.419586,
-      "precision": 1.0,
-      "recall": 0.335465,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.462717,
-      "iou": 0.300997,
-      "accuracy": 0.808472,
-      "precision": 0.918125,
-      "recall": 0.309299,
-      "specificity": 0.989971
-    },
-    {
-      "dice": 0.828893,
-      "iou": 0.707786,
-      "accuracy": 0.93895,
-      "precision": 0.707786,
-      "recall": 1.0,
-      "specificity": 0.928355
-    },
-    {
       "dice": 0.962507,
       "iou": 0.927725,
       "accuracy": 0.984741,
       "precision": 0.9557,
       "recall": 0.969413,
       "specificity": 0.988622
-    },
-    {
-      "dice": 0.926887,
-      "iou": 0.863736,
-      "accuracy": 0.996216,
-      "precision": 0.991798,
-      "recall": 0.86995,
-      "specificity": 0.999796
     },
     {
       "dice": 0.930559,
@@ -4515,44 +2803,12 @@
       "specificity": 0.979557
     },
     {
-      "dice": 0.887591,
-      "iou": 0.7979,
-      "accuracy": 0.959763,
-      "precision": 0.7979,
-      "recall": 1.0,
-      "specificity": 0.952163
-    },
-    {
-      "dice": 0.906161,
-      "iou": 0.828422,
-      "accuracy": 0.992981,
-      "precision": 0.833083,
-      "recall": 0.993292,
-      "specificity": 0.99297
-    },
-    {
       "dice": 0.950682,
       "iou": 0.906,
       "accuracy": 0.994263,
       "precision": 0.930424,
       "recall": 0.971842,
       "specificity": 0.995615
-    },
-    {
-      "dice": 0.843948,
-      "iou": 0.730026,
-      "accuracy": 0.98912,
-      "precision": 0.754894,
-      "recall": 0.956824,
-      "specificity": 0.990145
-    },
-    {
-      "dice": 0.870486,
-      "iou": 0.770674,
-      "accuracy": 0.987686,
-      "precision": 0.988338,
-      "recall": 0.777746,
-      "specificity": 0.999484
     },
     {
       "dice": 0.900269,
@@ -4563,60 +2819,12 @@
       "specificity": 0.756873
     },
     {
-      "dice": 0.892841,
-      "iou": 0.806425,
-      "accuracy": 0.964142,
-      "precision": 0.966055,
-      "recall": 0.829942,
-      "specificity": 0.993599
-    },
-    {
-      "dice": 0.918952,
-      "iou": 0.850057,
-      "accuracy": 0.972046,
-      "precision": 0.873654,
-      "recall": 0.969205,
-      "specificity": 0.972601
-    },
-    {
       "dice": 0.922445,
       "iou": 0.856054,
       "accuracy": 0.978683,
       "precision": 0.868493,
       "recall": 0.983544,
       "specificity": 0.977964
-    },
-    {
-      "dice": 0.815423,
-      "iou": 0.688366,
-      "accuracy": 0.966034,
-      "precision": 0.699232,
-      "recall": 0.977924,
-      "specificity": 0.965046
-    },
-    {
-      "dice": 0.904937,
-      "iou": 0.826379,
-      "accuracy": 0.978668,
-      "precision": 0.848292,
-      "recall": 0.969688,
-      "specificity": 0.979718
-    },
-    {
-      "dice": 0.64395,
-      "iou": 0.474872,
-      "accuracy": 0.817444,
-      "precision": 0.974421,
-      "recall": 0.480866,
-      "specificity": 0.993401
-    },
-    {
-      "dice": 0.851221,
-      "iou": 0.74098,
-      "accuracy": 0.916641,
-      "precision": 0.754393,
-      "recall": 0.976567,
-      "specificity": 0.897281
     },
     {
       "dice": 0.924991,
@@ -4627,28 +2835,12 @@
       "specificity": 0.932519
     },
     {
-      "dice": 0.881595,
-      "iou": 0.78826,
-      "accuracy": 0.937912,
-      "precision": 0.78826,
-      "recall": 1.0,
-      "specificity": 0.919247
-    },
-    {
       "dice": 0.945053,
       "iou": 0.89583,
       "accuracy": 0.990204,
       "precision": 0.896994,
       "recall": 0.998553,
       "specificity": 0.989435
-    },
-    {
-      "dice": 0.720346,
-      "iou": 0.562922,
-      "accuracy": 0.804657,
-      "precision": 0.973088,
-      "recall": 0.571825,
-      "specificity": 0.987576
     },
     {
       "dice": 0.961585,
@@ -4675,14 +2867,6 @@
       "specificity": 0.97263
     },
     {
-      "dice": 0.777343,
-      "iou": 0.635782,
-      "accuracy": 0.969589,
-      "precision": 0.635782,
-      "recall": 1.0,
-      "specificity": 0.967884
-    },
-    {
       "dice": 0.90483,
       "iou": 0.826201,
       "accuracy": 0.969574,
@@ -4697,14 +2881,6 @@
       "precision": 0.796422,
       "recall": 1.0,
       "specificity": 0.934573
-    },
-    {
-      "dice": 0.188468,
-      "iou": 0.104038,
-      "accuracy": 0.161362,
-      "precision": 1.0,
-      "recall": 0.104038,
-      "specificity": 1.0
     },
     {
       "dice": 0.947504,
@@ -4739,68 +2915,12 @@
       "specificity": 0.968369
     },
     {
-      "dice": 0.171087,
-      "iou": 0.093546,
-      "accuracy": 0.420547,
-      "precision": 1.0,
-      "recall": 0.093546,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.890588,
-      "iou": 0.802757,
-      "accuracy": 0.987335,
-      "precision": 0.803138,
-      "recall": 0.999408,
-      "specificity": 0.986679
-    },
-    {
       "dice": 0.95715,
       "iou": 0.917821,
       "accuracy": 0.993301,
       "precision": 0.935508,
       "recall": 0.979816,
       "specificity": 0.994416
-    },
-    {
-      "dice": 0.501557,
-      "iou": 0.334719,
-      "accuracy": 0.714218,
-      "precision": 0.665372,
-      "recall": 0.402469,
-      "specificity": 0.887496
-    },
-    {
-      "dice": 0.712091,
-      "iou": 0.552905,
-      "accuracy": 0.776077,
-      "precision": 0.964857,
-      "recall": 0.564268,
-      "specificity": 0.980194
-    },
-    {
-      "dice": 0.828117,
-      "iou": 0.706656,
-      "accuracy": 0.879486,
-      "precision": 0.710137,
-      "recall": 0.99311,
-      "specificity": 0.83255
-    },
-    {
-      "dice": 0.665522,
-      "iou": 0.498713,
-      "accuracy": 0.643417,
-      "precision": 1.0,
-      "recall": 0.498713,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.091293,
-      "iou": 0.04783,
-      "accuracy": 0.168594,
-      "precision": 1.0,
-      "recall": 0.04783,
-      "specificity": 1.0
     },
     {
       "dice": 0.919377,
@@ -4819,44 +2939,12 @@
       "specificity": 0.965147
     },
     {
-      "dice": 0.705377,
-      "iou": 0.544851,
-      "accuracy": 0.971741,
-      "precision": 0.544851,
-      "recall": 1.0,
-      "specificity": 0.970751
-    },
-    {
       "dice": 0.91551,
       "iou": 0.844185,
       "accuracy": 0.933578,
       "precision": 0.844185,
       "recall": 1.0,
       "specificity": 0.896239
-    },
-    {
-      "dice": 0.797312,
-      "iou": 0.662942,
-      "accuracy": 0.975143,
-      "precision": 0.691859,
-      "recall": 0.940693,
-      "specificity": 0.977032
-    },
-    {
-      "dice": 0.79764,
-      "iou": 0.663396,
-      "accuracy": 0.792206,
-      "precision": 0.753777,
-      "recall": 0.846923,
-      "specificity": 0.740974
-    },
-    {
-      "dice": 0.87129,
-      "iou": 0.771934,
-      "accuracy": 0.943756,
-      "precision": 0.771934,
-      "recall": 1.0,
-      "specificity": 0.930532
     },
     {
       "dice": 0.922926,
@@ -4867,52 +2955,12 @@
       "specificity": 0.96585
     },
     {
-      "dice": 0.914764,
-      "iou": 0.842917,
-      "accuracy": 0.946976,
-      "precision": 0.959158,
-      "recall": 0.874297,
-      "specificity": 0.982039
-    },
-    {
-      "dice": 0.861798,
-      "iou": 0.757157,
-      "accuracy": 0.934891,
-      "precision": 0.757157,
-      "recall": 1.0,
-      "specificity": 0.918307
-    },
-    {
-      "dice": 0.568218,
-      "iou": 0.396861,
-      "accuracy": 0.759033,
-      "precision": 0.396861,
-      "recall": 1.0,
-      "specificity": 0.713628
-    },
-    {
-      "dice": 0.915846,
-      "iou": 0.844756,
-      "accuracy": 0.97197,
-      "precision": 0.844756,
-      "recall": 1.0,
-      "specificity": 0.966925
-    },
-    {
       "dice": 0.926527,
       "iou": 0.863111,
       "accuracy": 0.991501,
       "precision": 0.863111,
       "recall": 1.0,
       "specificity": 0.99102
-    },
-    {
-      "dice": 0.89521,
-      "iou": 0.8103,
-      "accuracy": 0.994492,
-      "precision": 0.8103,
-      "recall": 1.0,
-      "specificity": 0.994359
     },
     {
       "dice": 0.945918,
@@ -4929,38 +2977,6 @@
       "precision": 0.951308,
       "recall": 0.993046,
       "specificity": 0.99484
-    },
-    {
-      "dice": 0.713225,
-      "iou": 0.554273,
-      "accuracy": 0.799118,
-      "precision": 0.999634,
-      "recall": 0.554385,
-      "specificity": 0.999833
-    },
-    {
-      "dice": 0.804799,
-      "iou": 0.673359,
-      "accuracy": 0.870667,
-      "precision": 0.694779,
-      "recall": 0.95622,
-      "specificity": 0.83759
-    },
-    {
-      "dice": 0.54165,
-      "iou": 0.371413,
-      "accuracy": 0.598587,
-      "precision": 0.605249,
-      "recall": 0.490146,
-      "specificity": 0.700263
-    },
-    {
-      "dice": 0.639792,
-      "iou": 0.470363,
-      "accuracy": 0.995773,
-      "precision": 0.713043,
-      "recall": 0.580189,
-      "specificity": 0.99848
     },
     {
       "dice": 0.906,
@@ -4987,36 +3003,12 @@
       "specificity": 0.934377
     },
     {
-      "dice": 0.754014,
-      "iou": 0.605155,
-      "accuracy": 0.872833,
-      "precision": 0.994162,
-      "recall": 0.607313,
-      "specificity": 0.998315
-    },
-    {
-      "dice": 0.855375,
-      "iou": 0.747297,
-      "accuracy": 0.924393,
-      "precision": 0.841208,
-      "recall": 0.870027,
-      "specificity": 0.943196
-    },
-    {
       "dice": 0.927011,
       "iou": 0.863953,
       "accuracy": 0.955231,
       "precision": 0.885173,
       "recall": 0.973001,
       "specificity": 0.947895
-    },
-    {
-      "dice": 0.541133,
-      "iou": 0.370927,
-      "accuracy": 0.751648,
-      "precision": 0.999167,
-      "recall": 0.371042,
-      "specificity": 0.999798
     },
     {
       "dice": 0.950597,
@@ -5041,22 +3033,6 @@
       "precision": 0.976881,
       "recall": 0.963116,
       "specificity": 0.999129
-    },
-    {
-      "dice": 0.694368,
-      "iou": 0.531825,
-      "accuracy": 0.765427,
-      "precision": 0.991709,
-      "recall": 0.5342,
-      "specificity": 0.995555
-    },
-    {
-      "dice": 0.62714,
-      "iou": 0.456813,
-      "accuracy": 0.719513,
-      "precision": 0.991661,
-      "recall": 0.458574,
-      "specificity": 0.995915
     },
     {
       "dice": 0.914161,
@@ -5099,44 +3075,12 @@
       "specificity": 0.974296
     },
     {
-      "dice": 0.678742,
-      "iou": 0.513709,
-      "accuracy": 0.984573,
-      "precision": 0.513709,
-      "recall": 1.0,
-      "specificity": 0.984318
-    },
-    {
-      "dice": 0.672996,
-      "iou": 0.507155,
-      "accuracy": 0.982132,
-      "precision": 0.507155,
-      "recall": 1.0,
-      "specificity": 0.981797
-    },
-    {
       "dice": 0.92092,
       "iou": 0.853432,
       "accuracy": 0.973572,
       "precision": 0.853432,
       "recall": 1.0,
       "specificity": 0.968765
-    },
-    {
-      "dice": 0.809245,
-      "iou": 0.679607,
-      "accuracy": 0.838425,
-      "precision": 0.729064,
-      "recall": 0.909242,
-      "specificity": 0.795582
-    },
-    {
-      "dice": 0.763207,
-      "iou": 0.617086,
-      "accuracy": 0.840714,
-      "precision": 0.626112,
-      "recall": 0.977172,
-      "specificity": 0.792094
     },
     {
       "dice": 0.925108,
@@ -5155,14 +3099,6 @@
       "specificity": 0.949919
     },
     {
-      "dice": 0.835537,
-      "iou": 0.717529,
-      "accuracy": 0.717529,
-      "precision": 1.0,
-      "recall": 0.717529,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.941831,
       "iou": 0.890056,
       "accuracy": 0.946198,
@@ -5179,28 +3115,12 @@
       "specificity": 0.930198
     },
     {
-      "dice": 0.792903,
-      "iou": 0.656868,
-      "accuracy": 0.775223,
-      "precision": 0.874229,
-      "recall": 0.725421,
-      "specificity": 0.847836
-    },
-    {
       "dice": 0.923637,
       "iou": 0.858109,
       "accuracy": 0.987839,
       "precision": 0.909949,
       "recall": 0.937743,
       "specificity": 0.992102
-    },
-    {
-      "dice": 0.784384,
-      "iou": 0.645256,
-      "accuracy": 0.990814,
-      "precision": 0.645256,
-      "recall": 1.0,
-      "specificity": 0.990658
     },
     {
       "dice": 0.897811,
@@ -5227,84 +3147,12 @@
       "specificity": 0.956489
     },
     {
-      "dice": 0.589549,
-      "iou": 0.417986,
-      "accuracy": 0.765564,
-      "precision": 0.566631,
-      "recall": 0.614399,
-      "specificity": 0.822624
-    },
-    {
       "dice": 0.95395,
       "iou": 0.911955,
       "accuracy": 0.960297,
       "precision": 0.915517,
       "recall": 0.995751,
       "specificity": 0.935352
-    },
-    {
-      "dice": 0.863559,
-      "iou": 0.75988,
-      "accuracy": 0.866592,
-      "precision": 0.774602,
-      "recall": 0.975599,
-      "specificity": 0.783436
-    },
-    {
-      "dice": 0.697255,
-      "iou": 0.53522,
-      "accuracy": 0.727051,
-      "precision": 0.99782,
-      "recall": 0.535846,
-      "specificity": 0.998339
-    },
-    {
-      "dice": 0.878605,
-      "iou": 0.783492,
-      "accuracy": 0.951889,
-      "precision": 0.783492,
-      "recall": 1.0,
-      "specificity": 0.941747
-    },
-    {
-      "dice": 0.738412,
-      "iou": 0.585303,
-      "accuracy": 0.90416,
-      "precision": 0.585303,
-      "recall": 1.0,
-      "specificity": 0.889167
-    },
-    {
-      "dice": 0.87095,
-      "iou": 0.771401,
-      "accuracy": 0.911209,
-      "precision": 0.783528,
-      "recall": 0.98033,
-      "specificity": 0.880785
-    },
-    {
-      "dice": 0.837849,
-      "iou": 0.720946,
-      "accuracy": 0.894333,
-      "precision": 0.749393,
-      "recall": 0.949981,
-      "specificity": 0.871893
-    },
-    {
-      "dice": 0.878664,
-      "iou": 0.783588,
-      "accuracy": 0.990906,
-      "precision": 0.783588,
-      "recall": 1.0,
-      "specificity": 0.990596
-    },
-    {
-      "dice": 0.937533,
-      "iou": 0.882412,
-      "accuracy": 0.996399,
-      "precision": 0.893091,
-      "recall": 0.98663,
-      "specificity": 0.996674
     },
     {
       "dice": 0.930048,
@@ -5339,84 +3187,12 @@
       "specificity": 0.98688
     },
     {
-      "dice": 0.675407,
-      "iou": 0.509898,
-      "accuracy": 0.630539,
-      "precision": 0.998375,
-      "recall": 0.510321,
-      "specificity": 0.997465
-    },
-    {
-      "dice": 0.654178,
-      "iou": 0.486081,
-      "accuracy": 0.617188,
-      "precision": 0.998401,
-      "recall": 0.486459,
-      "specificity": 0.997732
-    },
-    {
-      "dice": 0.447533,
-      "iou": 0.288273,
-      "accuracy": 0.653107,
-      "precision": 0.28858,
-      "recall": 0.996321,
-      "specificity": 0.59676
-    },
-    {
-      "dice": 0.727077,
-      "iou": 0.571187,
-      "accuracy": 0.643326,
-      "precision": 0.963724,
-      "recall": 0.583738,
-      "specificity": 0.903911
-    },
-    {
-      "dice": 0.0,
-      "iou": 0.0,
-      "accuracy": 0.732803,
-      "precision": 1.0,
-      "recall": 0.0,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.952863,
       "iou": 0.90997,
       "accuracy": 0.982803,
       "precision": 0.912814,
       "recall": 0.996588,
       "specificity": 0.979891
-    },
-    {
-      "dice": 0.787807,
-      "iou": 0.649903,
-      "accuracy": 0.661469,
-      "precision": 0.981787,
-      "recall": 0.657834,
-      "specificity": 0.73916
-    },
-    {
-      "dice": 0.013482,
-      "iou": 0.006787,
-      "accuracy": 0.736496,
-      "precision": 0.42446,
-      "recall": 0.00685,
-      "specificity": 0.996688
-    },
-    {
-      "dice": 0.711329,
-      "iou": 0.551987,
-      "accuracy": 0.65416,
-      "precision": 0.993772,
-      "recall": 0.553903,
-      "specificity": 0.988427
-    },
-    {
-      "dice": 0.378874,
-      "iou": 0.233711,
-      "accuracy": 0.233734,
-      "precision": 1.0,
-      "recall": 0.233711,
-      "specificity": 1.0
     },
     {
       "dice": 0.944776,
@@ -5427,28 +3203,12 @@
       "specificity": 0.982552
     },
     {
-      "dice": 0.318136,
-      "iou": 0.189157,
-      "accuracy": 0.232101,
-      "precision": 1.0,
-      "recall": 0.189157,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.888258,
       "iou": 0.798979,
       "accuracy": 0.860046,
       "precision": 0.885346,
       "recall": 0.89119,
       "specificity": 0.808323
-    },
-    {
-      "dice": 0.724132,
-      "iou": 0.567561,
-      "accuracy": 0.653183,
-      "precision": 0.948823,
-      "recall": 0.585484,
-      "specificity": 0.889681
     },
     {
       "dice": 0.887919,
@@ -5459,94 +3219,6 @@
       "specificity": 0.749909
     },
     {
-      "dice": 0.746152,
-      "iou": 0.59509,
-      "accuracy": 0.658981,
-      "precision": 0.992716,
-      "recall": 0.5977,
-      "specificity": 0.977225
-    },
-    {
-      "dice": 0.085111,
-      "iou": 0.044447,
-      "accuracy": 0.617828,
-      "precision": 0.755512,
-      "recall": 0.045096,
-      "specificity": 0.990504
-    },
-    {
-      "dice": 0.799707,
-      "iou": 0.66626,
-      "accuracy": 0.753555,
-      "precision": 0.96759,
-      "recall": 0.681468,
-      "specificity": 0.940731
-    },
-    {
-      "dice": 0.80681,
-      "iou": 0.676178,
-      "accuracy": 0.863724,
-      "precision": 0.851086,
-      "recall": 0.766912,
-      "specificity": 0.920837
-    },
-    {
-      "dice": 0.79264,
-      "iou": 0.656507,
-      "accuracy": 0.760284,
-      "precision": 0.813008,
-      "recall": 0.773268,
-      "specificity": 0.741406
-    },
-    {
-      "dice": 0.800446,
-      "iou": 0.667286,
-      "accuracy": 0.767776,
-      "precision": 0.997386,
-      "recall": 0.668455,
-      "specificity": 0.995975
-    },
-    {
-      "dice": 0.893159,
-      "iou": 0.806944,
-      "accuracy": 0.909042,
-      "precision": 0.88167,
-      "recall": 0.90495,
-      "specificity": 0.912007
-    },
-    {
-      "dice": 0.855949,
-      "iou": 0.748174,
-      "accuracy": 0.89267,
-      "precision": 0.859965,
-      "recall": 0.851971,
-      "specificity": 0.917014
-    },
-    {
-      "dice": 0.841922,
-      "iou": 0.726999,
-      "accuracy": 0.934891,
-      "precision": 0.758039,
-      "recall": 0.94668,
-      "specificity": 0.932247
-    },
-    {
-      "dice": 0.744876,
-      "iou": 0.593468,
-      "accuracy": 0.952515,
-      "precision": 0.593468,
-      "recall": 1.0,
-      "specificity": 0.948978
-    },
-    {
-      "dice": 0.885056,
-      "iou": 0.793812,
-      "accuracy": 0.973358,
-      "precision": 0.796918,
-      "recall": 0.995115,
-      "specificity": 0.970858
-    },
-    {
       "dice": 0.952794,
       "iou": 0.909845,
       "accuracy": 0.974777,
@@ -5555,44 +3227,12 @@
       "specificity": 0.966798
     },
     {
-      "dice": 0.777908,
-      "iou": 0.636538,
-      "accuracy": 0.676636,
-      "precision": 0.930409,
-      "recall": 0.668359,
-      "specificity": 0.722566
-    },
-    {
       "dice": 0.925056,
       "iou": 0.860561,
       "accuracy": 0.990219,
       "precision": 0.860561,
       "recall": 1.0,
       "specificity": 0.989591
-    },
-    {
-      "dice": 0.88071,
-      "iou": 0.786847,
-      "accuracy": 0.951385,
-      "precision": 0.786847,
-      "recall": 1.0,
-      "specificity": 0.940753
-    },
-    {
-      "dice": 0.911479,
-      "iou": 0.837355,
-      "accuracy": 0.964828,
-      "precision": 0.837355,
-      "recall": 1.0,
-      "specificity": 0.957052
-    },
-    {
-      "dice": 0.898945,
-      "iou": 0.816439,
-      "accuracy": 0.988312,
-      "precision": 0.987536,
-      "recall": 0.824939,
-      "specificity": 0.9993
     },
     {
       "dice": 0.941463,
@@ -5619,60 +3259,12 @@
       "specificity": 0.964643
     },
     {
-      "dice": 0.760357,
-      "iou": 0.613368,
-      "accuracy": 0.713058,
-      "precision": 0.985791,
-      "recall": 0.618839,
-      "specificity": 0.975185
-    },
-    {
-      "dice": 0.67812,
-      "iou": 0.512996,
-      "accuracy": 0.567444,
-      "precision": 0.993248,
-      "recall": 0.514792,
-      "specificity": 0.973041
-    },
-    {
       "dice": 0.88208,
       "iou": 0.789038,
       "accuracy": 0.964645,
       "precision": 0.789038,
       "recall": 1.0,
       "specificity": 0.959258
-    },
-    {
-      "dice": 0.524201,
-      "iou": 0.355198,
-      "accuracy": 0.487167,
-      "precision": 0.982905,
-      "recall": 0.357406,
-      "specificity": 0.976556
-    },
-    {
-      "dice": 0.848093,
-      "iou": 0.736251,
-      "accuracy": 0.86879,
-      "precision": 0.810262,
-      "recall": 0.88963,
-      "specificity": 0.854204
-    },
-    {
-      "dice": 0.906109,
-      "iou": 0.828336,
-      "accuracy": 0.962524,
-      "precision": 0.828336,
-      "recall": 1.0,
-      "specificity": 0.954252
-    },
-    {
-      "dice": 0.822983,
-      "iou": 0.699211,
-      "accuracy": 0.875565,
-      "precision": 0.699624,
-      "recall": 0.999157,
-      "specificity": 0.825205
     },
     {
       "dice": 0.965999,
@@ -5699,30 +3291,6 @@
       "specificity": 0.990801
     },
     {
-      "dice": 0.921691,
-      "iou": 0.854755,
-      "accuracy": 0.961945,
-      "precision": 0.854755,
-      "recall": 1.0,
-      "specificity": 0.950962
-    },
-    {
-      "dice": 0.854509,
-      "iou": 0.745976,
-      "accuracy": 0.903427,
-      "precision": 0.776293,
-      "recall": 0.950253,
-      "specificity": 0.883507
-    },
-    {
-      "dice": 0.91644,
-      "iou": 0.845767,
-      "accuracy": 0.952209,
-      "precision": 0.870369,
-      "recall": 0.96766,
-      "specificity": 0.946471
-    },
-    {
       "dice": 0.939736,
       "iou": 0.886324,
       "accuracy": 0.986252,
@@ -5739,116 +3307,12 @@
       "specificity": 0.993427
     },
     {
-      "dice": 0.630374,
-      "iou": 0.460252,
-      "accuracy": 0.774872,
-      "precision": 0.93165,
-      "recall": 0.476337,
-      "specificity": 0.976408
-    },
-    {
-      "dice": 0.836516,
-      "iou": 0.718976,
-      "accuracy": 0.980408,
-      "precision": 0.718976,
-      "recall": 1.0,
-      "specificity": 0.979374
-    },
-    {
-      "dice": 0.680882,
-      "iou": 0.516165,
-      "accuracy": 0.728027,
-      "precision": 0.996228,
-      "recall": 0.517176,
-      "specificity": 0.997497
-    },
-    {
       "dice": 0.91247,
       "iou": 0.83903,
       "accuracy": 0.933533,
       "precision": 0.910312,
       "recall": 0.914639,
       "specificity": 0.945053
-    },
-    {
-      "dice": 0.862533,
-      "iou": 0.758293,
-      "accuracy": 0.984879,
-      "precision": 0.758293,
-      "recall": 1.0,
-      "specificity": 0.984125
-    },
-    {
-      "dice": 0.894347,
-      "iou": 0.808886,
-      "accuracy": 0.954056,
-      "precision": 0.808886,
-      "recall": 1.0,
-      "specificity": 0.942965
-    },
-    {
-      "dice": 0.842435,
-      "iou": 0.727764,
-      "accuracy": 0.764236,
-      "precision": 0.99155,
-      "recall": 0.732306,
-      "specificity": 0.961454
-    },
-    {
-      "dice": 0.855485,
-      "iou": 0.747466,
-      "accuracy": 0.987076,
-      "precision": 0.747466,
-      "recall": 1.0,
-      "specificity": 0.986562
-    },
-    {
-      "dice": 0.79798,
-      "iou": 0.663866,
-      "accuracy": 0.837616,
-      "precision": 0.998385,
-      "recall": 0.66458,
-      "specificity": 0.998997
-    },
-    {
-      "dice": 0.903948,
-      "iou": 0.824731,
-      "accuracy": 0.951706,
-      "precision": 0.824731,
-      "recall": 1.0,
-      "specificity": 0.937504
-    },
-    {
-      "dice": 0.890895,
-      "iou": 0.803255,
-      "accuracy": 0.972885,
-      "precision": 0.803255,
-      "recall": 1.0,
-      "specificity": 0.96951
-    },
-    {
-      "dice": 0.906314,
-      "iou": 0.828678,
-      "accuracy": 0.977539,
-      "precision": 0.830127,
-      "recall": 0.997898,
-      "specificity": 0.975052
-    },
-    {
-      "dice": 0.885611,
-      "iou": 0.794706,
-      "accuracy": 0.983078,
-      "precision": 0.795442,
-      "recall": 0.998837,
-      "specificity": 0.981972
-    },
-    {
-      "dice": 0.873315,
-      "iou": 0.77512,
-      "accuracy": 0.972031,
-      "precision": 0.839601,
-      "recall": 0.90985,
-      "specificity": 0.9794
     },
     {
       "dice": 0.924414,
@@ -5867,22 +3331,6 @@
       "specificity": 0.98165
     },
     {
-      "dice": 0.863038,
-      "iou": 0.759074,
-      "accuracy": 0.948242,
-      "precision": 0.759074,
-      "recall": 1.0,
-      "specificity": 0.938157
-    },
-    {
-      "dice": 0.89504,
-      "iou": 0.810021,
-      "accuracy": 0.964996,
-      "precision": 0.811095,
-      "recall": 0.998367,
-      "specificity": 0.959131
-    },
-    {
       "dice": 0.93969,
       "iou": 0.886241,
       "accuracy": 0.975449,
@@ -5899,14 +3347,6 @@
       "specificity": 0.965068
     },
     {
-      "dice": 0.776208,
-      "iou": 0.634265,
-      "accuracy": 0.723907,
-      "precision": 0.634265,
-      "recall": 1.0,
-      "specificity": 0.47027
-    },
-    {
       "dice": 0.941659,
       "iou": 0.88975,
       "accuracy": 0.989365,
@@ -5921,30 +3361,6 @@
       "precision": 0.88566,
       "recall": 0.999798,
       "specificity": 0.962203
-    },
-    {
-      "dice": 0.845292,
-      "iou": 0.732039,
-      "accuracy": 0.922714,
-      "precision": 0.732039,
-      "recall": 1.0,
-      "specificity": 0.902029
-    },
-    {
-      "dice": 0.857864,
-      "iou": 0.751105,
-      "accuracy": 0.914948,
-      "precision": 0.751105,
-      "recall": 1.0,
-      "specificity": 0.885579
-    },
-    {
-      "dice": 0.929889,
-      "iou": 0.868966,
-      "accuracy": 0.997681,
-      "precision": 0.929032,
-      "recall": 0.930748,
-      "specificity": 0.998805
     },
     {
       "dice": 0.899791,
@@ -5971,52 +3387,12 @@
       "specificity": 0.985376
     },
     {
-      "dice": 0.89333,
-      "iou": 0.807223,
-      "accuracy": 0.954956,
-      "precision": 0.807223,
-      "recall": 1.0,
-      "specificity": 0.944485
-    },
-    {
-      "dice": 0.862089,
-      "iou": 0.757607,
-      "accuracy": 0.878815,
-      "precision": 0.773374,
-      "recall": 0.973795,
-      "specificity": 0.818354
-    },
-    {
       "dice": 0.894967,
       "iou": 0.809901,
       "accuracy": 0.809921,
       "precision": 1.0,
       "recall": 0.809901,
       "specificity": 1.0
-    },
-    {
-      "dice": 0.878096,
-      "iou": 0.782683,
-      "accuracy": 0.984528,
-      "precision": 0.783355,
-      "recall": 0.998906,
-      "specificity": 0.983678
-    },
-    {
-      "dice": 0.894713,
-      "iou": 0.809484,
-      "accuracy": 0.901611,
-      "precision": 0.940121,
-      "recall": 0.853489,
-      "specificity": 0.947811
-    },
-    {
-      "dice": 0.823804,
-      "iou": 0.700397,
-      "accuracy": 0.745377,
-      "precision": 0.911896,
-      "recall": 0.751233,
-      "specificity": 0.723031
     },
     {
       "dice": 0.946043,
@@ -6051,14 +3427,6 @@
       "specificity": 0.982891
     },
     {
-      "dice": 0.912781,
-      "iou": 0.839555,
-      "accuracy": 0.89061,
-      "precision": 0.969729,
-      "recall": 0.86215,
-      "specificity": 0.946833
-    },
-    {
       "dice": 0.957778,
       "iou": 0.918977,
       "accuracy": 0.982025,
@@ -6075,124 +3443,12 @@
       "specificity": 0.985692
     },
     {
-      "dice": 0.784027,
-      "iou": 0.644773,
-      "accuracy": 0.771652,
-      "precision": 0.956814,
-      "recall": 0.6641,
-      "specificity": 0.950231
-    },
-    {
-      "dice": 0.868192,
-      "iou": 0.767083,
-      "accuracy": 0.791077,
-      "precision": 0.981029,
-      "recall": 0.778633,
-      "specificity": 0.885609
-    },
-    {
-      "dice": 0.024151,
-      "iou": 0.012223,
-      "accuracy": 0.6091,
-      "precision": 1.0,
-      "recall": 0.012223,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.890456,
-      "iou": 0.802542,
-      "accuracy": 0.927689,
-      "precision": 0.948257,
-      "recall": 0.839296,
-      "specificity": 0.975321
-    },
-    {
-      "dice": 0.846405,
-      "iou": 0.733711,
-      "accuracy": 0.995697,
-      "precision": 0.733711,
-      "recall": 1.0,
-      "specificity": 0.995645
-    },
-    {
-      "dice": 0.258543,
-      "iou": 0.148463,
-      "accuracy": 0.632156,
-      "precision": 0.151046,
-      "recall": 0.896736,
-      "specificity": 0.611777
-    },
-    {
-      "dice": 0.864078,
-      "iou": 0.760685,
-      "accuracy": 0.963089,
-      "precision": 0.821826,
-      "recall": 0.910911,
-      "specificity": 0.970803
-    },
-    {
-      "dice": 0.728815,
-      "iou": 0.573335,
-      "accuracy": 0.797592,
-      "precision": 0.977891,
-      "recall": 0.580865,
-      "specificity": 0.988436
-    },
-    {
       "dice": 0.96126,
       "iou": 0.925409,
       "accuracy": 0.960052,
       "precision": 0.926597,
       "recall": 0.998616,
       "specificity": 0.922056
-    },
-    {
-      "dice": 0.551965,
-      "iou": 0.381182,
-      "accuracy": 0.40831,
-      "precision": 1.0,
-      "recall": 0.381182,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.943888,
-      "iou": 0.893739,
-      "accuracy": 0.97348,
-      "precision": 0.96228,
-      "recall": 0.926186,
-      "specificity": 0.988483
-    },
-    {
-      "dice": 0.876434,
-      "iou": 0.780047,
-      "accuracy": 0.995728,
-      "precision": 0.8021,
-      "recall": 0.965953,
-      "specificity": 0.996202
-    },
-    {
-      "dice": 0.796983,
-      "iou": 0.662487,
-      "accuracy": 0.951538,
-      "precision": 0.665102,
-      "recall": 0.9941,
-      "specificity": 0.947034
-    },
-    {
-      "dice": 0.544423,
-      "iou": 0.374025,
-      "accuracy": 0.85791,
-      "precision": 0.374025,
-      "recall": 1.0,
-      "specificity": 0.844728
-    },
-    {
-      "dice": 0.16292,
-      "iou": 0.088684,
-      "accuracy": 0.443207,
-      "precision": 1.0,
-      "recall": 0.088684,
-      "specificity": 1.0
     },
     {
       "dice": 0.886537,
@@ -6203,76 +3459,12 @@
       "specificity": 0.997892
     },
     {
-      "dice": 0.887055,
-      "iou": 0.797034,
-      "accuracy": 0.980164,
-      "precision": 0.797034,
-      "recall": 1.0,
-      "specificity": 0.978488
-    },
-    {
-      "dice": 0.836861,
-      "iou": 0.719484,
-      "accuracy": 0.964478,
-      "precision": 0.719484,
-      "recall": 1.0,
-      "specificity": 0.960917
-    },
-    {
-      "dice": 0.45858,
-      "iou": 0.297505,
-      "accuracy": 0.458282,
-      "precision": 0.978586,
-      "recall": 0.299454,
-      "specificity": 0.978536
-    },
-    {
       "dice": 0.914532,
       "iou": 0.842523,
       "accuracy": 0.962433,
       "precision": 0.842523,
       "recall": 1.0,
       "specificity": 0.952983
-    },
-    {
-      "dice": 0.863187,
-      "iou": 0.759304,
-      "accuracy": 0.945328,
-      "precision": 0.759304,
-      "recall": 1.0,
-      "specificity": 0.933933
-    },
-    {
-      "dice": 0.96171,
-      "iou": 0.926244,
-      "accuracy": 0.996201,
-      "precision": 0.927343,
-      "recall": 0.998722,
-      "specificity": 0.996074
-    },
-    {
-      "dice": 0.718486,
-      "iou": 0.560654,
-      "accuracy": 0.789337,
-      "precision": 0.999943,
-      "recall": 0.560672,
-      "specificity": 0.999971
-    },
-    {
-      "dice": 0.618973,
-      "iou": 0.448198,
-      "accuracy": 0.617874,
-      "precision": 0.996668,
-      "recall": 0.44887,
-      "specificity": 0.996637
-    },
-    {
-      "dice": 0.899792,
-      "iou": 0.817838,
-      "accuracy": 0.872726,
-      "precision": 0.981779,
-      "recall": 0.830443,
-      "specificity": 0.966001
     },
     {
       "dice": 0.959711,
@@ -6283,28 +3475,12 @@
       "specificity": 0.975651
     },
     {
-      "dice": 0.0,
-      "iou": 0.0,
-      "accuracy": 0.445709,
-      "precision": 1.0,
-      "recall": 0.0,
-      "specificity": 1.0
-    },
-    {
       "dice": 0.943181,
       "iou": 0.892472,
       "accuracy": 0.976089,
       "precision": 0.892472,
       "recall": 1.0,
       "specificity": 0.970169
-    },
-    {
-      "dice": 0.827331,
-      "iou": 0.705512,
-      "accuracy": 0.864502,
-      "precision": 0.830821,
-      "recall": 0.823871,
-      "specificity": 0.89092
     },
     {
       "dice": 0.91082,
@@ -6323,44 +3499,12 @@
       "specificity": 0.991649
     },
     {
-      "dice": 0.824031,
-      "iou": 0.700724,
-      "accuracy": 0.756058,
-      "precision": 0.988774,
-      "recall": 0.706344,
-      "specificity": 0.966114
-    },
-    {
       "dice": 0.952269,
       "iou": 0.908888,
       "accuracy": 0.979492,
       "precision": 0.909998,
       "recall": 0.998659,
       "specificity": 0.974554
-    },
-    {
-      "dice": 0.446328,
-      "iou": 0.287273,
-      "accuracy": 0.802612,
-      "precision": 0.979707,
-      "recall": 0.288992,
-      "specificity": 0.997726
-    },
-    {
-      "dice": 0.780422,
-      "iou": 0.639911,
-      "accuracy": 0.785126,
-      "precision": 0.865947,
-      "recall": 0.710272,
-      "specificity": 0.872158
-    },
-    {
-      "dice": 0.882647,
-      "iou": 0.789944,
-      "accuracy": 0.960541,
-      "precision": 0.828223,
-      "recall": 0.944725,
-      "specificity": 0.963488
     },
     {
       "dice": 0.934589,
@@ -6379,68 +3523,12 @@
       "specificity": 0.775062
     },
     {
-      "dice": 0.844756,
-      "iou": 0.731237,
-      "accuracy": 0.958145,
-      "precision": 0.731237,
-      "recall": 1.0,
-      "specificity": 0.952766
-    },
-    {
-      "dice": 0.816252,
-      "iou": 0.689549,
-      "accuracy": 0.908981,
-      "precision": 0.747686,
-      "recall": 0.898664,
-      "specificity": 0.911976
-    },
-    {
       "dice": 0.932103,
       "iou": 0.872839,
       "accuracy": 0.986755,
       "precision": 0.872839,
       "recall": 1.0,
       "specificity": 0.985431
-    },
-    {
-      "dice": 0.856591,
-      "iou": 0.749155,
-      "accuracy": 0.932037,
-      "precision": 0.749155,
-      "recall": 1.0,
-      "specificity": 0.91473
-    },
-    {
-      "dice": 0.848526,
-      "iou": 0.736904,
-      "accuracy": 0.982834,
-      "precision": 0.736904,
-      "recall": 1.0,
-      "specificity": 0.981967
-    },
-    {
-      "dice": 0.901348,
-      "iou": 0.820413,
-      "accuracy": 0.946732,
-      "precision": 0.820413,
-      "recall": 1.0,
-      "specificity": 0.9296
-    },
-    {
-      "dice": 0.892593,
-      "iou": 0.80602,
-      "accuracy": 0.953094,
-      "precision": 0.80602,
-      "recall": 1.0,
-      "specificity": 0.941739
-    },
-    {
-      "dice": 0.896032,
-      "iou": 0.811647,
-      "accuracy": 0.990524,
-      "precision": 0.813869,
-      "recall": 0.996648,
-      "specificity": 0.990263
     },
     {
       "dice": 0.964993,
@@ -6451,28 +3539,12 @@
       "specificity": 0.917311
     },
     {
-      "dice": 0.866502,
-      "iou": 0.764449,
-      "accuracy": 0.97612,
-      "precision": 0.764449,
-      "recall": 1.0,
-      "specificity": 0.974114
-    },
-    {
       "dice": 0.945686,
       "iou": 0.896967,
       "accuracy": 0.947952,
       "precision": 0.896967,
       "recall": 1.0,
       "specificity": 0.90483
-    },
-    {
-      "dice": 0.687905,
-      "iou": 0.524279,
-      "accuracy": 0.625534,
-      "precision": 0.977484,
-      "recall": 0.530688,
-      "specificity": 0.957247
     },
     {
       "dice": 0.950777,
@@ -6483,52 +3555,12 @@
       "specificity": 0.99738
     },
     {
-      "dice": 0.927682,
-      "iou": 0.865119,
-      "accuracy": 0.955582,
-      "precision": 0.867249,
-      "recall": 0.997169,
-      "specificity": 0.938947
-    },
-    {
-      "dice": 0.803375,
-      "iou": 0.671367,
-      "accuracy": 0.846725,
-      "precision": 0.921754,
-      "recall": 0.711941,
-      "specificity": 0.95255
-    },
-    {
-      "dice": 0.815818,
-      "iou": 0.68893,
-      "accuracy": 0.989624,
-      "precision": 0.848451,
-      "recall": 0.785603,
-      "specificity": 0.995772
-    },
-    {
-      "dice": 0.899093,
-      "iou": 0.816685,
-      "accuracy": 0.989639,
-      "precision": 0.818231,
-      "recall": 0.997691,
-      "specificity": 0.989249
-    },
-    {
       "dice": 0.932664,
       "iou": 0.873824,
       "accuracy": 0.983215,
       "precision": 0.874125,
       "recall": 0.999606,
       "specificity": 0.981058
-    },
-    {
-      "dice": 0.898538,
-      "iou": 0.815769,
-      "accuracy": 0.968018,
-      "precision": 0.997742,
-      "recall": 0.817277,
-      "specificity": 0.999612
     },
     {
       "dice": 0.914954,
@@ -6539,14 +3571,6 @@
       "specificity": 0.954891
     },
     {
-      "dice": 0.796911,
-      "iou": 0.662387,
-      "accuracy": 0.868393,
-      "precision": 0.667535,
-      "recall": 0.988492,
-      "specificity": 0.825929
-    },
-    {
       "dice": 0.930582,
       "iou": 0.870177,
       "accuracy": 0.936035,
@@ -6555,60 +3579,12 @@
       "specificity": 0.888076
     },
     {
-      "dice": 0.869135,
-      "iou": 0.768558,
-      "accuracy": 0.959229,
-      "precision": 0.768558,
-      "recall": 1.0,
-      "specificity": 0.952844
-    },
-    {
-      "dice": 0.79927,
-      "iou": 0.665653,
-      "accuracy": 0.974823,
-      "precision": 0.665653,
-      "recall": 1.0,
-      "specificity": 0.973494
-    },
-    {
-      "dice": 0.237368,
-      "iou": 0.134667,
-      "accuracy": 0.152954,
-      "precision": 1.0,
-      "recall": 0.134667,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.894737,
-      "iou": 0.809524,
-      "accuracy": 0.995178,
-      "precision": 0.87606,
-      "recall": 0.914227,
-      "specificity": 0.997034
-    },
-    {
-      "dice": 0.629025,
-      "iou": 0.458816,
-      "accuracy": 0.960098,
-      "precision": 0.458816,
-      "recall": 1.0,
-      "specificity": 0.958701
-    },
-    {
       "dice": 0.962452,
       "iou": 0.927622,
       "accuracy": 0.958359,
       "precision": 0.948219,
       "recall": 0.97712,
       "specificity": 0.935779
-    },
-    {
-      "dice": 0.840012,
-      "iou": 0.724156,
-      "accuracy": 0.968201,
-      "precision": 0.724156,
-      "recall": 1.0,
-      "specificity": 0.965304
     },
     {
       "dice": 0.92824,
@@ -6635,36 +3611,12 @@
       "specificity": 1.0
     },
     {
-      "dice": 0.905628,
-      "iou": 0.827531,
-      "accuracy": 0.971878,
-      "precision": 0.827531,
-      "recall": 1.0,
-      "specificity": 0.967492
-    },
-    {
       "dice": 0.926992,
       "iou": 0.863918,
       "accuracy": 0.983932,
       "precision": 0.863918,
       "recall": 1.0,
       "specificity": 0.982107
-    },
-    {
-      "dice": 0.88123,
-      "iou": 0.787678,
-      "accuracy": 0.976547,
-      "precision": 0.806506,
-      "recall": 0.971214,
-      "specificity": 0.977072
-    },
-    {
-      "dice": 0.908189,
-      "iou": 0.831818,
-      "accuracy": 0.990967,
-      "precision": 0.831818,
-      "recall": 1.0,
-      "specificity": 0.990544
     },
     {
       "dice": 0.921795,
@@ -6675,68 +3627,12 @@
       "specificity": 0.965344
     },
     {
-      "dice": 0.454956,
-      "iou": 0.294461,
-      "accuracy": 0.922638,
-      "precision": 0.294461,
-      "recall": 1.0,
-      "specificity": 0.920057
-    },
-    {
       "dice": 0.879444,
       "iou": 0.784828,
       "accuracy": 0.952087,
       "precision": 0.803043,
       "recall": 0.971911,
       "specificity": 0.947742
-    },
-    {
-      "dice": 0.803334,
-      "iou": 0.67131,
-      "accuracy": 0.885513,
-      "precision": 0.80891,
-      "recall": 0.797834,
-      "specificity": 0.921863
-    },
-    {
-      "dice": 0.570217,
-      "iou": 0.398813,
-      "accuracy": 0.956711,
-      "precision": 0.405866,
-      "recall": 0.958248,
-      "specificity": 0.956663
-    },
-    {
-      "dice": 0.903349,
-      "iou": 0.823734,
-      "accuracy": 0.984497,
-      "precision": 0.82761,
-      "recall": 0.994346,
-      "specificity": 0.983723
-    },
-    {
-      "dice": 0.711411,
-      "iou": 0.552086,
-      "accuracy": 0.842209,
-      "precision": 0.55254,
-      "recall": 0.998512,
-      "specificity": 0.8044
-    },
-    {
-      "dice": 0.910713,
-      "iou": 0.836063,
-      "accuracy": 0.985336,
-      "precision": 0.86728,
-      "recall": 0.958725,
-      "specificity": 0.987588
-    },
-    {
-      "dice": 0.880531,
-      "iou": 0.786562,
-      "accuracy": 0.94072,
-      "precision": 0.786562,
-      "recall": 1.0,
-      "specificity": 0.924149
     },
     {
       "dice": 0.965665,
@@ -6747,92 +3643,12 @@
       "specificity": 0.975312
     },
     {
-      "dice": 0.870783,
-      "iou": 0.771138,
-      "accuracy": 0.92128,
-      "precision": 0.771138,
-      "recall": 1.0,
-      "specificity": 0.892862
-    },
-    {
-      "dice": 0.770748,
-      "iou": 0.627005,
-      "accuracy": 0.974457,
-      "precision": 0.627005,
-      "recall": 1.0,
-      "specificity": 0.973311
-    },
-    {
-      "dice": 0.82775,
-      "iou": 0.70612,
-      "accuracy": 0.9767,
-      "precision": 0.70612,
-      "recall": 1.0,
-      "specificity": 0.975318
-    },
-    {
-      "dice": 0.780016,
-      "iou": 0.639366,
-      "accuracy": 0.863205,
-      "precision": 0.999623,
-      "recall": 0.63952,
-      "specificity": 0.999853
-    },
-    {
-      "dice": 0.84663,
-      "iou": 0.734049,
-      "accuracy": 0.974686,
-      "precision": 0.987492,
-      "recall": 0.740938,
-      "specificity": 0.999023
-    },
-    {
       "dice": 0.926488,
       "iou": 0.863044,
       "accuracy": 0.993423,
       "precision": 0.90624,
       "recall": 0.947662,
       "specificity": 0.995516
-    },
-    {
-      "dice": 0.820295,
-      "iou": 0.695339,
-      "accuracy": 0.948334,
-      "precision": 0.763712,
-      "recall": 0.885934,
-      "specificity": 0.957915
-    },
-    {
-      "dice": 0.830097,
-      "iou": 0.709543,
-      "accuracy": 0.969162,
-      "precision": 0.709543,
-      "recall": 1.0,
-      "specificity": 0.96665
-    },
-    {
-      "dice": 0.733907,
-      "iou": 0.579662,
-      "accuracy": 0.966949,
-      "precision": 0.579662,
-      "recall": 1.0,
-      "specificity": 0.965371
-    },
-    {
-      "dice": 0.720145,
-      "iou": 0.562677,
-      "accuracy": 0.966995,
-      "precision": 1.0,
-      "recall": 0.562677,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.831114,
-      "iou": 0.711031,
-      "accuracy": 0.979294,
-      "precision": 0.711031,
-      "recall": 1.0,
-      "specificity": 0.978182
     },
     {
       "dice": 0.909369,
@@ -6843,36 +3659,12 @@
       "specificity": 0.998996
     },
     {
-      "dice": 0.786881,
-      "iou": 0.648643,
-      "accuracy": 0.927521,
-      "precision": 0.648643,
-      "recall": 1.0,
-      "specificity": 0.916325
-    },
-    {
       "dice": 0.939068,
       "iou": 0.885134,
       "accuracy": 0.954254,
       "precision": 0.885134,
       "recall": 1.0,
       "specificity": 0.929349
-    },
-    {
-      "dice": 0.773204,
-      "iou": 0.630263,
-      "accuracy": 0.934341,
-      "precision": 0.630317,
-      "recall": 0.999864,
-      "specificity": 0.926082
-    },
-    {
-      "dice": 0.895916,
-      "iou": 0.811457,
-      "accuracy": 0.948273,
-      "precision": 0.813266,
-      "recall": 0.997266,
-      "specificity": 0.934192
     },
     {
       "dice": 0.921577,
@@ -6891,28 +3683,12 @@
       "specificity": 0.966492
     },
     {
-      "dice": 0.781435,
-      "iou": 0.641274,
-      "accuracy": 0.968384,
-      "precision": 0.643279,
-      "recall": 0.995164,
-      "specificity": 0.966771
-    },
-    {
       "dice": 0.913546,
       "iou": 0.840852,
       "accuracy": 0.897827,
       "precision": 0.841812,
       "recall": 0.998645,
       "specificity": 0.77921
-    },
-    {
-      "dice": 0.83109,
-      "iou": 0.710996,
-      "accuracy": 0.946182,
-      "precision": 0.710996,
-      "recall": 1.0,
-      "specificity": 0.937969
     },
     {
       "dice": 0.911299,
@@ -6931,22 +3707,6 @@
       "specificity": 0.897088
     },
     {
-      "dice": 0.886924,
-      "iou": 0.796822,
-      "accuracy": 0.983414,
-      "precision": 0.796822,
-      "recall": 1.0,
-      "specificity": 0.98226
-    },
-    {
-      "dice": 0.926971,
-      "iou": 0.863882,
-      "accuracy": 0.974991,
-      "precision": 0.999327,
-      "recall": 0.864384,
-      "specificity": 0.999869
-    },
-    {
       "dice": 0.928782,
       "iou": 0.867034,
       "accuracy": 0.972366,
@@ -6963,44 +3723,12 @@
       "specificity": 0.970141
     },
     {
-      "dice": 0.760766,
-      "iou": 0.6139,
-      "accuracy": 0.996948,
-      "precision": 0.929825,
-      "recall": 0.643725,
-      "specificity": 0.999631
-    },
-    {
-      "dice": 0.333882,
-      "iou": 0.200395,
-      "accuracy": 0.771561,
-      "precision": 0.200395,
-      "recall": 1.0,
-      "specificity": 0.757688
-    },
-    {
-      "dice": 0.906385,
-      "iou": 0.828797,
-      "accuracy": 0.9785,
-      "precision": 0.828898,
-      "recall": 0.999853,
-      "specificity": 0.976019
-    },
-    {
       "dice": 0.865095,
       "iou": 0.762263,
       "accuracy": 0.950302,
       "precision": 0.762263,
       "recall": 1.0,
       "specificity": 0.940882
-    },
-    {
-      "dice": 0.881793,
-      "iou": 0.788578,
-      "accuracy": 0.948425,
-      "precision": 0.788578,
-      "recall": 1.0,
-      "specificity": 0.936141
     },
     {
       "dice": 0.924811,
@@ -7011,22 +3739,6 @@
       "specificity": 0.964727
     },
     {
-      "dice": 0.675986,
-      "iou": 0.510558,
-      "accuracy": 0.908401,
-      "precision": 0.545946,
-      "recall": 0.887346,
-      "specificity": 0.910942
-    },
-    {
-      "dice": 0.642428,
-      "iou": 0.473218,
-      "accuracy": 0.942825,
-      "precision": 0.480651,
-      "recall": 0.968354,
-      "specificity": 0.941395
-    },
-    {
       "dice": 0.906954,
       "iou": 0.82975,
       "accuracy": 0.929565,
@@ -7035,132 +3747,12 @@
       "specificity": 0.892748
     },
     {
-      "dice": 0.813322,
-      "iou": 0.685377,
-      "accuracy": 0.781387,
-      "precision": 0.998912,
-      "recall": 0.685889,
-      "specificity": 0.998303
-    },
-    {
-      "dice": 0.861349,
-      "iou": 0.756464,
-      "accuracy": 0.971832,
-      "precision": 0.756464,
-      "recall": 1.0,
-      "specificity": 0.969131
-    },
-    {
-      "dice": 0.751689,
-      "iou": 0.602165,
-      "accuracy": 0.873825,
-      "precision": 0.602165,
-      "recall": 1.0,
-      "specificity": 0.84404
-    },
-    {
-      "dice": 0.891219,
-      "iou": 0.803783,
-      "accuracy": 0.954575,
-      "precision": 0.803783,
-      "recall": 1.0,
-      "specificity": 0.944189
-    },
-    {
-      "dice": 0.797209,
-      "iou": 0.662799,
-      "accuracy": 0.94191,
-      "precision": 0.662799,
-      "recall": 1.0,
-      "specificity": 0.934422
-    },
-    {
       "dice": 0.947321,
       "iou": 0.899915,
       "accuracy": 0.987473,
       "precision": 0.905323,
       "recall": 0.993406,
       "specificity": 0.986714
-    },
-    {
-      "dice": 0.879345,
-      "iou": 0.784671,
-      "accuracy": 0.961761,
-      "precision": 0.784671,
-      "recall": 1.0,
-      "specificity": 0.955571
-    },
-    {
-      "dice": 0.748746,
-      "iou": 0.598396,
-      "accuracy": 0.980133,
-      "precision": 0.598396,
-      "recall": 1.0,
-      "specificity": 0.979527
-    },
-    {
-      "dice": 0.218729,
-      "iou": 0.122794,
-      "accuracy": 0.48201,
-      "precision": 1.0,
-      "recall": 0.122794,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.81759,
-      "iou": 0.691461,
-      "accuracy": 0.925568,
-      "precision": 0.691461,
-      "recall": 1.0,
-      "specificity": 0.910666
-    },
-    {
-      "dice": 0.515216,
-      "iou": 0.346997,
-      "accuracy": 0.885513,
-      "precision": 0.837429,
-      "recall": 0.37206,
-      "specificity": 0.985881
-    },
-    {
-      "dice": 0.369795,
-      "iou": 0.226839,
-      "accuracy": 0.230331,
-      "precision": 1.0,
-      "recall": 0.226839,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.846058,
-      "iou": 0.73319,
-      "accuracy": 0.975418,
-      "precision": 0.73319,
-      "recall": 1.0,
-      "specificity": 0.973637
-    },
-    {
-      "dice": 0.916263,
-      "iou": 0.845467,
-      "accuracy": 0.899429,
-      "precision": 0.948323,
-      "recall": 0.8863,
-      "specificity": 0.920926
-    },
-    {
-      "dice": 0.37552,
-      "iou": 0.231163,
-      "accuracy": 0.906113,
-      "precision": 0.231163,
-      "recall": 1.0,
-      "specificity": 0.903385
-    },
-    {
-      "dice": 0.850596,
-      "iou": 0.740032,
-      "accuracy": 0.982391,
-      "precision": 0.740032,
-      "recall": 1.0,
-      "specificity": 0.981462
     },
     {
       "dice": 0.947431,
@@ -7179,44 +3771,12 @@
       "specificity": 0.938644
     },
     {
-      "dice": 0.860898,
-      "iou": 0.755769,
-      "accuracy": 0.828506,
-      "precision": 0.761178,
-      "recall": 0.990685,
-      "specificity": 0.641407
-    },
-    {
-      "dice": 0.83277,
-      "iou": 0.713459,
-      "accuracy": 0.952408,
-      "precision": 0.713459,
-      "recall": 1.0,
-      "specificity": 0.94601
-    },
-    {
-      "dice": 0.902394,
-      "iou": 0.822148,
-      "accuracy": 0.974808,
-      "precision": 0.822148,
-      "recall": 1.0,
-      "specificity": 0.971487
-    },
-    {
       "dice": 0.962885,
       "iou": 0.928426,
       "accuracy": 0.986084,
       "precision": 0.929593,
       "recall": 0.998649,
       "specificity": 0.983312
-    },
-    {
-      "dice": 0.889511,
-      "iou": 0.801009,
-      "accuracy": 0.954239,
-      "precision": 0.801009,
-      "recall": 1.0,
-      "specificity": 0.943906
     },
     {
       "dice": 0.866667,
@@ -7251,36 +3811,12 @@
       "specificity": 0.956466
     },
     {
-      "dice": 0.835821,
-      "iou": 0.717949,
-      "accuracy": 0.987915,
-      "precision": 0.71846,
-      "recall": 0.999009,
-      "specificity": 0.987563
-    },
-    {
-      "dice": 0.88239,
-      "iou": 0.789533,
-      "accuracy": 0.985764,
-      "precision": 0.998289,
-      "recall": 0.790603,
-      "specificity": 0.999902
-    },
-    {
       "dice": 0.934476,
       "iou": 0.877011,
       "accuracy": 0.958359,
       "precision": 0.878635,
       "recall": 0.997898,
       "specificity": 0.94161
-    },
-    {
-      "dice": 0.705433,
-      "iou": 0.544918,
-      "accuracy": 0.771591,
-      "precision": 0.5596,
-      "recall": 0.954064,
-      "specificity": 0.698261
     },
     {
       "dice": 0.917711,
@@ -7291,156 +3827,12 @@
       "specificity": 0.953765
     },
     {
-      "dice": 0.62014,
-      "iou": 0.449423,
-      "accuracy": 0.75325,
-      "precision": 0.907778,
-      "recall": 0.470924,
-      "specificity": 0.964246
-    },
-    {
-      "dice": 0.872836,
-      "iou": 0.774364,
-      "accuracy": 0.977249,
-      "precision": 0.774364,
-      "recall": 1.0,
-      "specificity": 0.975322
-    },
-    {
-      "dice": 0.839988,
-      "iou": 0.72412,
-      "accuracy": 0.974991,
-      "precision": 0.72412,
-      "recall": 1.0,
-      "specificity": 0.973234
-    },
-    {
-      "dice": 0.518906,
-      "iou": 0.350353,
-      "accuracy": 0.719467,
-      "precision": 0.351733,
-      "recall": 0.988929,
-      "specificity": 0.670798
-    },
-    {
-      "dice": 0.90632,
-      "iou": 0.828688,
-      "accuracy": 0.978897,
-      "precision": 0.828688,
-      "recall": 1.0,
-      "specificity": 0.976498
-    },
-    {
-      "dice": 0.89587,
-      "iou": 0.811381,
-      "accuracy": 0.906937,
-      "precision": 0.866103,
-      "recall": 0.927756,
-      "specificity": 0.891135
-    },
-    {
-      "dice": 0.862982,
-      "iou": 0.758988,
-      "accuracy": 0.951614,
-      "precision": 0.758988,
-      "recall": 1.0,
-      "specificity": 0.942916
-    },
-    {
       "dice": 0.914145,
       "iou": 0.841866,
       "accuracy": 0.980347,
       "precision": 0.841866,
       "recall": 1.0,
       "specificity": 0.97805
-    },
-    {
-      "dice": 0.499856,
-      "iou": 0.333205,
-      "accuracy": 0.708603,
-      "precision": 0.993442,
-      "recall": 0.33394,
-      "specificity": 0.998295
-    },
-    {
-      "dice": 0.914766,
-      "iou": 0.84292,
-      "accuracy": 0.952911,
-      "precision": 0.964248,
-      "recall": 0.870113,
-      "specificity": 0.986797
-    },
-    {
-      "dice": 0.844636,
-      "iou": 0.731055,
-      "accuracy": 0.96637,
-      "precision": 0.731055,
-      "recall": 1.0,
-      "specificity": 0.962986
-    },
-    {
-      "dice": 0.491496,
-      "iou": 0.325817,
-      "accuracy": 0.794708,
-      "precision": 0.989198,
-      "recall": 0.32698,
-      "specificity": 0.998445
-    },
-    {
-      "dice": 0.853036,
-      "iou": 0.743734,
-      "accuracy": 0.824646,
-      "precision": 0.862589,
-      "recall": 0.843692,
-      "specificity": 0.795693
-    },
-    {
-      "dice": 0.866065,
-      "iou": 0.76377,
-      "accuracy": 0.975983,
-      "precision": 0.76377,
-      "recall": 1.0,
-      "specificity": 0.973961
-    },
-    {
-      "dice": 0.934972,
-      "iou": 0.877885,
-      "accuracy": 0.918381,
-      "precision": 0.89557,
-      "recall": 0.978,
-      "specificity": 0.828966
-    },
-    {
-      "dice": 0.825593,
-      "iou": 0.702987,
-      "accuracy": 0.935822,
-      "precision": 0.702987,
-      "recall": 1.0,
-      "specificity": 0.924327
-    },
-    {
-      "dice": 0.762465,
-      "iou": 0.616116,
-      "accuracy": 0.846542,
-      "precision": 0.657689,
-      "recall": 0.906951,
-      "specificity": 0.824022
-    },
-    {
-      "dice": 0.534225,
-      "iou": 0.364466,
-      "accuracy": 0.711868,
-      "precision": 0.36465,
-      "recall": 0.998617,
-      "specificity": 0.655014
-    },
-    {
-      "dice": 0.818761,
-      "iou": 0.693137,
-      "accuracy": 0.835846,
-      "precision": 0.989092,
-      "recall": 0.698477,
-      "specificity": 0.991283
     },
     {
       "dice": 0.92651,
@@ -7451,14 +3843,6 @@
       "specificity": 0.989117
     },
     {
-      "dice": 0.840424,
-      "iou": 0.724768,
-      "accuracy": 0.982773,
-      "precision": 0.724768,
-      "recall": 1.0,
-      "specificity": 0.981954
-    },
-    {
       "dice": 0.676727,
       "iou": 0.511403,
       "accuracy": 0.789154,
@@ -7467,44 +3851,12 @@
       "specificity": 0.729446
     },
     {
-      "dice": 0.607149,
-      "iou": 0.435904,
-      "accuracy": 0.673813,
-      "precision": 0.99118,
-      "recall": 0.437601,
-      "specificity": 0.99471
-    },
-    {
       "dice": 0.922322,
       "iou": 0.855842,
       "accuracy": 0.984055,
       "precision": 0.882755,
       "recall": 0.965603,
       "specificity": 0.98606
-    },
-    {
-      "dice": 0.881695,
-      "iou": 0.788421,
-      "accuracy": 0.954498,
-      "precision": 0.788421,
-      "recall": 1.0,
-      "specificity": 0.945208
-    },
-    {
-      "dice": 0.86282,
-      "iou": 0.758736,
-      "accuracy": 0.823959,
-      "precision": 0.795152,
-      "recall": 0.943075,
-      "specificity": 0.654633
-    },
-    {
-      "dice": 0.826276,
-      "iou": 0.703978,
-      "accuracy": 0.952423,
-      "precision": 0.703978,
-      "recall": 1.0,
-      "specificity": 0.946353
     },
     {
       "dice": 0.940259,
@@ -7531,22 +3883,6 @@
       "specificity": 0.974327
     },
     {
-      "dice": 0.707447,
-      "iou": 0.547325,
-      "accuracy": 0.55426,
-      "precision": 0.996305,
-      "recall": 0.548439,
-      "specificity": 0.884582
-    },
-    {
-      "dice": 0.730643,
-      "iou": 0.575601,
-      "accuracy": 0.707306,
-      "precision": 0.685227,
-      "recall": 0.782507,
-      "specificity": 0.629874
-    },
-    {
       "dice": 0.833971,
       "iou": 0.715223,
       "accuracy": 0.793365,
@@ -7561,30 +3897,6 @@
       "precision": 0.913869,
       "recall": 0.993966,
       "specificity": 0.99004
-    },
-    {
-      "dice": 0.897173,
-      "iou": 0.813521,
-      "accuracy": 0.920364,
-      "precision": 0.841452,
-      "recall": 0.960797,
-      "specificity": 0.897464
-    },
-    {
-      "dice": 0.905755,
-      "iou": 0.827744,
-      "accuracy": 0.827744,
-      "precision": 0.999871,
-      "recall": 0.827832,
-      "specificity": 0.0
-    },
-    {
-      "dice": 0.920674,
-      "iou": 0.853008,
-      "accuracy": 0.861374,
-      "precision": 0.990084,
-      "recall": 0.860358,
-      "specificity": 0.875998
     },
     {
       "dice": 0.921887,
@@ -7603,44 +3915,12 @@
       "specificity": 0.97307
     },
     {
-      "dice": 0.768437,
-      "iou": 0.623952,
-      "accuracy": 0.806961,
-      "precision": 0.629793,
-      "recall": 0.985354,
-      "specificity": 0.721045
-    },
-    {
-      "dice": 0.834673,
-      "iou": 0.716257,
-      "accuracy": 0.910248,
-      "precision": 0.716257,
-      "recall": 1.0,
-      "specificity": 0.883957
-    },
-    {
-      "dice": 0.739618,
-      "iou": 0.586821,
-      "accuracy": 0.738037,
-      "precision": 0.97012,
-      "recall": 0.597623,
-      "specificity": 0.969639
-    },
-    {
       "dice": 0.862451,
       "iou": 0.758165,
       "accuracy": 0.857193,
       "precision": 0.758165,
       "recall": 1.0,
       "specificity": 0.741428
-    },
-    {
-      "dice": 0.865967,
-      "iou": 0.763617,
-      "accuracy": 0.92868,
-      "precision": 0.883654,
-      "recall": 0.848974,
-      "specificity": 0.958367
     },
     {
       "dice": 0.911234,
@@ -7659,22 +3939,6 @@
       "specificity": 0.967709
     },
     {
-      "dice": 0.80869,
-      "iou": 0.678824,
-      "accuracy": 0.961166,
-      "precision": 0.678995,
-      "recall": 0.999628,
-      "specificity": 0.957726
-    },
-    {
-      "dice": 0.722475,
-      "iou": 0.565527,
-      "accuracy": 0.833572,
-      "precision": 0.565527,
-      "recall": 1.0,
-      "specificity": 0.787549
-    },
-    {
       "dice": 0.916296,
       "iou": 0.845523,
       "accuracy": 0.934219,
@@ -7689,14 +3953,6 @@
       "precision": 0.829448,
       "recall": 1.0,
       "specificity": 0.964374
-    },
-    {
-      "dice": 0.802231,
-      "iou": 0.669771,
-      "accuracy": 0.981064,
-      "precision": 0.669771,
-      "recall": 1.0,
-      "specificity": 0.980308
     },
     {
       "dice": 0.943383,
@@ -7721,14 +3977,6 @@
       "precision": 0.980263,
       "recall": 0.987809,
       "specificity": 0.961028
-    },
-    {
-      "dice": 0.885885,
-      "iou": 0.795147,
-      "accuracy": 0.897583,
-      "precision": 0.795147,
-      "recall": 1.0,
-      "specificity": 0.830003
     },
     {
       "dice": 0.85964,
@@ -7771,44 +4019,12 @@
       "specificity": 0.933363
     },
     {
-      "dice": 0.89164,
-      "iou": 0.804468,
-      "accuracy": 0.97142,
-      "precision": 0.804468,
-      "recall": 1.0,
-      "specificity": 0.967612
-    },
-    {
       "dice": 0.951228,
       "iou": 0.906991,
       "accuracy": 0.97757,
       "precision": 0.912012,
       "recall": 0.993968,
       "specificity": 0.972943
-    },
-    {
-      "dice": 0.854519,
-      "iou": 0.745992,
-      "accuracy": 0.897736,
-      "precision": 0.745992,
-      "recall": 1.0,
-      "specificity": 0.853837
-    },
-    {
-      "dice": 0.8841,
-      "iou": 0.792275,
-      "accuracy": 0.957901,
-      "precision": 0.792275,
-      "recall": 1.0,
-      "specificity": 0.949848
-    },
-    {
-      "dice": 0.832788,
-      "iou": 0.713484,
-      "accuracy": 0.978958,
-      "precision": 0.713484,
-      "recall": 1.0,
-      "specificity": 0.977795
     },
     {
       "dice": 0.907608,
@@ -7883,44 +4099,12 @@
       "specificity": 0.959198
     },
     {
-      "dice": 0.741438,
-      "iou": 0.589115,
-      "accuracy": 0.958069,
-      "precision": 1.0,
-      "recall": 0.589115,
-      "specificity": 1.0
-    },
-    {
-      "dice": 0.658726,
-      "iou": 0.49112,
-      "accuracy": 0.823364,
-      "precision": 0.90918,
-      "recall": 0.516457,
-      "specificity": 0.974581
-    },
-    {
       "dice": 0.945893,
       "iou": 0.89734,
       "accuracy": 0.973083,
       "precision": 0.897497,
       "recall": 0.999805,
       "specificity": 0.96486
-    },
-    {
-      "dice": 0.731983,
-      "iou": 0.577267,
-      "accuracy": 0.882248,
-      "precision": 0.902149,
-      "recall": 0.615825,
-      "specificity": 0.976396
-    },
-    {
-      "dice": 0.819449,
-      "iou": 0.694124,
-      "accuracy": 0.947418,
-      "precision": 0.694124,
-      "recall": 1.0,
-      "specificity": 0.940294
     },
     {
       "dice": 0.914206,
@@ -7937,22 +4121,6 @@
       "precision": 0.866074,
       "recall": 1.0,
       "specificity": 0.959751
-    },
-    {
-      "dice": 0.83857,
-      "iou": 0.722016,
-      "accuracy": 0.979462,
-      "precision": 0.722016,
-      "recall": 1.0,
-      "specificity": 0.978304
-    },
-    {
-      "dice": 0.9253,
-      "iou": 0.860985,
-      "accuracy": 0.9888,
-      "precision": 0.900376,
-      "recall": 0.951643,
-      "specificity": 0.991721
     },
     {
       "dice": 0.943306,
@@ -7979,28 +4147,12 @@
       "specificity": 0.962063
     },
     {
-      "dice": 0.737852,
-      "iou": 0.5846,
-      "accuracy": 0.875778,
-      "precision": 0.585138,
-      "recall": 0.998431,
-      "specificity": 0.849744
-    },
-    {
       "dice": 0.939589,
       "iou": 0.886061,
       "accuracy": 0.969742,
       "precision": 0.886061,
       "recall": 1.0,
       "specificity": 0.960431
-    },
-    {
-      "dice": 0.678114,
-      "iou": 0.51299,
-      "accuracy": 0.980835,
-      "precision": 0.51299,
-      "recall": 1.0,
-      "specificity": 0.98044
     },
     {
       "dice": 0.958586,
@@ -8017,15 +4169,7 @@
       "precision": 0.999856,
       "recall": 0.848383,
       "specificity": 0.999927
-    },
-    {
-      "dice": 0.767381,
-      "iou": 0.622561,
-      "accuracy": 0.836166,
-      "precision": 0.622561,
-      "recall": 1.0,
-      "specificity": 0.775499
     }
   ],
-  "tested_at": "2026-06-05 06:54:41"
+  "tested_at": "2026-06-05 08:10:42"
 }
